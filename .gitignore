@@ -25,3 +25,17 @@ composer.phar
 phpunit.phar
 # local phpunit config
 /phpunit.xml
+
+
+
+.bowerrc
+.gitignore
+LICENSE.md
+README.md
+composer
+/runtime
+yii
+yii.bat
+
+
+
