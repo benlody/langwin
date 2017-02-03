@@ -30,7 +30,7 @@ class Portfolio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'spec', 'content'], 'string'],
+            [['name', 'spec', 'content', 'title', 'description', 'thumb'], 'string'],
             [['designer_id', 'company_id'], 'integer'],
         ];
     }
@@ -43,8 +43,11 @@ class Portfolio extends \yii\db\ActiveRecord
         return [
             'portfolio_id' => 'Portfolio ID',
             'name' => 'Name',
+            'title' => 'Title',
             'spec' => 'Spec',
             'content' => 'Content',
+            'description' => 'Description',
+            'thumb' => 'Thumb',
             'designer_id' => 'Designer ID',
             'company_id' => 'Company ID',
         ];

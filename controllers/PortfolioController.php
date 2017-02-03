@@ -45,6 +45,21 @@ class PortfolioController extends Controller
     }
 
     /**
+     * Lists all Portfolio models.
+     * @return mixed
+     */
+    public function actionList()
+    {
+        $searchModel = new PortfolioSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('list', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
      * Displays a single Portfolio model.
      * @param integer $id
      * @return mixed
