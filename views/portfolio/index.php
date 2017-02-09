@@ -19,12 +19,12 @@ $this->title = 'Portfolios';
 
 ?>
 <div class="portfolio-index">
-	<div class="waterfall">
+	
 
 		<?= ListView::widget([
 			'dataProvider' => $dataProvider,
 			'itemOptions' => ['class' => 'item'],
-	        'layout' => "{items}",
+	        'layout' => '<div class="waterfall">{items}</div>{pager}',
 			'itemView' => function ($model, $key, $index, $widget) {
 				return '<div class="waterfall-item"><img src="'.Yii::$app->request->getBaseUrl().'/thumb/'.$model->thumb.
 						'">'.$model->title.'<br>'.$model->description.'</div>';
@@ -34,7 +34,7 @@ $this->title = 'Portfolios';
 		?>
 
 
-	</div>
+	
 
 
 </div>

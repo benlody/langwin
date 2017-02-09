@@ -47,6 +47,9 @@ class PortfolioSearch extends Portfolio
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                    'pageSize' => 8,
+            ],
         ]);
 
         $this->load($params);
