@@ -12,65 +12,91 @@ use app\models\Portfolio;
  */
 class PortfolioSearch extends Portfolio
 {
-    /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [
-            [['portfolio_id', 'designer_id', 'company_id'], 'integer'],
-            [['name', 'spec', 'content'], 'safe'],
-        ];
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public function rules()
+	{
+		return [
+			[['portfolio_id', 'designer_id', 'company_id'], 'integer'],
+			[['name', 'spec', 'content'], 'safe'],
+		];
+	}
 
-    /**
-     * @inheritdoc
-     */
-    public function scenarios()
-    {
-        // bypass scenarios() implementation in the parent class
-        return Model::scenarios();
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public function scenarios()
+	{
+		// bypass scenarios() implementation in the parent class
+		return Model::scenarios();
+	}
 
-    /**
-     * Creates data provider instance with search query applied
-     *
-     * @param array $params
-     *
-     * @return ActiveDataProvider
-     */
-    public function search($params)
-    {
-        $query = Portfolio::find();
+	/**
+	 * Creates data provider instance with search query applied
+	 *
+	 * @param array $params
+	 *
+	 * @return ActiveDataProvider
+	 */
+	public function search($params)
+	{
+		$query = Portfolio::find();
 
-        // add conditions that should always apply here
+		// add conditions that should always apply here
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-            'pagination' => [
-                    'pageSize' => 8,
-            ],
-        ]);
+		$dataProvider = new ActiveDataProvider([
+			'query' => $query,
+			'pagination' => [
+					'pageSize' => 8,
+			],
+		]);
 
-        $this->load($params);
+		$this->load($params);
 
-        if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
-            return $dataProvider;
-        }
+		if (!$this->validate()) {
+			// uncomment the following line if you do not want to return any records when validation fails
+			// $query->where('0=1');
+			return $dataProvider;
+		}
 
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'portfolio_id' => $this->portfolio_id,
-            'designer_id' => $this->designer_id,
-            'company_id' => $this->company_id,
-        ]);
+		// grid filtering conditions
+		$query->andFilterWhere([
+			'portfolio_id' => $this->portfolio_id,
+			'designer_id' => $this->designer_id,
+			'company_id' => $this->company_id,
+		]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'spec', $this->spec])
-            ->andFilterWhere(['like', 'content', $this->content]);
+		$query->andFilterWhere(['like', 'name', $this->name])
+			->andFilterWhere(['like', 'spec', $this->spec])
+			->andFilterWhere(['like', 'content', $this->content]);
 
-        return $dataProvider;
-    }
+		return $dataProvider;
+	}
+
+	public function mysearch($search)
+	{
+		$query = Portfolio::find();
+
+		// add conditions that should always apply here
+
+		$dataProvider = new ActiveDataProvider([
+			'query' => $query,
+			'pagination' => [
+					'pageSize' => 50,
+			],
+		]);
+
+
+		$query->orFilterWhere(['like', 'title', $search])
+			->orFilterWhere(['like', 'content', $search])
+			->orFilterWhere(['like', 'spec', $search])
+			->orFilterWhere(['like', 'tag', $search]);
+
+//		$query->addOrderBy('date DESC');
+
+		return $dataProvider;
+
+	}
+
 }

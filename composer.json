@@ -18,7 +18,8 @@
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "^2.0",
         "yiisoft/yii2-swiftmailer": "*",
-        "kop/yii2-scroll-pager": "dev-master"
+        "nirvana-msu/yii2-infinite-scroll": "dev-master",
+        "2amigos/yii2-tinymce-widget": "~1.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "*",

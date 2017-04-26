@@ -24,18 +24,14 @@ $this->title = 'Portfolios';
 		<?= ListView::widget([
 			'dataProvider' => $dataProvider,
 			'itemOptions' => ['class' => 'item'],
-	        'layout' => '<div class="waterfall">{items}</div>{pager}',
+			'id' => 'my-listview-id',
+ 	        'layout' => '<div class="waterfall">{items}</div>{pager}',
 			'itemView' => function ($model, $key, $index, $widget) {
-				return '<div class="waterfall-item"><img src="'.Yii::$app->request->getBaseUrl().'/thumb/'.$model->thumb.
+				return '<div class="waterfall-item"><img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb.
 						'">'.$model->title.'<br>'.$model->description.'</div>';
-	        }
+	        },
 	    ]); 
-
 		?>
-
-
-	
-
 
 </div>
 

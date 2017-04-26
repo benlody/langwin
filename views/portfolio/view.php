@@ -14,16 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->portfolio_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->portfolio_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -31,10 +21,38 @@ $this->params['breadcrumbs'][] = $this->title;
             'portfolio_id',
             'name:ntext',
             'spec:ntext',
-            'content:ntext',
             'designer_id',
             'company_id',
+            'tag',
+            'description',
+            'title',
         ],
     ]) ?>
+
+    <div class="portfolio-content">
+    <?php
+
+        echo $model->content;
+
+    ?>
+    </div>
+
+    <div class="portfolio-designer">
+    <?php
+
+        echo 'desinger';
+
+    ?>
+    </div>
+
+    <div class="portfolio-company">
+    <?php
+
+        echo 'company';
+
+    ?>
+    </div>
+
+
 
 </div>

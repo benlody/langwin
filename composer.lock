@@ -4,9 +4,69 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0cbae5052837598dbff93fcfe163dd13",
-    "content-hash": "4997b4914cc6699f6941a5647605a939",
+    "hash": "166b2a7b23305eeea828708948a168b4",
+    "content-hash": "105df22a26ec3101745fe6f7e5a29355",
     "packages": [
+        {
+            "name": "2amigos/yii2-tinymce-widget",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2amigos/yii2-tinymce-widget.git",
+                "reference": "d58bad3ede450f86acd475fb4ecda982b980132b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2amigos/yii2-tinymce-widget/zipball/d58bad3ede450f86acd475fb4ecda982b980132b",
+                "reference": "d58bad3ede450f86acd475fb4ecda982b980132b",
+                "shasum": ""
+            },
+            "require": {
+                "tinymce/tinymce": ">=4",
+                "yiisoft/yii2": "~2.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "asset-installer-paths": {
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "dosamigos\\tinymce\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "2amigOS! Consulting Group",
+                    "email": "hola@2amigos.us",
+                    "homepage": "http://2amigos.us",
+                    "role": "Developer"
+                }
+            ],
+            "description": "TinyMCE widget for Yii2.",
+            "homepage": "http://yiiwheels.com/extension/tinymce-widget",
+            "keywords": [
+                "2amigos",
+                "extension",
+                "tinymce",
+                "widget",
+                "yii",
+                "yii 2",
+                "yii2"
+            ],
+            "time": "2015-03-28 21:53:43"
+        },
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.3.7",
@@ -85,6 +145,40 @@
                 "javascript",
                 "jquery",
                 "library"
+            ]
+        },
+        {
+            "name": "bower-asset/jquery-infinite-scroll",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/infinite-scroll/infinite-scroll.git",
+                "reference": "f0d9eecb55a428b2fd4027964a22b84633ba6e3e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/infinite-scroll/infinite-scroll/zipball/f0d9eecb55a428b2fd4027964a22b84633ba6e3e",
+                "reference": "f0d9eecb55a428b2fd4027964a22b84633ba6e3e",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "jquery.infinitescroll.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "test",
+                    "tests"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "jQuery Infinite Scroll Plugin",
+            "keywords": [
+                "infinitescroll",
+                "jquery"
             ]
         },
         {
@@ -307,28 +401,32 @@
             "time": "2016-07-16 12:58:58"
         },
         {
-            "name": "kop/yii2-scroll-pager",
+            "name": "nirvana-msu/yii2-infinite-scroll",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kop/yii2-scroll-pager.git",
-                "reference": "9b9727ce441fbfc487044535ab6ce0b7694d810b"
+                "url": "https://github.com/nirvana-msu/yii2-infinite-scroll.git",
+                "reference": "a92a2afbb732bd0310cf78225a1c5429358ceb7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kop/yii2-scroll-pager/zipball/9b9727ce441fbfc487044535ab6ce0b7694d810b",
-                "reference": "9b9727ce441fbfc487044535ab6ce0b7694d810b",
+                "url": "https://api.github.com/repos/nirvana-msu/yii2-infinite-scroll/zipball/a92a2afbb732bd0310cf78225a1c5429358ceb7b",
+                "reference": "a92a2afbb732bd0310cf78225a1c5429358ceb7b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0",
-                "webcreate/jquery-ias": "^2.2.1",
+                "bower-asset/jquery-infinite-scroll": "*",
                 "yiisoft/yii2": "*"
             },
             "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "kop\\y2sp\\": ""
+                    "nirvana\\infinitescroll\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -337,22 +435,19 @@
             ],
             "authors": [
                 {
-                    "name": "Ivan Koptiev",
-                    "email": "ivan.koptiev@codex.systems",
-                    "role": "Developer"
+                    "name": "Alexander Stepanov",
+                    "email": "student_vmk@mail.ru"
                 }
             ],
-            "description": "Infinite AJAX scrolling for Yii2 ListView widget",
-            "homepage": "http://kop.github.io/yii2-scroll-pager/",
+            "description": "Yii2 extension for infinite-scroll jQuery plugin",
             "keywords": [
-                "pager",
-                "pagination",
-                "scroll",
-                "scrolling",
-                "yii",
+                "infinite-scroll",
+                "jquery",
+                "plugin",
+                "widget",
                 "yii2"
             ],
-            "time": "2016-07-06 19:56:33"
+            "time": "2016-10-26 23:15:52"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -409,44 +504,50 @@
             "time": "2016-12-29 10:02:40"
         },
         {
-            "name": "webcreate/jquery-ias",
-            "version": "v2.2.2",
+            "name": "tinymce/tinymce",
+            "version": "4.5.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webcreate/infinite-ajax-scroll.git",
-                "reference": "1549e76b810a3a7dc7f5e259bbca30290ba5b554"
+                "url": "https://github.com/tinymce/tinymce-dist.git",
+                "reference": "87a20625963d051cce993130c6d8ebd5fbc96314"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webcreate/infinite-ajax-scroll/zipball/1549e76b810a3a7dc7f5e259bbca30290ba5b554",
-                "reference": "1549e76b810a3a7dc7f5e259bbca30290ba5b554",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/87a20625963d051cce993130c6d8ebd5fbc96314",
+                "reference": "87a20625963d051cce993130c6d8ebd5fbc96314",
                 "shasum": ""
             },
-            "type": "library",
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "tinymce.js",
+                        "plugins/*/plugin.js",
+                        "themes/*/theme.js"
+                    ],
+                    "files": [
+                        "tinymce.min.js",
+                        "plugins/*/plugin.min.js",
+                        "themes/*/theme.min.js",
+                        "skins/**"
+                    ]
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "proprietary",
-                "MIT"
+                "LGPL-2.1"
             ],
-            "authors": [
-                {
-                    "name": "fieg",
-                    "email": "jeroen@fieg.nl",
-                    "homepage": "http://webcreate.nl"
-                }
-            ],
-            "description": "Infinite AJAX Scroll: A jQuery plugin that turns your server-side pagination into an infinite scrolling one using AJAX",
-            "homepage": "http://infiniteajaxscroll.com",
+            "description": "Web based JavaScript HTML WYSIWYG editor control.",
+            "homepage": "http://www.tinymce.com",
             "keywords": [
-                "ajax",
-                "ias",
-                "infinite",
-                "jquery",
-                "pagination",
-                "scroll",
-                "scrolling"
+                "editor",
+                "html",
+                "javascript",
+                "richtext",
+                "tinymce",
+                "wysiwyg"
             ],
-            "time": "2016-08-26 10:37:37"
+            "time": "2017-03-30 13:48:40"
         },
         {
             "name": "yiisoft/yii2",
@@ -964,7 +1065,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "kop/yii2-scroll-pager": 20
+        "nirvana-msu/yii2-infinite-scroll": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
