@@ -2,6 +2,8 @@
 
 namespace app\models;
 
+use yii\base\Model;
+use yii\web\UploadedFile;
 use Yii;
 
 /**
@@ -29,7 +31,7 @@ class Designer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'desc', 'contact', 'photo'], 'string'],
+            [['name', 'title', 'desc', 'contact', 'photo'], 'string'],
         ];
     }
 
@@ -41,9 +43,12 @@ class Designer extends \yii\db\ActiveRecord
         return [
             'designer_id' => 'Designer ID',
             'name' => 'Name',
+            'title' => 'Title',
             'desc' => 'Desc',
             'contact' => 'Contact',
             'photo' => 'Photo',
         ];
     }
 }
+
+

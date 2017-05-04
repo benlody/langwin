@@ -48,7 +48,7 @@ class PortfolioSearch extends Portfolio
 		$dataProvider = new ActiveDataProvider([
 			'query' => $query,
 			'pagination' => [
-					'pageSize' => 8,
+					'pageSize' => 50,
 			],
 		]);
 
@@ -92,6 +92,28 @@ class PortfolioSearch extends Portfolio
 			->orFilterWhere(['like', 'content', $search])
 			->orFilterWhere(['like', 'spec', $search])
 			->orFilterWhere(['like', 'tag', $search]);
+
+//		$query->addOrderBy('date DESC');
+
+		return $dataProvider;
+
+	}
+
+	public function search_by_designer($search)
+	{
+		$query = Portfolio::find();
+
+		// add conditions that should always apply here
+
+		$dataProvider = new ActiveDataProvider([
+			'query' => $query,
+			'pagination' => [
+					'pageSize' => 50,
+			],
+		]);
+
+
+		$query->orFilterWhere(['designer_id' => $search]);
 
 //		$query->addOrderBy('date DESC');
 

@@ -88,7 +88,6 @@ class PortfolioController extends Controller
 		$model = new Portfolio();
 		$imgfile_model = new ImgUploadForm();
 		$post_param = Yii::$app->request->post();
-		print_r($post_param);
 
 		if (Yii::$app->request->isPost) {
 

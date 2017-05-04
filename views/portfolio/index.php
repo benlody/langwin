@@ -25,12 +25,14 @@ $this->title = 'Portfolios';
 			'dataProvider' => $dataProvider,
 			'itemOptions' => ['class' => 'item'],
 			'id' => 'my-listview-id',
- 	        'layout' => '<div class="waterfall">{items}</div>{pager}',
+			'layout' => '<div class="waterfall">{items}</div>{pager}',
 			'itemView' => function ($model, $key, $index, $widget) {
-				return '<div class="waterfall-item"><img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb.
-						'">'.$model->title.'<br>'.$model->description.'</div>';
-	        },
-	    ]); 
+				return '<div class="waterfall-item"><a href="'.
+						Yii::$app->request->getBaseUrl().'?r=portfolio%2Fview&amp;id='.urlencode($model->portfolio_id).
+						'"><img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb.
+						'"></a>'.$model->title.'<br>'.$model->description.'</div>';
+			},
+		]); 
 		?>
 
 </div>

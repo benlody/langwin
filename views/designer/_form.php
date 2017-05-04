@@ -10,20 +10,23 @@ use yii\widgets\ActiveForm;
 
 <div class="designer-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+	<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'name')->textarea(['rows' => 6]) ?>
+	<?= $form->field($model, 'name')->textInput() ?>
 
-    <?= $form->field($model, 'desc')->textarea(['rows' => 6]) ?>
+	<?= $form->field($model, 'title')->textInput() ?>
 
-    <?= $form->field($model, 'contact')->textarea(['rows' => 6]) ?>
+	<?= $form->field($model, 'desc')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'photo')->textarea(['rows' => 6]) ?>
+	<?= $form->field($model, 'contact')->textInput() ?>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+	<?= $form->field($imgfile_model, 'imgFile')->fileInput(['accept' => 'image/*']) ?>
 
-    <?php ActiveForm::end(); ?>
+	
+	<div class="form-group">
+		<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+	</div>
+
+	<?php ActiveForm::end(); ?>
 
 </div>
