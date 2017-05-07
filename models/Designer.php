@@ -31,7 +31,7 @@ class Designer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'title', 'desc', 'contact', 'photo'], 'string'],
+            [['designer_id', 'title', 'desc', 'contact', 'photo'], 'string'],
         ];
     }
 

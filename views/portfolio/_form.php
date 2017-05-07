@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
 
 	<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-	<?= $form->field($model, 'name')->textInput() ?>
+	<?= $form->field($model, 'portfolio_id')->textInput() ?>
 
 	<?= $form->field($model, 'title')->textInput() ?>
 

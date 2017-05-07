@@ -32,7 +32,7 @@ class Portfolio extends \yii\db\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['name', 'spec', 'content', 'title', 'description', 'thumb', 'tag'], 'string'],
+			[['portfolio_id', 'spec', 'content', 'title', 'description', 'thumb', 'tag'], 'string'],
 			[['designer_id', 'company_id'], 'integer'],
 		];
 	}
@@ -44,7 +44,6 @@ class Portfolio extends \yii\db\ActiveRecord
 	{
 		return [
 			'portfolio_id' => 'Portfolio ID',
-			'name' => 'Name',
 			'title' => 'Title',
 			'spec' => 'Spec',
 			'content' => 'Content',
@@ -57,42 +56,3 @@ class Portfolio extends \yii\db\ActiveRecord
 	}
 }
 
-class ImgUploadForm extends Model
-{
-    /**
-     * @var UploadedFile
-     */
-    public $imgFile;
-
-    public function rules()
-    {
-        return [
-            [['imgFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, gif', 'maxFiles' => 0],
-        ];
-    }
-    
-    public function upload($name)
-    {
-        if ($this->validate()) {
-            mkdir('./images/'.$name, 0777, true);
-            foreach ($this->imgFile as $file) {
-                $file->saveAs('images/'.$name.'/'. $file->baseName . '.' . $file->extension);
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function upload_designer($name)
-    {
-        if ($this->validate()) {
-            foreach ($this->imgFile as $file) {
-                $file->saveAs('designer/'. $name . '.' . $file->extension);
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-}

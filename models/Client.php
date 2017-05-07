@@ -5,22 +5,22 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "company".
+ * This is the model class for table "client".
  *
- * @property integer $company_id
+ * @property integer $client_id
  * @property string $name
  * @property string $desc
  * @property string $contact
  * @property string $logo
  */
-class Company extends \yii\db\ActiveRecord
+class Client extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'company';
+        return 'client';
     }
 
     /**
@@ -29,7 +29,7 @@ class Company extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'desc', 'contact', 'logo'], 'string'],
+            [['client_id', 'title', 'desc', 'contact', 'logo'], 'string'],
         ];
     }
 
@@ -39,8 +39,8 @@ class Company extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'company_id' => 'Company ID',
-            'name' => 'Name',
+            'client_id' => 'Company ID',
+            'title' => 'Title',
             'desc' => 'Desc',
             'contact' => 'Contact',
             'logo' => 'Logo',

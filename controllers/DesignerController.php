@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\ImgUploadForm;
 use yii\web\UploadedFile;
+use app\models\Portfolio;
 use app\models\PortfolioSearch;
 
 

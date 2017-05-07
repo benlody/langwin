@@ -10,6 +10,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\ImgUploadForm;
 use yii\web\UploadedFile;
+use app\models\Designer;
+use app\models\DesignerSearch;
 
 
 /**
@@ -73,8 +75,20 @@ class PortfolioController extends Controller
 	 */
 	public function actionView($id)
 	{
+
+
+		$model = $this->findModel($id);
+		$designer_model = Designer::findOne($model->designer_id);
+		if( file_exists ('./images/'.$model->portfolio_id )){
+			$photos = preg_grep('/^([^.])/', scandir('./images/'.$model->portfolio_id));
+			foreach ($photos as $key => $value) {
+				$photos[$key] = './images/'.$model->portfolio_id.'/'.$value;
+			}
+		}
 		return $this->render('view', [
-			'model' => $this->findModel($id),
+			'model' => $model,
+			'designer_model' => $designer_model,
+			'photos' => $photos
 		]);
 	}
 
@@ -93,7 +107,7 @@ class PortfolioController extends Controller
 
 
 			$imgfile_model->imgFile = UploadedFile::getInstances($imgfile_model, 'imgFile');
-			$imgfile_model->upload($post_param['Portfolio']['name']);
+			$imgfile_model->upload($post_param['Portfolio']['portfolio_id']);
 
 			$model->load(Yii::$app->request->post());
 			$model->save();

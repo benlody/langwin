@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Company;
+use app\models\Client;
 
 /**
- * CompanySearch represents the model behind the search form about `app\models\Company`.
+ * ClientSearch represents the model behind the search form about `app\models\Client`.
  */
-class CompanySearch extends Company
+class ClientSearch extends Client
 {
     /**
      * @inheritdoc
@@ -18,8 +18,7 @@ class CompanySearch extends Company
     public function rules()
     {
         return [
-            [['company_id'], 'integer'],
-            [['name', 'desc', 'contact', 'logo'], 'safe'],
+            [['client_id', 'title', 'desc', 'contact', 'logo'], 'safe'],
         ];
     }
 
@@ -41,7 +40,7 @@ class CompanySearch extends Company
      */
     public function search($params)
     {
-        $query = Company::find();
+        $query = Client::find();
 
         // add conditions that should always apply here
 
@@ -59,10 +58,10 @@ class CompanySearch extends Company
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'company_id' => $this->company_id,
+            'client_id' => $this->client_id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
+        $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'desc', $this->desc])
             ->andFilterWhere(['like', 'contact', $this->contact])
             ->andFilterWhere(['like', 'logo', $this->logo]);

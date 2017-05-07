@@ -8,11 +8,12 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="company-form">
+<div class="client-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'client_id')->textInput() ?>
+    <?= $form->field($model, 'title')->textInput() ?>
 
     <?= $form->field($model, 'desc')->textarea(['rows' => 6]) ?>
 

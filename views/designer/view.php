@@ -13,7 +13,7 @@ $this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/portfolio-index.js',
 $this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/portfolio-index.css');
 
 
-$this->title = $model->name;
+$this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Designers', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

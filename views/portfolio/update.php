@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Portfolio */
 
-$this->title = 'Update Portfolio: ' . $model->name;
+$this->title = 'Update Portfolio: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Portfolios', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->portfolio_id]];
+$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->portfolio_id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="portfolio-update">
