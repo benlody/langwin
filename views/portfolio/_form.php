@@ -47,9 +47,9 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($model, 'tag')->textInput() ?>
 
-	<?= $form->field($model, 'company_id')->textInput() ?>
+	<?= $form->field($model, 'company_id', ['labelOptions' => ['label' => '客戶']])->dropDownList($client) ?>
 
-	<?= $form->field($model, 'designer_id')->textInput() ?>
+	<?= $form->field($model, 'designer_id', ['labelOptions' => ['label' => '設計師']])->dropDownList($designer) ?>
 
 	<div class="form-group">
 		<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'name' => 'create']) ?>

@@ -29,8 +29,8 @@ $this->title = 'Portfolios';
 			'itemView' => function ($model, $key, $index, $widget) {
 				return '<div class="waterfall-item"><a href="'.
 						Yii::$app->request->getBaseUrl().'?r=portfolio%2Fview&amp;id='.urlencode($model->portfolio_id).
-						'"><img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb.
-						'"></a>'.$model->title.'<br>'.$model->description.'</div>';
+						'"><img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->portfolio_id.'/'.$model->thumb.
+						'"></a>'.$model->title.'<br>'.$model->content.'</div>';
 			},
 		]); 
 		?>

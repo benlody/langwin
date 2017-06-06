@@ -27,7 +27,7 @@ class ImgUploadForm extends Model
             foreach ($this->imgFile as $file) {
                 $file->saveAs('images/'.$name.'/'. $file->baseName . '.' . $file->extension);
             }
-            return true;
+            return $file->baseName . '.' . $file->extension;
         } else {
             return false;
         }

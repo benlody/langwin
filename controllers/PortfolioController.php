@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use app\models\ImgUploadForm;
 use yii\web\UploadedFile;
 use app\models\Designer;
+use app\models\Client;
 use app\models\DesignerSearch;
 
 
@@ -100,23 +101,40 @@ class PortfolioController extends Controller
 	public function actionCreate()
 	{
 		$model = new Portfolio();
+		$client = new Client();
+		$designer = new Designer();
 		$imgfile_model = new ImgUploadForm();
 		$post_param = Yii::$app->request->post();
 
 		if (Yii::$app->request->isPost) {
 
-
 			$imgfile_model->imgFile = UploadedFile::getInstances($imgfile_model, 'imgFile');
-			$imgfile_model->upload($post_param['Portfolio']['portfolio_id']);
+			$thumb = $imgfile_model->upload($post_param['Portfolio']['portfolio_id']);
 
 			$model->load(Yii::$app->request->post());
+			$model->thumb = $thumb;
 			$model->save();
 
 			return $this->redirect(['view', 'id' => $model->portfolio_id]);
 		} else {
+
+			$client_list_t = $client->find()->column();
+			$client_list = array();
+			$designer_list_t = $designer->find()->column();
+			$designer_list = array();
+
+			foreach ($client_list_t as $key => $value) {
+				$client_list[$value]=$value;
+			}
+			foreach ($designer_list_t as $key => $value) {
+				$designer_list[$value]=$value;
+			}
+
 			return $this->render('create', [
 				'model' => $model,
 				'imgfile_model' => $imgfile_model,
+				'client' => $client_list,
+				'designer' => $designer_list,
 			]);
 		}
 	}

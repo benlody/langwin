@@ -14,14 +14,51 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<h1><?= Html::encode($this->title) ?></h1>
 
-	<div class="portfolio-content">
+	<div class="portfolio-photos">
 	<?php
-
-		echo $model->content;
-
-	?>
+		if(is_array($photos )){
+			foreach ($photos as $key => $value) {
+				echo '<img src="'.$value.'">';
+			}
+		}
+	 ?>
 	</div>
 
+	<div class="portfolio-content">
+		<p>
+		<p><label> Content </label></p>
+	<?php
+
+		echo str_replace("\n","<br>" , $model->content);
+
+	?>
+		</p>
+	</div>
+
+	<div class="portfolio-spec">
+		<p>
+		<p><label> Spec </label></p>
+	<?php
+
+		echo str_replace("\n","<br>" , $model->spec);
+
+	?>
+		</p>
+	</div>
+
+	<div class="portfolio-tag">
+		<p>
+		<p><label> Tags </label></p>
+	<?php
+		$tag = preg_replace('/\s(?=)/', '', $model->tag);
+		$tag_list = explode(",", $tag);
+		foreach ($tag_list as $key => $value) {
+			echo '<a href = index.php?r=portfolio&search='.$value.'>'.$value.'</a><br>';
+		}
+
+	?>
+		</p>
+	</div>
 
 	<div class="portfolio-client">
 	<?php
@@ -30,15 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	?>
 	</div>
-	<div class="portfolio-photos">
-	<?php
-		if(is_array($photos )){
-			foreach ($photos as $key => $value) {
-				echo '<img src="'.$value.'" width="200">';
-			}
-		}
-	 ?>
-	</div>
+
 
 	<div class="portfolio-designer">
 		<div class="portfolio-designer-logo">
@@ -55,18 +84,5 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-	<?= DetailView::widget([
-		'model' => $model,
-		'attributes' => [
-			'portfolio_id:ntext',
-			'spec:ntext',
-			'designer_id',
-			'company_id',
-			'tag',
-			'description',
-			'thumb',
-			'title',
-		],
-	]) ?>
 
 </div>
