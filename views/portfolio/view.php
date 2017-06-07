@@ -2,9 +2,15 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Portfolio */
+
+$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/masonry.pkgd.js',['depends' => [yii\web\JqueryAsset::className()]]);
+$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/imagesloaded.pkgd.js',['depends' => [yii\web\JqueryAsset::className()]]);
+$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/portfolio-index.js',['depends' => [yii\web\JqueryAsset::className()]]);
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/portfolio-index.css');
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Portfolios', 'url' => ['index']];
@@ -60,14 +66,8 @@ $this->params['breadcrumbs'][] = $this->title;
 		</p>
 	</div>
 
-	<div class="portfolio-client">
-	<?php
-
-		echo 'client';
-
-	?>
-	</div>
-
+	<!-- 設計師區塊 -->
+	<? if(0 != strcmp( $model->designer_id, "")): ?>
 
 	<div class="portfolio-designer">
 		<div class="portfolio-designer-logo">
@@ -80,9 +80,35 @@ $this->params['breadcrumbs'][] = $this->title;
 		<div class="portfolio-designer-contact">
 			<?= Html::label($designer_model->contact) ?>
 		</div>
+
+
+		<div class="portfolio-index">
+
+				<?= ListView::widget([
+					'dataProvider' => $designerPortfolioDataProvider,
+					'itemOptions' => ['class' => 'item'],
+					'id' => 'my-listview-id',
+					'layout' => '<div class="waterfall">{items}</div>{pager}',
+					'itemView' => function ($model, $key, $index, $widget) {
+						return '<div class="waterfall-item"><a href="'.
+								Yii::$app->request->getBaseUrl().'?r=portfolio%2Fview&amp;id='.urlencode($model->portfolio_id).
+								'"><img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->portfolio_id.'/'.$model->thumb.
+								'"></a>'.$model->title.'<br>'.$model->content.'</div>';
+					},
+				]); 
+				?>
+
+		</div>
 	</div>
+	<? endif; ?>
 
-
-
+	<!-- 客戶區塊 -->
+	<? if(0 != strcmp( $model->designer_id, "")): ?>
+	<div class="portfolio-client">
+		<?php
+			echo 'client';
+		?>
+	</div>
+	<? endif; ?>
 
 </div>

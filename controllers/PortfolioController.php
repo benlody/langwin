@@ -49,7 +49,6 @@ class PortfolioController extends Controller
 		}
 
 		return $this->render('index', [
-			'searchModel' => $searchModel,
 			'dataProvider' => $dataProvider,
 		]);
 	}
@@ -78,6 +77,9 @@ class PortfolioController extends Controller
 	{
 
 
+
+		$designerPortfolioSearchModel = new PortfolioSearch();
+
 		$model = $this->findModel($id);
 		$designer_model = Designer::findOne($model->designer_id);
 		if( file_exists ('./images/'.$model->portfolio_id )){
@@ -86,9 +88,13 @@ class PortfolioController extends Controller
 				$photos[$key] = './images/'.$model->portfolio_id.'/'.$value;
 			}
 		}
+
+		$designerPortfolioDataProvider = $designerPortfolioSearchModel->search_by_designer($model->designer_id);
+
 		return $this->render('view', [
 			'model' => $model,
 			'designer_model' => $designer_model,
+			'designerPortfolioDataProvider' => $designerPortfolioDataProvider,
 			'photos' => $photos
 		]);
 	}
