@@ -120,4 +120,27 @@ class PortfolioSearch extends Portfolio
 
 	}
 
+	public function search_by_client($search)
+	{
+		$query = Portfolio::find();
+
+		// add conditions that should always apply here
+
+		$dataProvider = new ActiveDataProvider([
+			'query' => $query,
+			'pagination' => [
+					'pageSize' => 50,
+			],
+		]);
+
+
+		$query->orFilterWhere(['company_id' => $search]);
+
+//		$query->addOrderBy('date DESC');
+
+		return $dataProvider;
+
+	}
+
+
 }

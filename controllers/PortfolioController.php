@@ -82,6 +82,7 @@ class PortfolioController extends Controller
 
 		$model = $this->findModel($id);
 		$designer_model = Designer::findOne($model->designer_id);
+		$client_model = Client::findOne($model->company_id);
 		if( file_exists ('./images/'.$model->portfolio_id )){
 			$photos = preg_grep('/^([^.])/', scandir('./images/'.$model->portfolio_id));
 			foreach ($photos as $key => $value) {
@@ -94,6 +95,7 @@ class PortfolioController extends Controller
 		return $this->render('view', [
 			'model' => $model,
 			'designer_model' => $designer_model,
+			'client_model' => $client_model,
 			'designerPortfolioDataProvider' => $designerPortfolioDataProvider,
 			'photos' => $photos
 		]);

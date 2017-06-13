@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\ListView;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Client */
@@ -10,30 +12,40 @@ $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Client', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+
 <div class="client-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->client_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->client_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+	<div class="client-info">
+		<div class="client-logo">
+			<?= Html::img(Yii::$app->request->getBaseUrl().'/client/' . $model->logo) ?>
+		</div>
+		<div class="client-desc">
+			<?= Html::label($model->title) ?>
+			<?= Html::label($model->desc) ?>
+		</div>
+		<div class="client-contact">
+			<?= Html::label($model->contact) ?>
+		</div>
+	</div>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'client_id',
-            'title:ntext',
-            'desc:ntext',
-            'contact:ntext',
-            'logo:ntext',
-        ],
-    ]) ?>
+	<div class="portfolio-index">
+
+			<?= ListView::widget([
+				'dataProvider' => $dataProvider,
+				'itemOptions' => ['class' => 'item'],
+				'id' => 'my-listview-id',
+				'layout' => '<div class="waterfall">{items}</div>{pager}',
+				'itemView' => function ($model, $key, $index, $widget) {
+					return '<div class="waterfall-item"><a href="'.
+							Yii::$app->request->getBaseUrl().'?r=portfolio%2Fview&amp;id='.urlencode($model->portfolio_id).
+							'"><img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->portfolio_id.'/'.$model->thumb.
+							'"></a>'.$model->title.'<br>'.$model->content.'</div>';
+				},
+			]); 
+			?>
+
+	</div>
 
 </div>

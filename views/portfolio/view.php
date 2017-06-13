@@ -67,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 
 	<!-- 設計師區塊 -->
-	<? if(0 != strcmp( $model->designer_id, "")): ?>
+	<? if(0 != strcmp( $model->designer_id, "0_no_designer")): ?>
 
 	<div class="portfolio-designer">
 		<div class="portfolio-designer-logo">
@@ -103,11 +103,19 @@ $this->params['breadcrumbs'][] = $this->title;
 	<? endif; ?>
 
 	<!-- 客戶區塊 -->
-	<? if(0 != strcmp( $model->designer_id, "")): ?>
+	<? if(0 != strcmp( $model->company_id, "0_no_client")): ?>
 	<div class="portfolio-client">
-		<?php
-			echo 'client';
-		?>
+		<div class="portfolio-client-logo">
+			<?= Html::img(Yii::$app->request->getBaseUrl().'/client/' . $client_model->logo) ?>
+		</div>
+		<div class="portfolio-client-desc">
+			<?= Html::label($client_model->title) ?>
+			<?= Html::label($client_model->desc) ?>
+		</div>
+		<div class="portfolio-client-contact">
+			<?= Html::label($client_model->contact) ?>
+		</div>
+
 	</div>
 	<? endif; ?>
 

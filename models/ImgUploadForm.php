@@ -39,7 +39,7 @@ class ImgUploadForm extends Model
             foreach ($this->imgFile as $file) {
                 $file->saveAs('designer/'. $name . '.' . $file->extension);
             }
-            return true;
+            return $name . '.' . $file->extension;
         } else {
             return false;
         }

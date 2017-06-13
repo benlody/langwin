@@ -81,10 +81,13 @@ class DesignerController extends Controller
 		if (Yii::$app->request->isPost) {
 
 			$imgfile_model->imgFile = UploadedFile::getInstances($imgfile_model, 'imgFile');
-			$filename = $imgfile_model->upload_designer($post_param['Designer']['name']);
+			$filename = $imgfile_model->upload_designer($post_param['Designer']['designer_id']);
 
 			$model->load(Yii::$app->request->post());
 			$model->photo = $filename;
+			print_r($model);
+
+
 			$model->save();
 			
 			return $this->redirect(['view', 'id' => $model->designer_id]);
