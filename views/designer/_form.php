@@ -22,7 +22,6 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($imgfile_model, 'imgFile')->fileInput(['accept' => 'image/*']) ?>
 
-	
 	<div class="form-group">
 		<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
 	</div>

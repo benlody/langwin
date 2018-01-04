@@ -7,6 +7,10 @@ use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Client */
+$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/masonry.pkgd.js',['depends' => [yii\web\JqueryAsset::className()]]);
+$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/imagesloaded.pkgd.js',['depends' => [yii\web\JqueryAsset::className()]]);
+$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/portfolio-index.js',['depends' => [yii\web\JqueryAsset::className()]]);
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/portfolio-index.css');
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Client', 'url' => ['index']];

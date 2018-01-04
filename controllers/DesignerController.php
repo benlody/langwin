@@ -49,6 +49,22 @@ class DesignerController extends Controller
 		]);
 	}
 
+
+	/**
+	 * Lists all Designer models.
+	 * @return mixed
+	 */
+	public function actionList()
+	{
+		$searchModel = new DesignerSearch();
+		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+		return $this->render('list', [
+			'searchModel' => $searchModel,
+			'dataProvider' => $dataProvider,
+		]);
+	}
+
 	/**
 	 * Displays a single Designer model.
 	 * @param integer $id
@@ -85,11 +101,9 @@ class DesignerController extends Controller
 
 			$model->load(Yii::$app->request->post());
 			$model->photo = $filename;
-			print_r($model);
-
 
 			$model->save();
-			
+
 			return $this->redirect(['view', 'id' => $model->designer_id]);
 
 		} else {
