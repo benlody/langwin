@@ -27,18 +27,35 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Home',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    ?>
+    
+
+    <?php
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            '<li>'
+            . Html::beginForm(['/portfolio/index'], 'get', ['class' => 'navbar-form'])
+            . Html::input('text', 'search', '', ['placeholder' => "Search.."])
+            . Html::submitButton(
+                '<i class="glyphicon glyphicon-search"></i>',
+                ['class' => 'btn btn-link']
+            )
+            . Html::endForm()
+            . '</li>',
+
+            ['label' => '精選作品案例', 'url' => ['/portfolio/index']],
+            ['label' => '合作設計師', 'url' => ['/designer/index']],
+            ['label' => '我們的客戶', 'url' => ['/client/index']]
+
+
+/*
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -51,6 +68,7 @@ AppAsset::register($this);
                 . Html::endForm()
                 . '</li>'
             )
+*/
         ],
     ]);
     NavBar::end();
@@ -66,9 +84,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-left">&copy; 光隆印刷 <?= date('Y') ?></p>
     </div>
 </footer>
 

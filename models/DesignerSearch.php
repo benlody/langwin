@@ -18,7 +18,7 @@ class DesignerSearch extends Designer
     public function rules()
     {
         return [
-            [['designer_id', 'name', 'desc', 'contact', 'photo'], 'safe'],
+            [['designer_id', 'title', 'desc', 'facebook', 'instagram', 'behance', 'website', 'email', 'photo'], 'string'],
         ];
     }
 
@@ -62,7 +62,11 @@ class DesignerSearch extends Designer
         ]);
 
         $query->andFilterWhere(['like', 'desc', $this->desc])
-            ->andFilterWhere(['like', 'contact', $this->contact])
+            ->andFilterWhere(['like', 'facebook', $this->facebook])
+            ->andFilterWhere(['like', 'instagram', $this->instagram])
+            ->andFilterWhere(['like', 'behance', $this->behance])
+            ->andFilterWhere(['like', 'website', $this->website])
+            ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'photo', $this->photo]);
 
         return $dataProvider;

@@ -27,7 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'designer_id',
             'title:ntext',
             'desc:ntext',
-            'contact:ntext',
+            'facebook:ntext',
+            'instagram:ntext',
+            'behance:ntext',
+            'website:ntext',
+            'email:ntext',
             'photo:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],

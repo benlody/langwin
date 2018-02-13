@@ -12,7 +12,6 @@ use Yii;
  * @property integer $designer_id
  * @property string $name
  * @property string $desc
- * @property string $contact
  * @property string $photo
  */
 class Designer extends \yii\db\ActiveRecord
@@ -31,7 +30,7 @@ class Designer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['designer_id', 'title', 'desc', 'contact', 'photo'], 'string'],
+            [['designer_id', 'title', 'desc', 'facebook', 'instagram', 'behance', 'website', 'email', 'photo'], 'string'],
         ];
     }
 
@@ -45,7 +44,11 @@ class Designer extends \yii\db\ActiveRecord
             'name' => 'Name',
             'title' => 'Title',
             'desc' => 'Desc',
-            'contact' => 'Contact',
+            'facebook' => 'FB',
+            'instagram' => 'IG',
+            'behance' => 'BE',
+            'website' => 'Website',
+            'email' => 'Email',
             'photo' => 'Photo',
         ];
     }

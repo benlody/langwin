@@ -8,6 +8,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Portfolio;
+use app\models\PortfolioSearch;
 
 class SiteController extends Controller
 {
@@ -60,7 +62,16 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		return $this->render('index');
+
+		$searchModel = new PortfolioSearch();
+		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+		return $this->render('index', [
+			'searchModel' => $searchModel,
+			'dataProvider' => $dataProvider,
+		]);
+
+//		return $this->render('index');
 	}
 
 	/**

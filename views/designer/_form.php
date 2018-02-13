@@ -18,7 +18,11 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($model, 'desc')->textarea(['rows' => 6]) ?>
 
-	<?= $form->field($model, 'contact')->textInput() ?>
+	<?= $form->field($model, 'facebook')->textInput() ?>
+	<?= $form->field($model, 'instagram')->textInput() ?>
+	<?= $form->field($model, 'behance')->textInput() ?>
+	<?= $form->field($model, 'website')->textInput() ?>
+	<?= $form->field($model, 'email')->textInput() ?>
 
 	<?= $form->field($imgfile_model, 'imgFile')->fileInput(['accept' => 'image/*']) ?>
 

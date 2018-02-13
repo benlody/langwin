@@ -27,8 +27,20 @@ $this->params['breadcrumbs'][] = $this->title;
 			<?= Html::label($model->title) ?>
 			<?= Html::label($model->desc) ?>
 		</div>
-		<div class="designer-contact">
-			<?= Html::label($model->contact) ?>
+		<div class="designer-facebook">
+			<?= Html::label($model->facebook) ?>
+		</div>
+		<div class="designer-instagram">
+			<?= Html::label($model->instagram) ?>
+		</div>
+		<div class="designer-behance">
+			<?= Html::label($model->behance) ?>
+		</div>
+		<div class="designer-website">
+			<?= Html::label($model->website) ?>
+		</div>
+		<div class="designer-email">
+			<?= Html::label($model->email) ?>
 		</div>
 	</div>
 
