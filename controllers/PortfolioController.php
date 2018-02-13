@@ -13,7 +13,8 @@ use yii\web\UploadedFile;
 use app\models\Designer;
 use app\models\Client;
 use app\models\DesignerSearch;
-
+use app\models\Tag;
+use app\models\PortfolioTagRelation;
 
 /**
  * PortfolioController implements the CRUD actions for Portfolio model.
@@ -123,7 +124,22 @@ class PortfolioController extends Controller
 			$model->thumb = $thumb;
 			$model->save();
 
+			$tags = explode(",",$post_param['Portfolio']['tag']);
+			foreach ($tags as $tag) {
+				$tag = trim($tag);
+				if(false == ($model_tag = Tag::find()->where(['name' => $tag])->one())){
+					$model_tag = new Tag();
+					$model_tag->name = $tag;
+					$model_tag->save();
+				}
+				$relation = new PortfolioTagRelation();
+				$relation->portfolio_id = $model->portfolio_id;
+				$relation->tag_id = $model_tag->tag_id;
+				$relation->save();
+			}
+
 			return $this->redirect(['view', 'id' => $model->portfolio_id]);
+
 		} else {
 
 			$client_list_t = $client->find()->column();

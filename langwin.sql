@@ -64,6 +64,16 @@ CREATE TABLE IF NOT EXISTS `portfolio` (
   `company_id` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `tag` (
+`tag_id` int(11) NOT NULL,
+  `name` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `portfolio_tag_relation` (
+`portfolio_id` int(11) NOT NULL,
+`tag_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 已匯出資料表的索引
@@ -87,6 +97,10 @@ ALTER TABLE `designer`
 ALTER TABLE `portfolio`
  ADD PRIMARY KEY (`portfolio_id`), ADD UNIQUE KEY `portfolio_id` (`portfolio_id`), ADD UNIQUE KEY `name` (`name`(32));
 
+
+ALTER TABLE `tag`
+ ADD PRIMARY KEY (`tag_id`), ADD UNIQUE KEY `tag_id` (`tag_id`), ADD UNIQUE KEY `name` (`name`(32));
+
 --
 -- 在匯出的資料表使用 AUTO_INCREMENT
 --
@@ -106,6 +120,11 @@ MODIFY `designer_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `portfolio`
 MODIFY `portfolio_id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `tag`
+MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT;
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
