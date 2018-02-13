@@ -9,10 +9,18 @@ use Yii;
 /**
  * This is the model class for table "designer".
  *
- * @property integer $designer_id
- * @property string $name
+ * @property string $designer_id
+ * @property string $title
  * @property string $desc
+ * @property string $facebook
+ * @property string $instagram
+ * @property string $behance
+ * @property string $website
+ * @property string $email
  * @property string $photo
+ * @property string $thumb1
+ * @property string $thumb2
+ * @property string $thumb3
  */
 class Designer extends \yii\db\ActiveRecord
 {
@@ -30,7 +38,10 @@ class Designer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['designer_id', 'title', 'desc', 'facebook', 'instagram', 'behance', 'website', 'email', 'photo'], 'string'],
+            [['designer_id', 'title', 'facebook', 'instagram', 'behance', 'website', 'email', 'thumb1', 'thumb2', 'thumb3'], 'required'],
+            [['title', 'desc', 'facebook', 'instagram', 'behance', 'website', 'email', 'photo', 'thumb1', 'thumb2', 'thumb3'], 'string'],
+            [['designer_id'], 'string', 'max' => 32],
+            [['designer_id'], 'unique'],
         ];
     }
 
@@ -41,17 +52,17 @@ class Designer extends \yii\db\ActiveRecord
     {
         return [
             'designer_id' => 'Designer ID',
-            'name' => 'Name',
             'title' => 'Title',
             'desc' => 'Desc',
-            'facebook' => 'FB',
-            'instagram' => 'IG',
-            'behance' => 'BE',
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram',
+            'behance' => 'Behance',
             'website' => 'Website',
             'email' => 'Email',
             'photo' => 'Photo',
+            'thumb1' => 'Thumb1',
+            'thumb2' => 'Thumb2',
+            'thumb3' => 'Thumb3',
         ];
     }
 }
-
-

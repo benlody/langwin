@@ -2,39 +2,44 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\ListView;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\DesignerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Designers';
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="designer-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+	<?= ListView::widget([
+		'dataProvider' => $dataProvider,
+		'itemOptions' => ['class' => 'item'],
+		'id' => 'designer-listview',
+		'layout' => '<div class="designer">{items}</div>{pager}',
+		'itemView' => function ($model, $key, $index, $widget) {
 
-    <p>
-        <?= Html::a('Create Designer', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+			$item = '<div class="designer-item">';
+			$item = $item.'<a href="'.Yii::$app->request->getBaseUrl().'?r=designer%2Fview&amp;id='.urlencode($model->designer_id).'">';
+			$item = $item.$model->designer_id;
+			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/designer/'.$model->photo.'">';
+			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb1.'">';
+			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb2.'">';
+			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb3.'">';
+			$item = $item.'</a>';
+			$item = $item.'</div>';
+			
+/*			<a href="'.
+					Yii::$app->request->getBaseUrl().'?r=portfolio%2Fview&amp;id='.urlencode($model->portfolio_id).
+					'"><img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->portfolio_id.'/'.$model->thumb.
+					'"></a>'.$model->title.'<br>'.$model->content.'
 
-            'designer_id',
-            'title:ntext',
-            'desc:ntext',
-            'facebook:ntext',
-            'instagram:ntext',
-            'behance:ntext',
-            'website:ntext',
-            'email:ntext',
-            'photo:ntext',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+*/
+			return $item;
+		},
+	]); 
+	?>
+		
 </div>

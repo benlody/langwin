@@ -24,7 +24,7 @@ $this->title = 'Portfolios';
 		<?= ListView::widget([
 			'dataProvider' => $dataProvider,
 			'itemOptions' => ['class' => 'item'],
-			'id' => 'my-listview-id',
+			'id' => 'portfolio-listview',
 			'layout' => '<div class="waterfall">{items}</div>{pager}',
 			'itemView' => function ($model, $key, $index, $widget) {
 				return '<div class="waterfall-item"><a href="'.
