@@ -30,13 +30,7 @@ $this->title = 'Designers';
 			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb3.'">';
 			$item = $item.'</a>';
 			$item = $item.'</div>';
-			
-/*			<a href="'.
-					Yii::$app->request->getBaseUrl().'?r=portfolio%2Fview&amp;id='.urlencode($model->portfolio_id).
-					'"><img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->portfolio_id.'/'.$model->thumb.
-					'"></a>'.$model->title.'<br>'.$model->content.'
 
-*/
 			return $item;
 		},
 	]); 

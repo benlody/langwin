@@ -77,9 +77,6 @@ $this->params['breadcrumbs'][] = $this->title;
 			<?= Html::label($designer_model->title) ?>
 			<?= Html::label($designer_model->desc) ?>
 		</div>
-		<div class="portfolio-designer-contact">
-			<?= Html::label($designer_model->contact) ?>
-		</div>
 
 
 		<div class="portfolio-index">

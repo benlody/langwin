@@ -2,35 +2,37 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ClientSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Client';
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="client-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+	<?= ListView::widget([
+		'dataProvider' => $dataProvider,
+		'itemOptions' => ['class' => 'item'],
+		'id' => 'client-listview',
+		'layout' => '<div class="client">{items}</div>{pager}',
+		'itemView' => function ($model, $key, $index, $widget) {
 
-    <p>
-        <?= Html::a('Create Client', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+			$item = '<div class="client-item">';
+			$item = $item.'<a href="'.Yii::$app->request->getBaseUrl().'?r=client%2Fview&amp;id='.urlencode($model->client_id).'">';
+			$item = $item.$model->title;
+			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/client/'.$model->logo.'">';
+//			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb1.'">';
+//			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb2.'">';
+//			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb3.'">';
+			$item = $item.'</a>';
+			$item = $item.'</div>';
 
-            'client_id',
-            'title:ntext',
-            'desc:ntext',
-            'contact:ntext',
-            'logo:ntext',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+			return $item;
+		},
+	]); 
+	?>
+		
 </div>
