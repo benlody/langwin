@@ -12,6 +12,8 @@ use app\models\ImgUploadForm;
 use yii\web\UploadedFile;
 use app\models\Portfolio;
 use app\models\PortfolioSearch;
+use yii\db\Query;
+
 
 /**
  * ClientController implements the CRUD actions for Client model.
@@ -105,8 +107,17 @@ class ClientController extends Controller
 
 			return $this->redirect(['view', 'id' => $model->client_id]);
 		} else {
+			$query = new Query;
+			$group = array();
+			$group_q = $query->select('client_group_id,'.'chinese_name')
+				->from('group')
+				->all();
+			foreach ($group_q as $key => $value) {
+				$group[$value['client_group_id']] = $value['chinese_name'];
+			}
 			return $this->render('create', [
 				'model' => $model,
+				'group' => $group,
 				'imgfile_model' => $imgfile_model,
 			]);
 		}
@@ -125,8 +136,17 @@ class ClientController extends Controller
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
 			return $this->redirect(['view', 'id' => $model->client_id]);
 		} else {
+			$query = new Query;
+			$group = array();
+			$group_q = $query->select('client_group_id,'.'chinese_name')
+				->from('group')
+				->all();
+			foreach ($group_q as $key => $value) {
+				$group[$value['client_group_id']] = $value['chinese_name'];
+			}
 			return $this->render('update', [
 				'model' => $model,
+				'group' => $group,
 			]);
 		}
 	}

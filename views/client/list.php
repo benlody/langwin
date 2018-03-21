@@ -25,6 +25,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'client_id',
+            [
+                'attribute' => 'client_group_id',
+                'format' => 'raw',
+                'label' => '產業別',
+                'value' => function ($model) {
+                    return $model->getGroupname();
+                }
+            ],
             'title:ntext',
             'desc:ntext',
             'contact:ntext',
