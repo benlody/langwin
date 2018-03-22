@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 
 /* @var $this yii\web\View */
@@ -18,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<?= $form->field($model, 'client_id')->textInput() ?>
 	
-	<?= $form->field($model, 'client_group_id', ['labelOptions' => ['label' => '產業分類']])->dropDownList() ?>
+	<?= $form->field($model, 'client_group_id', ['labelOptions' => ['label' => '產業分類']])->dropDownList($group) ?>
 
 	<?= $form->field($model, 'title')->textInput() ?>
 

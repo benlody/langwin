@@ -15,6 +15,8 @@ use app\models\Client;
 use app\models\DesignerSearch;
 use app\models\Tag;
 use app\models\PortfolioTagRelation;
+use yii\db\Query;
+
 
 /**
  * PortfolioController implements the CRUD actions for Portfolio model.
@@ -142,23 +144,31 @@ class PortfolioController extends Controller
 
 		} else {
 
-			$client_list_t = $client->find()->column();
-			$client_list = array();
-			$designer_list_t = $designer->find()->column();
-			$designer_list = array();
+			$query = new Query;
+			$client = array();
+			$client_q = $query->select('client_id,'.'title')
+				->from('client')
+				->all();
 
-			foreach ($client_list_t as $key => $value) {
-				$client_list[$value]=$value;
+			foreach ($client_q as $key => $value) {
+				$client[$value['client_id']]=$value['title'];
 			}
-			foreach ($designer_list_t as $key => $value) {
-				$designer_list[$value]=$value;
+
+			$query = new Query;
+			$designer = array();
+			$designer_q = $query->select('designer_id,'.'title')
+				->from('designer')
+				->all();
+
+			foreach ($designer_q as $key => $value) {
+				$designer[$value['designer_id']]=$value['title'];
 			}
 
 			return $this->render('create', [
 				'model' => $model,
 				'imgfile_model' => $imgfile_model,
-				'client' => $client_list,
-				'designer' => $designer_list,
+				'client' => $client,
+				'designer' => $designer,
 			]);
 		}
 	}
