@@ -6,10 +6,19 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use app\models\User;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Portfolio;
 use app\models\PortfolioSearch;
+
+//use app\models\PasswordResetRequestForm;
+//use app\models\ResetPasswordForm;
+use app\models\SignupForm;
+use yii\base\InvalidParamException;
+use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
+
 
 class SiteController extends Controller
 {
@@ -33,7 +42,7 @@ class SiteController extends Controller
 			'verbs' => [
 				'class' => VerbFilter::className(),
 				'actions' => [
-					'logout' => ['post'],
+//					'logout' => ['post'],
 				],
 			],
 		];
@@ -106,9 +115,9 @@ class SiteController extends Controller
 		return $this->goHome();
 	}
 
-
 	public function actionSignup()
 	{
+
 		if(Yii::$app->user->identity->group !== User::GROUP_ADMIN){
 			throw new NotFoundHttpException('The requested page does not exist.');
 		}

@@ -13,26 +13,27 @@ $this->title = 'Client';
 ?>
 <div class="client-index">
 
-	<?= ListView::widget([
-		'dataProvider' => $dataProvider,
-		'itemOptions' => ['class' => 'item'],
-		'id' => 'client-listview',
-		'layout' => '<div class="client">{items}</div>{pager}',
-		'itemView' => function ($model, $key, $index, $widget) {
+	<?php
+		foreach ($client_by_group as $key => $value) {
+			echo $value['chinese_name'];
+			echo ListView::widget([
+				'dataProvider' => $value['dataProvider'],
+				'itemOptions' => ['class' => 'item'],
+				'id' => 'client-listview',
+				'layout' => '<div class="client">{items}</div>{pager}',
+				'itemView' => function ($model, $key, $index, $widget) {
 
-			$item = '<div class="client-item">';
-			$item = $item.'<a href="'.Yii::$app->request->getBaseUrl().'?r=client%2Fview&amp;id='.urlencode($model->client_id).'">';
-			$item = $item.$model->title;
-			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/client/'.$model->logo.'">';
-//			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb1.'">';
-//			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb2.'">';
-//			$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->thumb3.'">';
-			$item = $item.'</a>';
-			$item = $item.'</div>';
+					$item = '<div class="client-item">';
+					$item = $item.'<a href="'.Yii::$app->request->getBaseUrl().'?r=client%2Fview&amp;id='.urlencode($model->client_id).'">';
+					$item = $item.$model->title;
+					$item = $item.'<img src="'.Yii::$app->request->getBaseUrl().'/client/'.$model->logo.'">';
+					$item = $item.'</a>';
+					$item = $item.'</div>';
 
-			return $item;
-		},
-	]); 
+					return $item;
+				},
+			]); 
+		}
 	?>
 		
 </div>

@@ -42,11 +42,21 @@ class ClientController extends Controller
 	public function actionIndex()
 	{
 		$searchModel = new ClientSearch();
-		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+		$query_params = Yii::$app->request->queryParams;
+
+		$query = new Query;
+		$client_by_group = $query->select('client_group_id,'.'chinese_name')
+			->from('group')
+			->orderBy('rand()')
+			->all();
+
+		foreach ($client_by_group as $key => $value) {
+			$query_params['ClientSearch']['client_group_id'] = $value['client_group_id'];
+			$client_by_group[$key]['dataProvider'] = $searchModel->search($query_params);
+		}
 
 		return $this->render('index', [
-			'searchModel' => $searchModel,
-			'dataProvider' => $dataProvider,
+			'client_by_group' => $client_by_group,
 		]);
 	}
 
