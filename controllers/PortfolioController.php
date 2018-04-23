@@ -124,6 +124,7 @@ class PortfolioController extends Controller
 
 			$model->load(Yii::$app->request->post());
 			$model->thumb = $thumb;
+			$model->photo_uploaded = 1;
 			$model->save();
 
 			$tags = explode(",",$post_param['Portfolio']['tag']);

@@ -33,6 +33,7 @@ class Portfolio extends \yii\db\ActiveRecord
 	{
 		return [
 			[['portfolio_id', 'spec', 'content', 'title', 'description', 'thumb', 'tag', 'designer_id', 'company_id'], 'string'],
+			[['photo_uploaded'], 'integer'],
 		];
 	}
 
