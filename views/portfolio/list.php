@@ -29,7 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'spec:ntext',
             'content:ntext',
             'designer_id',
-            // 'company_id',
+            'company_id',
+            'photo_uploaded',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

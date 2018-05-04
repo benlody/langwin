@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\ImgUploadForm;
+use app\models\ExcelUploadForm;
 use yii\web\UploadedFile;
 use app\models\Designer;
 use app\models\Client;
@@ -16,6 +17,18 @@ use app\models\DesignerSearch;
 use app\models\Tag;
 use app\models\PortfolioTagRelation;
 use yii\db\Query;
+
+
+function get_array_excel($path){
+
+	$objPHPExcel = new \PHPExcel();
+	$objPHPExcel = \PHPExcel_IOFactory::load($path);
+	$sheetData = $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
+
+	return $sheetData;
+
+}
+
 
 
 /**
@@ -60,10 +73,16 @@ class PortfolioController extends Controller
 	 * Lists all Portfolio models.
 	 * @return mixed
 	 */
-	public function actionList()
+	public function actionList($photo_uploaded=-1)
 	{
 		$searchModel = new PortfolioSearch();
-		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+		$search_param = Yii::$app->request->queryParams;
+		if(0 == $photo_uploaded){
+			$search_param['PortfolioSearch']['photo_uploaded'] = 0;
+		} else if(1 == $photo_uploaded){
+			$search_param['PortfolioSearch']['photo_uploaded'] = 1;
+		}
+		$dataProvider = $searchModel->search($search_param);
 
 		return $this->render('list', [
 			'searchModel' => $searchModel,
@@ -173,6 +192,86 @@ class PortfolioController extends Controller
 			]);
 		}
 	}
+
+
+
+	public function actionCreate_by_excel()
+	{
+		$model = new Portfolio();
+		$client = new Client();
+		$designer = new Designer();
+		$excelfile_model = new ExcelUploadForm();
+		$post_param = Yii::$app->request->post();
+
+		if(isset($post_param['save'])){
+
+			$portfolio_array = json_decode($post_param['portfolio_json'], true);
+
+			foreach($portfolio_array as $key => $value){
+				if($key == 1){
+					continue;
+				}
+				if('' == $value['A']){
+					continue;
+				}
+
+				$model = new Portfolio();
+
+				$model->portfolio_id = $value['A'];
+				$model->title = $value['B'];
+				$model->spec = $value['C'];
+				$model->content = $value['D'];
+				$model->designer_id = $value['F'];
+				$model->company_id = $value['H'];
+				$model->tag = $value['I'];
+				$model->photo_uploaded = 0;
+				$model->save();
+
+				$tags = explode(",",$value['I']);
+				foreach ($tags as $tag) {
+					$tag = trim($tag);
+					if(false == ($model_tag = Tag::find()->where(['name' => $tag])->one())){
+						$model_tag = new Tag();
+						$model_tag->name = $tag;
+						$model_tag->save();
+					}
+					$relation = new PortfolioTagRelation();
+					$relation->portfolio_id = $model->portfolio_id;
+					$relation->tag_id = $model_tag->tag_id;
+					$relation->save();
+				}
+			}
+
+			return $this->redirect(['list', 'photo_uploaded'=>0]);
+
+		} else if(isset($post_param['upload'])){
+
+
+		   if (Yii::$app->request->isPost) {
+				$excelfile_model->excelFile = UploadedFile::getInstance($excelfile_model, 'excelFile');
+
+				if ($excelfile_model->upload()) {
+					// file is uploaded successfully
+					$content = get_array_excel('uploads/'.$excelfile_model->excelFile->name);					
+				}
+			}
+
+			return $this->render('create_by_excel', [
+				'model' => $model,
+				'excelfile_model' => $excelfile_model,
+				'content' => $content
+			]);
+
+		} else {
+
+			return $this->render('create_by_excel', [
+				'model' => $model,
+				'excelfile_model' => $excelfile_model
+			]);
+
+		}
+	}
+
 
 	/**
 	 * Updates an existing Portfolio model.

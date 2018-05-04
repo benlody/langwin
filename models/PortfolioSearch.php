@@ -18,7 +18,7 @@ class PortfolioSearch extends Portfolio
 	public function rules()
 	{
 		return [
-			[['designer_id', 'company_id'], 'integer'],
+			[['designer_id', 'company_id', 'photo_uploaded'], 'integer'],
 			[['portfolio_id', 'spec', 'content'], 'safe'],
 		];
 	}
@@ -65,6 +65,7 @@ class PortfolioSearch extends Portfolio
 			'portfolio_id' => $this->portfolio_id,
 			'designer_id' => $this->designer_id,
 			'company_id' => $this->company_id,
+			'photo_uploaded' => $this->photo_uploaded,
 		]);
 
 		$query->andFilterWhere(['like', 'spec', $this->spec])
