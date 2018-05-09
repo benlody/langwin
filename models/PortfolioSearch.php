@@ -62,13 +62,13 @@ class PortfolioSearch extends Portfolio
 
 		// grid filtering conditions
 		$query->andFilterWhere([
-			'portfolio_id' => $this->portfolio_id,
 			'designer_id' => $this->designer_id,
 			'company_id' => $this->company_id,
 			'photo_uploaded' => $this->photo_uploaded,
 		]);
 
 		$query->andFilterWhere(['like', 'spec', $this->spec])
+			->andFilterWhere(['like', 'portfolio_id', $this->portfolio_id])
 			->andFilterWhere(['like', 'content', $this->content]);
 
 		return $dataProvider;
