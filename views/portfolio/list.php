@@ -12,27 +12,48 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="portfolio-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+	<h1><?= Html::encode($this->title) ?></h1>
+	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Portfolio', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+	<p>
+		<?= Html::a('Create Portfolio', ['create'], ['class' => 'btn btn-success']) ?>
+	</p>
+	<?= GridView::widget([
+		'dataProvider' => $dataProvider,
+		'filterModel' => $searchModel,
+		'columns' => [
+			['class' => 'yii\grid\SerialColumn'],
 
-            'portfolio_id',
-            'title:ntext',
-            'spec:ntext',
-            'content:ntext',
-            'designer_id',
-            'company_id',
-            'photo_uploaded',
+			'portfolio_id',
+			'title:ntext',
+			'spec:ntext',
+			'content:ntext',
+			'designer_id',
+			'company_id',
+			'photo_uploaded',
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+			[
+				'class' => 'yii\grid\ActionColumn',
+				'template' => '{view} {update} {delete} {upload_photo} {update_thumb}',
+				'buttons' => [
+					'upload_photo' => function ($url, $model, $key) {
+						$options = [
+							'title' => '上傳照片',
+							'aria-label' => '上傳照片',
+							'data-pjax' => '0',
+						];
+						return  Html::a('<span class="glyphicon glyphicon-camera"></span>', $url ,$options);
+					},
+					'update_thumb' => function ($url, $model, $key) {
+						$options = [
+							'title' => '更新縮圖',
+							'aria-label' => '更新縮圖',
+							'data-pjax' => '0',
+						];
+						return  Html::a('<span class="glyphicon glyphicon-picture"></span>', $url ,$options);
+					},
+				],
+			],
+		],
+	]); ?>
 </div>

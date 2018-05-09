@@ -273,6 +273,60 @@ class PortfolioController extends Controller
 	}
 
 
+	public function actionUpload_photo($id)
+	{
+		$model = $this->findModel($id);
+		$imgfile_model = new ImgUploadForm();
+		$post_param = Yii::$app->request->post();
+
+		if (Yii::$app->request->isPost) {
+
+			$imgfile_model->imgFile = UploadedFile::getInstances($imgfile_model, 'imgFile');
+			$thumb = $imgfile_model->upload($id);
+
+
+			$model->thumb = $thumb;
+			$model->photo_uploaded = 1;
+			$model->save();
+
+			return $this->redirect(['update_thumb', 'id' => $model->portfolio_id]);
+
+		} else {
+
+
+			return $this->render('upload_photo', [
+				'model' => $model,
+				'imgfile_model' => $imgfile_model,
+			]);
+		}
+	}
+
+	public function actionUpdate_thumb($id)
+	{
+		$model = $this->findModel($id);
+		$imgfile_model = new ImgUploadForm();
+		$post_param = Yii::$app->request->post();
+
+		if (Yii::$app->request->isPost) {
+
+			$imgfile_model->imgFile = UploadedFile::getInstances($imgfile_model, 'imgFile');
+			$thumb = $imgfile_model->upload($id);
+
+			$model->photo_uploaded = 1;
+			$model->save();
+
+			return $this->redirect(['list', 'photo_uploaded'=>0]);
+
+		} else {
+
+
+			return $this->render('update_thumb', [
+				'model' => $model,
+				'imgfile_model' => $imgfile_model,
+			]);
+		}
+	}
+
 	/**
 	 * Updates an existing Portfolio model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
