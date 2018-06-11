@@ -64,6 +64,23 @@ CREATE TABLE IF NOT EXISTS `portfolio` (
   `company_id` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `develope` (
+`develope_id` int(16) NOT NULL,
+  `name` text,
+  `email` text,  
+  `content` text,
+  `tracking_token` text,
+  `tracking_status` int(8),
+  `sales` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `develope`
+ ADD PRIMARY KEY (`develope_id`), ADD UNIQUE KEY `develope_id` (`develope_id`);
+
+ALTER TABLE `develope`
+MODIFY `develope_id` int(16) NOT NULL AUTO_INCREMENT;
+
+
 CREATE TABLE IF NOT EXISTS `tag` (
 `tag_id` int(11) NOT NULL,
   `name` text

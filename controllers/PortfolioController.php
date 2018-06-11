@@ -106,7 +106,7 @@ class PortfolioController extends Controller
 		if( file_exists ('./images/'.$model->portfolio_id )){
 			$photos = preg_grep('/^([^.])/', scandir('./images/'.$model->portfolio_id));
 			foreach ($photos as $key => $value) {
-				$photos[$key] = './images/'.$model->portfolio_id.'/'.$value;
+				$photos[$key] = '/images/'.$model->portfolio_id.'/'.$value;
 			}
 		}
 

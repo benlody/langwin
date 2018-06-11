@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?php
 		if(is_array($photos )){
 			foreach ($photos as $key => $value) {
-				echo '<img src="'.$value.'">';
+				echo '<img src="'.Yii::$app->request->getBaseUrl().$value.'">';
 			}
 		}
 	 ?>

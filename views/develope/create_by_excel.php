@@ -9,13 +9,13 @@ use yii\jui\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model app\models\Order */
 /* @var $form ActiveForm */
-$this->title = '批次新增作品';
+$this->title = '客戶開發';
 
 ?>
 
 <h1><?= Html::encode($this->title) ?></h1>
 
-<div class="order-add">
+<div class="develope-add">
 
 	<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
@@ -30,9 +30,9 @@ $this->title = '批次新增作品';
 	<?php
 		if($content){
 
-			echo '確認資料正確後 請至最下方案儲存(Save)';
+			echo '確認資料正確後 請至最下方按寄出(Send)';
 
-			echo '<table class="table table-striped table-bordered table-tooltip"><thead><tr><th>ID</th><th>作品名稱</th><th>規格</th><th>內容</th><th>設計師</th><th>客戶</th><th>Tag</th></tr></thead><tbody>';
+			echo '<table class="table table-striped table-bordered table-tooltip"><thead><tr><th>客戶名稱</th><th>Email</th><th>信件title</th><th>信件內容</th></tr></thead><tbody>';
 
 			foreach($content as $key => $value){
 				if($key == 1){
@@ -42,17 +42,17 @@ $this->title = '批次新增作品';
 					continue;
 				}
 
-				echo '<td>'.$value['A'].'</td><td>'.$value['B'].'</td><td>'.$value['C'].'</td><td>'.$value['D'].'</td><td>'.$value['E'].'</td><td>'.$value['G'].'</td><td>'.$value['I'].'</td></tr>';
+				echo '<td>'.$value['A'].'</td><td>'.$value['B'].'</td><td>'.$value['C'].'</td><td>'.$value['D'].'</td></tr>';
 
 			}
 			echo '</tbody></table>';
 
 			$form2 = ActiveForm::begin();
 
-			echo Html::hiddenInput('portfolio_json', json_encode($content));
+			echo Html::hiddenInput('develope_json', json_encode($content));
 
 			echo '<div class="form-group">';
-			echo Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-primary', 'name' => 'save']);
+			echo Html::submitButton(Yii::t('app', 'Send'), ['class' => 'btn btn-primary', 'name' => 'save']);
 			echo '</div>';
 			ActiveForm::end();
 		}
