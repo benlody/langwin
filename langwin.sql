@@ -81,6 +81,27 @@ ALTER TABLE `develope`
 MODIFY `develope_id` int(16) NOT NULL AUTO_INCREMENT;
 
 
+
+CREATE TABLE IF NOT EXISTS `quotation` (
+`quotation_id` int(16) NOT NULL,
+  `company` text,
+  `product` text,
+  `contact` text,
+  `tel` text,
+  `email` text,
+  `link` text,
+  `content` text,
+  `sales` text,
+  `status` int(8)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `quotation`
+ ADD PRIMARY KEY (`quotation_id`), ADD UNIQUE KEY `quotation_id` (`quotation_id`);
+
+ALTER TABLE `quotation`
+MODIFY `quotation_id` int(16) NOT NULL AUTO_INCREMENT;
+
+
 CREATE TABLE IF NOT EXISTS `tag` (
 `tag_id` int(11) NOT NULL,
   `name` text
