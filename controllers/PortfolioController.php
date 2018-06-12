@@ -16,6 +16,7 @@ use app\models\Client;
 use app\models\DesignerSearch;
 use app\models\Tag;
 use app\models\PortfolioTagRelation;
+use app\models\Develope;
 use yii\db\Query;
 
 
@@ -55,13 +56,19 @@ class PortfolioController extends Controller
 	 * Lists all Portfolio models.
 	 * @return mixed
 	 */
-	public function actionIndex($search='')
+	public function actionIndex($search='', $token='')
 	{
 		$searchModel = new PortfolioSearch();
 		if(0 != strcmp($search, '')){
 			$dataProvider = $searchModel->mysearch($search);
 		} else {
 			$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+		}
+
+		if(0 != strcmp($token, '')){
+			$develope_model = Develope::findOne(['tracking_token' => $token]);
+			$develope_model->tracking_status = 1;
+			$develope_model->save();
 		}
 
 		return $this->render('index', [

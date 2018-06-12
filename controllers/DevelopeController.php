@@ -238,12 +238,13 @@ class DevelopeController extends Controller
 		}
 		$mail->SMTPSecure = 'tls';
 		$mail->Port = 465;
-		$mail->addAddress($to);		
+		$address = explode(",", $to);
+		foreach($address as $key => $value){
+			$mail->addAddress(trim($value));
+		}
 		$mail->isHTML(true);
 		$mail->Subject = $subject;
 		$mail->Body = $body;
 		$mail->send();
 	}
-
-
 }
