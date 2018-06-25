@@ -34,6 +34,7 @@ class Quotation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['company', 'contact', 'tel', 'email'], 'required'],
             [['company', 'product', 'contact', 'tel', 'email', 'link', 'content', 'sales'], 'string'],
             [['status'], 'integer'],
         ];

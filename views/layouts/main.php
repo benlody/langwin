@@ -54,6 +54,7 @@ AppAsset::register($this);
 			['label' => '精選作品案例', 'url' => ['/portfolio/index']],
 			['label' => '合作設計師', 'url' => ['/designer/index']],
 			['label' => '我們的客戶', 'url' => ['/client/index']],
+			['label' => '聯絡／詢價', 'url' => ['/quotation/create']],
 			[
 				'label' => '後台管理',
 				'items' => [
@@ -70,6 +71,7 @@ AppAsset::register($this);
 					 '<li class="dropdown-header" align="center"><font color="green">'.'客戶開發'.'</font></li>',
 					 ['label' => '寄開發信', 'url' => ['/develope/create_by_excel']],
 					 ['label' => '開發信追蹤', 'url' => ['/develope/index']],
+					 ['label' => '詢價列表', 'url' => ['/quotation/index']],
 				],
 			],
 
@@ -97,7 +99,9 @@ AppAsset::register($this);
 
 			['label' => '精選作品案例', 'url' => ['/portfolio/index']],
 			['label' => '合作設計師', 'url' => ['/designer/index']],
-			['label' => '我們的客戶', 'url' => ['/client/index']]
+			['label' => '我們的客戶', 'url' => ['/client/index']],
+			['label' => '聯絡／詢價', 'url' => ['/quotation/create']],
+
 		];
 
 
