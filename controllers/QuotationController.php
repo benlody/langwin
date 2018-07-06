@@ -102,6 +102,7 @@ class QuotationController extends Controller
 						$content = $content.$value.",";
 					}
 				}
+				$content = $content."\n";
 			}
 
 			$content = $content."內頁紙張:".$post_param["inside-paper"]."\n";
@@ -130,6 +131,7 @@ class QuotationController extends Controller
 
 			$model->content = $content;
 			$model->status = 0;
+			$model->date = date("Y-m-d", strtotime('today'));
 			$model->save();
 
 			return $this->redirect(['index']);
@@ -171,6 +173,26 @@ class QuotationController extends Controller
 
 		return $this->redirect(['index']);
 	}
+
+	public function actionTake($id)
+	{
+		$model = $this->findModel($id);
+		$model->status = 1;
+		$model->sales = Yii::$app->user->identity->username;
+		$model->save();
+
+		return $this->redirect(['index']);
+	}
+
+	public function actionDeal($id)
+	{
+		$model = $this->findModel($id);
+		$model->status = 2;
+		$model->save();
+
+		return $this->redirect(['index']);
+	}
+
 
 	/**
 	 * Finds the Quotation model based on its primary key value.

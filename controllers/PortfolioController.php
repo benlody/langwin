@@ -149,6 +149,7 @@ class PortfolioController extends Controller
 			$model->load(Yii::$app->request->post());
 			$model->thumb = $thumb;
 			$model->photo_uploaded = 1;
+			$model->date = date("Y-m-d", strtotime('today'));
 			$model->save();
 
 			$tags = explode(",",$post_param['Portfolio']['tag']);
@@ -230,6 +231,7 @@ class PortfolioController extends Controller
 				$model->company_id = $value['H'];
 				$model->tag = $value['I'];
 				$model->photo_uploaded = 0;
+				$model->date = date("Y-m-d", strtotime('today'));
 				$model->save();
 
 				$tags = explode(",",$value['I']);

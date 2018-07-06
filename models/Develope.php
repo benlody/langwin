@@ -34,6 +34,7 @@ class Develope extends \yii\db\ActiveRecord
         return [
             [['name', 'email', 'title', 'content', 'tracking_token', 'sales'], 'string'],
             [['title'], 'required'],
+            [['date'], 'safe'],
             [['tracking_status'], 'integer'],
         ];
     }
@@ -45,6 +46,7 @@ class Develope extends \yii\db\ActiveRecord
     {
         return [
             'develope_id' => 'Develope ID',
+            'date' => 'Date',
             'name' => 'Name',
             'email' => 'Email',
             'title' => 'Title',

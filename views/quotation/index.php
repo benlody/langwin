@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		'filterModel' => $searchModel,
 		'columns' => [
 			['class' => 'yii\grid\SerialColumn'],
-
+			'date:ntext',
 //			'quotation_id',
 			[
 				'attribute' => '',
@@ -40,7 +40,6 @@ $this->params['breadcrumbs'][] = $this->title;
 					return $info;
 				}
 			],
-
 			[
 				'attribute' => 'content',
 				'headerOptions' => ['style' => 'width:35%'],
@@ -49,9 +48,36 @@ $this->params['breadcrumbs'][] = $this->title;
 			],
 			'link:ntext:雲端檔案連結',
 			'sales:ntext',
-			'status',
+			[
+				'attribute' => 'status',
+				'headerOptions' => ['style' => 'width:10%'],
+				'format' => 'raw',
+				'label' => '狀態',
+				'value' => function ($model) {
+					if($model->status == 0){	// untake
+						return '未認領';
+					} else if ($model->status == 1){
+						return '已認領';
+					} else if ($model->status == 2){
+						return '已成交';
+					} else {
+						return '未知';
+					}
+				}
+			],
+			[
+				'attribute' => '',
+				'format' => 'raw',
+				'value' => function ($model) {
+					if($model->status == 0){	// untake
+						$opt = '<a href="'.Yii::$app->request->getBaseUrl().'?r=quotation%2Ftake&amp;id='.urlencode($model->quotation_id).'" title="認領" data-pjax="0"><span class="glyphicon glyphicon glyphicon-user"></span></a>';
+					} else if ($model->status == 1 & $model->sales == Yii::$app->user->identity->username){ //taken
+						$opt = '<a href="'.Yii::$app->request->getBaseUrl().'?r=quotation%2Fdeal&amp;id='.urlencode($model->quotation_id).'" title="成交" data-pjax="0"><span class="glyphicon glyphicon glyphicon-ok"></span></a>';
+					}
+					return $opt;
+				}
+			],
 
-			['class' => 'yii\grid\ActionColumn'],
 		],
 	]); ?>
 </div>

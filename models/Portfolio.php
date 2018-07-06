@@ -33,6 +33,7 @@ class Portfolio extends \yii\db\ActiveRecord
 	{
 		return [
 			[['portfolio_id', 'spec', 'content', 'title', 'description', 'thumb', 'tag', 'designer_id', 'company_id'], 'string'],
+            [['date'], 'safe'],
 			[['photo_uploaded'], 'integer'],
 		];
 	}
@@ -48,6 +49,7 @@ class Portfolio extends \yii\db\ActiveRecord
 			'spec' => 'Spec',
 			'content' => 'Content',
 			'description' => 'Description',
+            'date' => 'Date',
 			'tag' => 'Tag',
 			'thumb' => 'Thumb',
 			'designer_id' => 'Designer ID',

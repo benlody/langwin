@@ -36,6 +36,7 @@ class Quotation extends \yii\db\ActiveRecord
         return [
             [['company', 'contact', 'tel', 'email'], 'required'],
             [['company', 'product', 'contact', 'tel', 'email', 'link', 'content', 'sales'], 'string'],
+            [['date'], 'safe'],
             [['status'], 'integer'],
         ];
     }
@@ -50,6 +51,7 @@ class Quotation extends \yii\db\ActiveRecord
             'company' => 'Company',
             'product' => 'Product',
             'contact' => 'Contact',
+            'date' => 'Date',
             'tel' => 'Tel',
             'email' => 'Email',
             'link' => 'Link',
