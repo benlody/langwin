@@ -37,6 +37,16 @@ $config = [
                 ],
             ],
         ],
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'sourcePath' => null,   // do not publish the bundle
+                    'js' => [
+                        'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js',
+                    ]
+                ],
+            ],
+        ],
         'db' => require(__DIR__ . '/db.php'),
         /*
         'urlManager' => [
