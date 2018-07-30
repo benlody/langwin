@@ -38,6 +38,10 @@
 </head>
 
 <body>
+
+	<div class="loading relative">
+		<div class="loading_animation cenmid"><img src="images/common/loading.gif" alt="" /></div>
+	</div>
 	
 	<!--start header-->
 	<header>
@@ -438,6 +442,7 @@
 		<!--full width block-->
 		<section class="index-banner">
 			
+			<!--大圖小圖-->
 			<a href="#" class="block" hov="0.8">
 			
 				<div class="index-banner-pic"><img src="images/tmp/aaavv.jpg" class="v-centerimg" alt=""></div>
@@ -446,13 +451,29 @@
 				<div class="rwd-width-limited index-banner-inner">
 
 					<div class="v-helper vmiddle"></div>
+					
 					<!--內圖在 580 x 420 內皆可-->
 					<div class="innerimg"><img src="images/tmp/asdasdsadd.png" alt="" /></div>
+					<!--內圖在 580 x 420 內皆可-->
+					
+					
+					<!--文字編輯器
+					<div class="innertext">
+						<p>
+							測試測試測試測試側<br />
+							測試測試測試<br />
+							測試測試測試測試側<br />
+							測試測試測試測試側<br />
+							測試測試測試測試側測試測試測試測試側測試測試測試
+						</p>
+					</div>
+					文字編輯器-->
 
 				</div>
 			<!--rwd width limited -->
 			
 			</a>
+			<!--大圖小圖-->
 			
 		</section>
 		<!--full width block-->
@@ -720,15 +741,27 @@
 			<div class="clearfix">
 				
 				<div class="footer-r">
-				
+					
 					<div class="one-contact">
-						<h3>電話</h3>
-						<p>＋886-2-2999-9099</p>
+						<h3>某某某某</h3>
+						<p><a href="other.html" hov="0.8">其他頁</a></p>
+						<p><a href="other.html" hov="0.8">其他其他其</a></p>
 					</div>
 					
 					<div class="one-contact">
-						<h3>地址</h3>
-						<p>新北市三重區光復路一段83巷8號2樓</p>
+						<h3>說明說明</h3>
+						<p><a href="other.html" hov="0.8">說明說明說明說明</a></p>
+					</div>
+					
+					<div class="one-contact">
+						<h3>bnlablabla</h3>
+						<p><a href="other.html" hov="0.8">說明說明說明說明</a></p>
+					</div>
+					
+					<div class="one-contact">
+						<h3>聯絡資訊</h3>
+						<p><span class="bold">電話：</span><a href="tel:+886-2-2999-9099" hov="0.8">＋886-2-2999-9099</a></p>
+						<p><span class="bold">地址：</span><a href="https://goo.gl/maps/SssLWqhx4jo" hov="0.8">新北市三重區光復路一段83巷8號2樓</a></p>
 					</div>
 					
 					<div class="one-contact">
@@ -766,62 +799,7 @@
 <script src="js/megamenu.js"></script>
 <script src="js/slick.js"></script>
 <script src="js/common.js"></script>
-
-<script>
-	$(document).ready(function(){
-	
-		//flex
-		$('.flexslider').flexslider({
-			animation: "fade",
-			slideshow:true,
-			slideshowSpeed:5200,
-			animationSpeed:800,
-			controlNav:false,
-			start: function(slider){
-			  $('body').removeClass('loading');
-			}
-		});
-		//flex
-		
-		
-		//slick
-		$(".regular").slick({
-			dots: false,
-			infinite: true,
-			slidesToShow: 2,
-			slidesToScroll: 2,
-			autoplay:true,
-			//arrows: false,
-  			autoplaySpeed:2000,
-			speed:500,
-			respondTo : 'window',
-			mobileFirst:true,
-			pauseOnFocus: false, 
-			responsive:[
-				{
-					breakpoint: 1200,
-					settings: {
-						slidesToShow: 6,
-						slidesToScroll: 6,
-						autoplaySpeed:3000,
-						speed:800
-					}
-				},
-				
-				{
-			  		breakpoint: 768,
-					settings: {
-						slidesToShow: 4,
-						slidesToScroll: 4,
-						autoplaySpeed:2500
-				  	}
-				}
-		  	]
-		});
-		//slick
-		
-	});
-</script>
+<script src="js/index.js"></script>
 
 </body>
 </html>
