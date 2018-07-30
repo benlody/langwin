@@ -111,7 +111,7 @@
     flex: 0 1 calc(33.333% - 20px);
     width: calc(33.333% - 20px);
 }
-.one-designer .pic{width:100%;height:calc(((1160px / 3) - 40px) / 3);overflow:hidden;}
+.one-designer .pic{width:100%;height:calc(((1160px / 3) - 40px) * 2 / 3);overflow:hidden;}
 .one-designer .info{height:60px;width:100%;background:#fff;position:relative;}
 .one-designer .info .avatar{position:absolute;width:70px;height:70px;overflow:hidden;border-radius: 70px;bottom:20px;left:20px;}
 .one-designer .info .title{width:calc(100% - 120px);height:100%;right:0;position:absolute;text-align:right;margin-right:20px;display:table;}
@@ -122,6 +122,7 @@
 .index-banner .index-banner-pic{height:100%;width:100%;position:absolute;}
 .index-banner .index-banner-inner{position:relative;z-index:2;height:100%;}
 .index-banner .index-banner-inner .innerimg{display:inline-block;vertical-align: middle;}
+.index-banner .index-banner-inner .innertext{display:inline-block;vertical-align: middle;color:#333;line-height:30px;font-size:15px;}
 
 .one-portfolio{
 	-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.15);
@@ -175,8 +176,9 @@
 .portfolio-grid-4-1{float:left;width:220px;margin-right:15px;}
 .portfolio-grid-4-3{float:left;width:calc(100% - 250px);margin-left:15px;}
 
-.portfolio-grid-2-l{float:left;width:calc(50% - 15px);margin-right:15px;}
+.portfolio-grid-2-l{float:left;width:calc(50% - 15px);margin-right:15px;position:relative;}
 .portfolio-grid-2-r{float:left;width:calc(50% - 15px);margin-left:15px;}
+.portfolio-grid-2-l.other{width:100%;margin:0 auto;float:none;}
 
 .sidebar{
 	-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.15);
@@ -269,6 +271,36 @@
 
 .contact-wrap .input-textarea{max-width:100%;width:500px;height:192px;}
 
+.tab-con{display: none;}
+#tab-1{display:block;}
+
+.sticky.unfixed{top:-200px;transition:0.4s;}
+.sticky.unfixed.fixed{position:fixed;top:120px;width:calc((1160px * 0.5) - 15px);}
+
+.jc-bs3-container{width:360px;margin:0 auto;}
+
+.contact-designer{position:fixed;right:0;width:36px;top:40%;z-index: 99;text-align:center;right:-10px;transition:0.22s;padding-right:3px;background:rgba(53,98,190,0.4);}
+.contact-designer button{
+	background:rgba(53,98,190,0.4);
+	color:#fff;
+	width:100%;
+	font-size:14px;
+	font-weight:bold;
+	padding:14px 0;
+	display:inline-block;
+	min-height:120px;
+	text-align:center;
+	border:0;
+	line-height:16px;
+	outline:none;
+	transition:0.22s;
+}
+.contact-designer button i{margin-bottom:5px;}
+.contact-designer:hover{right:0;background:rgba(53,98,190,1);}
+.contact-designer:hover button{background:rgba(53,98,190,1);}
+
+.cd-textarea,.cd-input-text{width:100%;}
+
 @media screen and (min-width: 1200px){
 	.one-portfolio.flex-3:nth-child(2),.one-portfolio.flex-3:nth-child(3){flex:0 1 calc(66.666% - 20px);width:calc(66.666% - 20px);}
 }
@@ -290,7 +322,7 @@
 		width: calc(50% - 20px);
 	}
 	
-	.one-designer .pic{height: calc((((100vw - 40px) / 2 ) - 20px) / 3);}
+	.one-designer .pic{height: calc((((100vw - 40px) / 2 ) - 20px) * 2 / 3);}
 	
 	.one-portfolio.flex-3{
 		display: block;
@@ -314,6 +346,8 @@
 	.portfolio-grid-2-l{float:left;width:calc(60% - 15px);margin-right:15px;}
 	.portfolio-grid-2-r{float:left;width:calc(40% - 15px);margin-left:15px;}
 	
+	.portfolio-grid-2-l.other{width:100%;margin:0 auto;float:none;}
+	
 	.one-client.flex-4{
 		display: block;
 		margin: 0 10px 30px 10px;
@@ -323,6 +357,7 @@
 	
 	.one-client .pic{width:calc(100% - 20px);height: calc(((100vw - 290px) / 3) - 40px );border-radius: 50%;overflow:hidden;position:relative;margin:0 auto;}
 	
+	.sticky.unfixed.fixed{width:calc(((100vw - 40px) * 0.6) - 15px);}
 	
 }
 
@@ -347,7 +382,7 @@
 		width: calc(100% - 20px);
 	}
 	
-	.one-designer .pic{height: calc(((100vw - 20px) - 20px) / 3);}
+	.one-designer .pic{height: calc(((100vw - 20px) - 20px) * 2 / 3);}
 	
 	.one-portfolio.flex-3{
 		display: block;
@@ -383,6 +418,8 @@
 	.portfolio-grid-2-l{float:none;width:100%;margin-right:0;margin-bottom:40px;}
 	.portfolio-grid-2-r{float:none;width:100%;margin-left:0;}
 	
+	.portfolio-grid-2-l.other{width:100%;margin:0 auto;float:none;}
+	
 	.one-client.flex-4{
 		display: block;
 		margin: 0 10px 30px 10px;
@@ -393,6 +430,8 @@
 	
 	.designer-top-l{width:100%;margin-right:0;margin-left:0;display:block;vertical-align: top;float:none;margin-top:55px;}
 	.designer-top-r{width:100%;display:block;vertical-align: top;float:none;position:absolute;top:-145px;z-index:10;}
+	
+	.jc-bs3-container.container{width:calc(100% - 30px);}
 	
 }
 

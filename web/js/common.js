@@ -5,6 +5,8 @@ $(document).ready(function(){
 
 $(window).load(function() {
 	
+	$('.loading').delay(260).fadeTo(300,0,function() {$(this).hide();});
+	
 	$('select').niceSelect();
 	
 	//hover function
@@ -34,7 +36,7 @@ $(window).load(function() {
 	})
 	
 	
-	//menu scrolling
+	//menu scrolling 
 	$(window).scroll(function() {
 		var windscroll = $(window).scrollTop();
 		if (windscroll >= 400) {

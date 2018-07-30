@@ -45,7 +45,7 @@ Screen style's
 .menu .layer-1,.login-signup .layer-1{
     text-decoration: none;
     display: block;
-	font-size:16px;color:#4c515b;font-weight:bold;height:100px;padding: 0 30px;line-height:100px;
+	font-size:16px;color:#4c515b;font-weight:bold;height:80px;padding: 0 30px;line-height:80px;
 	transition:0.22s;
 	position:relative;
 }
@@ -206,11 +206,9 @@ Mobile style's
 
 
 @media screen and (min-width: 1200px) {
-	header .fixarea .fxarea-rwd{width:1160px;margin:0 auto;display:block;height:100px;padding:0 20px;}
-	.layer-1-li .menu-line:after{content:"";position:absolute;background:url(../images/common/menu-line.jpg) no-repeat;display:block;width:1px;height:100px;top:0;right:0;}
-	.layer-1-li:nth-last-child(1) .menu-line:after{display:none;}
+	header .fixarea .fxarea-rwd{width:1160px;margin:0 auto;display:block;height:80px;padding:0 20px;}
 	.menu .layer-2-adj{width:1200px;margin:0 auto;}
-	.menu ul.layer-2-ul{width:100%;top:100px;background:#0d0d0e;border-bottom:none;}
+	.menu ul.layer-2-ul{width:100%;top:80px;background:#0d0d0e;border-bottom:none;}
 	.menu .layer-3:hover h4{color:#3b84fb;background:#000;}
 	
 	.menu li.layer-1-li.active .layer-1::after{
@@ -221,7 +219,7 @@ Mobile style's
 		background:#fff;
 		left:0;right:0;
 		margin:0 auto;
-		top:70px;
+		top:58px;
 	}
 	
 	
@@ -235,18 +233,18 @@ Mobile style's
 	}
 	
     .menu-container {
-        width: 100px;
+        width: 80px;
     }
     .menu-mobile {
 		float:right;
         display: block;
-		height:100px;
+		height:80px;
 		cursor:pointer;
 		position:relative;
     }
 	.menu-mobile:after {
-		width:100px;
-		height:100px;
+		width:80px;
+		height:80px;
 		content: "";
 		background:url(../images/common/menu.png) no-repeat center center;
 		display:block;
@@ -256,8 +254,8 @@ Mobile style's
 	}
 	
 	.menu-mobile.close:after {
-		width:100px;
-		height:100px;
+		width:80px;
+		height:80px;
 		content: "";
 		background:url(../images/common/menu-close.png) no-repeat center center;
 		display:block;
@@ -344,8 +342,8 @@ Mobile style's
 }
 
 @media screen and (max-width: 767px) {
-	header .menu-container{height:52px;}
-	.menu-mobile,.menu-mobile:after,.menu-mobile.close:after{height:100px;}
+	header .menu-container{height:80px;}
+	.menu-mobile,.menu-mobile:after,.menu-mobile.close:after{height:80px;}
 	.login-signup ul.layer-1-ul {margin:0;overflow:hidden;text-align:right;}	
 	.menu ul.layer-1-ul.show-on-mobile{top:auto;}
 	.login-signup li.layer-1-li{float:none;display:inline-block;}
