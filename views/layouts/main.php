@@ -41,8 +41,11 @@ AppAsset::register($this);
 
 </head>
 <body>
-<?php $this->beginBody() ?>
 
+<div class="loading relative">
+	<div class="loading_animation cenmid"><img src="images/common/loading.gif" alt="" /></div>
+</div>
+	
 
 <div class="wrap">
 
@@ -141,68 +144,48 @@ AppAsset::register($this);
 		<div class="fixarea">
 			<!---->
 			<div class="fxarea-rwd">
-
 				<a href="index.html" class="logo relative block" hov="0.75"><span class="helper"></span><img class="" src="images/common/logo.png" alt="" /></a>
-
 				<!--menu-->
 				<div class="menu-container">
-
 					<div class="menu">
-
 						<ul class="layer-1-ul">
-
 							<li class="layer-1-li">
 
 								<!--search-->
 								<div class="rwd-menu-search">
-
 									<form class="menu-search-form">
 										<input type="text" class="input-text" placeholder="搜尋關鍵字" />
-
 										<button type="submit" class="search-mag"><i class="fas fa-search"></i></button>
 									</form>
-
 								</div>
 								<!--search-->
 							</li>
-
 							<li class="layer-1-li"><a href="portfolio.html" class="layer-1 menu-line"><h2>精選作品</h2></a></li>
 							<li class="layer-1-li"><a href="designer.html" class="layer-1 menu-line"><h2>合作設計師</h2></a></li>
 							<li class="layer-1-li"><a href="client.html" class="layer-1 menu-line"><h2>我們的客戶</h2></a></li>
 							<li class="layer-1-li"><a href="contact.html" class="layer-1 menu-line"><h2>聯絡／詢價</h2></a></li>
-
 						</ul>
-
 					</div>
-
 				</div>
 				<!--menu-->
 
 				<!--search-->
 				<div class="menu-search">
-
 					<div class="v-helper"></div>
 					<div class="wrap">
-
 					<div class="menu-search-btn"></div>
-
 					<form class="menu-search-form">
 						<input type="text" class="input-text" placeholder="搜尋關鍵字" />
-
 						<button type="submit" class="search-mag"><i class="fas fa-search"></i></button>
 					</form>
-
 					</div>
-
 				</div>
 				<!--search-->
 
 			</div>	
 			<!---->
-
 		</div>
 		<!--header fxarea-->
-
 	</header>
 	<!--end header-->
 
@@ -215,13 +198,56 @@ AppAsset::register($this);
 	</div>
 </div>
 
-<footer class="footer">
-	<div class="container">
-		<p class="pull-left">&copy; 光隆印刷 <?= date('Y') ?></p>
+<!--start footer-->
+<footer>
+
+	<!--rwd width limited-->
+	<div class="rwd-width-limited">
+		<div class="clearfix">
+			<div class="footer-r">
+				<!--
+				<div class="one-contact">
+					<h3>某某某某</h3>
+					<p><a href="other.html" hov="0.8">其他頁</a></p>
+					<p><a href="other.html" hov="0.8">其他其他其</a></p>
+				</div>
+
+				<div class="one-contact">
+					<h3>說明說明</h3>
+					<p><a href="other.html" hov="0.8">說明說明說明說明</a></p>
+				</div>
+
+				<div class="one-contact">
+					<h3>bnlablabla</h3>
+					<p><a href="other.html" hov="0.8">說明說明說明說明</a></p>
+				</div>
+				-->
+
+				<div class="one-contact">
+					<h3>聯絡資訊</h3>
+					<p><span class="bold">電話：</span><a href="tel:+886-2-2999-9099" hov="0.8">＋886-2-2999-9099</a></p>
+					<p><span class="bold">地址：</span><a href="https://goo.gl/maps/SssLWqhx4jo" hov="0.8">新北市三重區光復路一段83巷8號2樓</a></p>
+				</div>
+
+				<div class="one-contact">
+					<h3>營業時間</h3>
+					<p>星期一 至 星期五<br />08：00 至 18：00</p>
+				</div>
+			</div>
+
+			<div class="footer-l">
+				<div class="social">
+					<a href="#"><span class="v-helper"></span><i class="fab fa-facebook-f"></i></a>
+					<a href="#"><span class="v-helper"></span><i class="fab fa-instagram"></i></a>
+					<a href="#"><span class="v-helper"></span><i class="fab fa-line"></i></a>
+					<a href="#"><span class="v-helper"></span><i class="far fa-envelope"></i></a>
+				</div>
+				<div class="privacy">Copyright © 光隆印刷廠股份有限公司, All Rights Reserved.</div>
+			</div>
+		</div>
 	</div>
 </footer>
-
-
+<!--end footer-->
 
 <!-- Javascript
 ================================================== -->
@@ -235,64 +261,8 @@ AppAsset::register($this);
 <script src="js/megamenu.js"></script>
 <script src="js/slick.js"></script>
 <script src="js/common.js"></script>
+<script src="js/index.js"></script>
 
-<script>
-	$(document).ready(function(){
-
-		//flex
-		$('.flexslider').flexslider({
-			animation: "fade",
-			slideshow:true,
-			slideshowSpeed:5200,
-			animationSpeed:800,
-			controlNav:false,
-			start: function(slider){
-			  $('body').removeClass('loading');
-			}
-		});
-		//flex
-
-
-		//slick
-		$(".regular").slick({
-			dots: false,
-			infinite: true,
-			slidesToShow: 2,
-			slidesToScroll: 2,
-			autoplay:true,
-			//arrows: false,
-			autoplaySpeed:2000,
-			speed:500,
-			respondTo : 'window',
-			mobileFirst:true,
-			pauseOnFocus: false, 
-			responsive:[
-				{
-					breakpoint: 1200,
-					settings: {
-						slidesToShow: 6,
-						slidesToScroll: 6,
-						autoplaySpeed:3000,
-						speed:800
-					}
-				},
-				
-				{
-					breakpoint: 768,
-					settings: {
-						slidesToShow: 4,
-						slidesToScroll: 4,
-						autoplaySpeed:2500
-				  	}
-				}
-		  	]
-		});
-		//slick
-
-	});
-</script>
-
-<?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
