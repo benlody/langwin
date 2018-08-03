@@ -11,6 +11,8 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Portfolio;
 use app\models\PortfolioSearch;
+use app\models\Designer;
+use app\models\DesignerSearch;
 
 //use app\models\PasswordResetRequestForm;
 //use app\models\ResetPasswordForm;
@@ -75,9 +77,24 @@ class SiteController extends Controller
 		$searchModel = new PortfolioSearch();
 		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+		$desginer_searchModel = new DesignerSearch();
+		$designer_array = $desginer_searchModel->designer_search(6);
+
+		$service_list = array();
+		$service_list = [
+				['name' => '名片', 'ico_src' => 'images/index/si-ico-ncard.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
+				['name' => '書籍', 'ico_src' => 'images/index/si-ico-book.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
+				['name' => '型錄', 'ico_src' => 'images/index/si-ico-catalog.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
+				['name' => 'DM', 'ico_src' => 'images/index/si-ico-dm.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
+				['name' => '卡片', 'ico_src' => 'images/index/si-ico-card.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
+				['name' => '信封', 'ico_src' => 'images/index/si-ico-env.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
+		];
+
 		return $this->render('index', [
 			'searchModel' => $searchModel,
 			'dataProvider' => $dataProvider,
+			'designer_array' => $designer_array,
+			'service_list' => $service_list,
 		]);
 
 //		return $this->render('index');
