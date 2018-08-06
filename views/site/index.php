@@ -6,14 +6,6 @@
 use yii\helpers\Html;
 use yii\widgets\ListView;
 
-/*
-
-$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/masonry.pkgd.js',['depends' => [yii\web\JqueryAsset::className()]]);
-$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/imagesloaded.pkgd.js',['depends' => [yii\web\JqueryAsset::className()]]);
-$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/portfolio-index.js',['depends' => [yii\web\JqueryAsset::className()]]);
-$this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/portfolio-index.css');
-
-*/
 $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 ?>
 	<!--visual-->
@@ -179,52 +171,37 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 				</div> 
 				<div class="clearfix flex-sec">
 
-					<!--one portfolio-->
-					<div class="one-portfolio flex-3">
-						<a href="portfolio-inner.html" class="one-portfolio-top" hov="0.8">
-							<div class="pic"><img src="images/tmp/BU8B3150.jpg" class="v-centerimg" alt="" /></div>
-							<div class="info">
-								<div class="title"><h3>有心咖啡菜單有心咖啡菜單</h3></div>
-								<div class="sub-info">
-									<div class="sub-title-wrap">
-										<p class="sub-title"><span>Design</span>開和跳工作室</p>
-										<p class="sub-title"><span>Client</span>有心咖啡</p>
-									</div>
-								</div>
-								<div class="line"></div>
-							</div>
-						</a>
-						<div class="tag-wrap">
-							<a href="#" class="one-tag">菜單</a>
-							<a href="#" class="one-tag">菜單</a>
-						</div>
-					</div>
-					<!--one portfolio-->
 
-					<!--one portfolio-->
-					<div class="one-portfolio flex-3">
-						<a href="portfolio-inner.html" class="one-portfolio-top" hov="0.8">
-							<div class="pic"><img src="images/tmp/BU8B3150.jpg" class="v-centerimg" alt="" /></div>
-							<div class="info">
-								<div class="title"><h3>有心咖啡菜單有心咖啡菜單</h3></div>
-								<div class="sub-info">
-									<div class="sub-title-wrap">
-										<p class="sub-title"><span>Design</span>開和跳工作室</p>
-										<p class="sub-title"><span>Client</span>有心咖啡</p>
-									</div>  
-								</div>
-								<div class="line"></div>
-							</div>
-						</a>
-						<div class="tag-wrap">
-							<a href="#" class="one-tag">菜單</a>
-							<a href="#" class="one-tag">菜單</a>
-						</div>
-					</div>
-					<!--one portfolio-->
+				<?php
+					foreach ($portfolio_array as $portfolio) {
+						$portfolio_p_title = $portfolio['p_title'];
+						$portfolio_d_title = $portfolio['d_title'];
+						$portfolio_c_title = $portfolio['c_title'];
+						$portfolio_link = 'index.php?r=portfolio%2Fview&id='.$portfolio['portfolio_id'];
+						$portfolio_thumb = Yii::$app->request->getBaseUrl().'/images/'.$portfolio['portfolio_id'].'/'.$portfolio['thumb'];
+						$portfolio_tag = explode(",",$portfolio['tag']);
 
+						$item = "<div class='one-portfolio flex-3'>";
+						$item = $item."<a href='".$portfolio_link."' class='one-portfolio-top' hov='0.8'>";
+						$item = $item."<div class='pic'><img src='".$portfolio_thumb."' class='v-centerimg' alt='' /></div>";
+						$item = $item."<div class='info'>";
+						$item = $item."<div class='title'><h3>".$portfolio_p_title."'</h3></div>";
+						$item = $item."<div class='sub-info'><div class='sub-title-wrap'>";
+						$item = $item."<p class='sub-title'><span>Design</span>".$portfolio_d_title."</p>";
+						$item = $item."<p class='sub-title'><span>Client</span>".$portfolio_c_title."</p>";
+						$item = $item."</div></div><div class='line'></div></div></a><div class='tag-wrap'>";
+						for ($idx = 0; $idx < 4; $idx++){
+							if(!$portfolio_tag[$idx]){
+								break;
+							}
+							$item = $item."<a href='/langwin/web/index.php?r=portfolio%2Findex&search=".$portfolio_tag[$idx]."' class='one-tag'>".$portfolio_tag[$idx]."</a>";
+						}
+						$item = $item."</div></div>";
+						echo $item;
+					}
+				?>
 					<!--one portfolio-->
-					<div class="one-portfolio flex-3">
+					<!--div class="one-portfolio flex-3">
 						<a href="portfolio-inner.html" class="one-portfolio-top" hov="0.8">
 							<div class="pic"><img src="images/tmp/BU8B3150.jpg" class="v-centerimg" alt="" /></div>
 							<div class="info">
@@ -242,172 +219,13 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 							<a href="#" class="one-tag">菜單</a>
 							<a href="#" class="one-tag">菜單</a>
 						</div>
-					</div>
+					</div-->
 					<!--one portfolio-->
-
-					<!--one portfolio-->
-					<div class="one-portfolio flex-3">
-						<a href="portfolio-inner.html" class="one-portfolio-top" hov="0.8">
-							<div class="pic"><img src="images/tmp/BU8B3150.jpg" class="v-centerimg" alt="" /></div>
-							<div class="info">
-								<div class="title"><h3>有心咖啡菜單有心咖啡菜單</h3></div>
-								<div class="sub-info">
-									<div class="sub-title-wrap">
-										<p class="sub-title"><span>Design</span>開和跳工作室</p>
-										<p class="sub-title"><span>Client</span>有心咖啡</p>
-									</div>  
-								</div>
-								<div class="line"></div>
-							</div>
-						</a>
-						<div class="tag-wrap">
-							<a href="#" class="one-tag">菜單</a>
-							<a href="#" class="one-tag">菜單</a>
-						</div>
-					</div>
-					<!--one portfolio-->
-					
-					<!--one portfolio-->
-					<div class="one-portfolio flex-3">
-						<a href="portfolio-inner.html" class="one-portfolio-top" hov="0.8">
-							<div class="pic"><img src="images/tmp/BU8B3150.jpg" class="v-centerimg" alt="" /></div>
-							<div class="info">
-								<div class="title"><h3>有心咖啡菜單有心咖啡菜單</h3></div>
-								<div class="sub-info">
-									<div class="sub-title-wrap">
-										<p class="sub-title"><span>Design</span>開和跳工作室</p>
-										<p class="sub-title"><span>Client</span>有心咖啡</p>
-									</div>  
-								</div>
-								<div class="line"></div>
-							</div>
-						</a>
-						<div class="tag-wrap">
-							<a href="#" class="one-tag">菜單</a>
-							<a href="#" class="one-tag">菜單</a>
-						</div>
-					</div>
-					<!--one portfolio-->
-					
-					<!--one portfolio-->
-					<div class="one-portfolio flex-3">
-						<a href="portfolio-inner.html" class="one-portfolio-top" hov="0.8">
-							<div class="pic"><img src="images/tmp/BU8B3150.jpg" class="v-centerimg" alt="" /></div>
-							<div class="info">
-								<div class="title"><h3>有心咖啡菜單有心咖啡菜單</h3></div>
-								<div class="sub-info">
-									<div class="sub-title-wrap">
-										<p class="sub-title"><span>Design</span>開和跳工作室</p>
-										<p class="sub-title"><span>Client</span>有心咖啡</p>
-									</div>  
-								</div>
-								<div class="line"></div>
-							</div>
-						</a>
-						<div class="tag-wrap">
-							<a href="#" class="one-tag">菜單</a>
-							<a href="#" class="one-tag">菜單</a>
-						</div>
-					</div>
-					<!--one portfolio-->
-					
-					<!--one portfolio-->
-					<div class="one-portfolio flex-3">
-						<a href="portfolio-inner.html" class="one-portfolio-top" hov="0.8">
-							<div class="pic"><img src="images/tmp/BU8B3150.jpg" class="v-centerimg" alt="" /></div>
-							<div class="info">
-								<div class="title"><h3>有心咖啡菜單有心咖啡菜單</h3></div>
-								<div class="sub-info">
-									<div class="sub-title-wrap">
-										<p class="sub-title"><span>Design</span>開和跳工作室</p>
-										<p class="sub-title"><span>Client</span>有心咖啡</p>
-									</div>  
-								</div>
-								<div class="line"></div>
-							</div>
-						</a>
-						<div class="tag-wrap">
-							<a href="#" class="one-tag">菜單</a>
-							<a href="#" class="one-tag">菜單</a>
-						</div>
-					</div>
-					<!--one portfolio-->
-					
-					<!--one portfolio-->
-					<div class="one-portfolio flex-3">
-						<a href="portfolio-inner.html" class="one-portfolio-top" hov="0.8">
-							<div class="pic"><img src="images/tmp/BU8B3150.jpg" class="v-centerimg" alt="" /></div>
-							<div class="info">
-								<div class="title"><h3>有心咖啡菜單有心咖啡菜單</h3></div>
-								<div class="sub-info">
-									<div class="sub-title-wrap">
-										<p class="sub-title"><span>Design</span>開和跳工作室</p>
-										<p class="sub-title"><span>Client</span>有心咖啡</p>
-									</div>  
-								</div>
-								<div class="line"></div>
-							</div>
-						</a>
-						<div class="tag-wrap">
-							<a href="#" class="one-tag">菜單</a>
-							<a href="#" class="one-tag">菜單</a>
-						</div>
-					</div>
-					<!--one portfolio-->
-					
-					<!--one portfolio-->
-					<div class="one-portfolio flex-3">
-						<a href="portfolio-inner.html" class="one-portfolio-top" hov="0.8">
-							<div class="pic"><img src="images/tmp/BU8B3150.jpg" class="v-centerimg" alt="" /></div>
-							<div class="info">
-								<div class="title"><h3>有心咖啡菜單有心咖啡菜單</h3></div>
-								<div class="sub-info">
-									<div class="sub-title-wrap">
-										<p class="sub-title"><span>Design</span>開和跳工作室</p>
-										<p class="sub-title"><span>Client</span>有心咖啡</p>
-									</div>  
-								</div>
-								<div class="line"></div>
-							</div>
-						</a>
-						<div class="tag-wrap">
-							<a href="#" class="one-tag">菜單</a>
-							<a href="#" class="one-tag">菜單</a>
-						</div>
-					</div>
-					<!--one portfolio-->
-					
-					<!--one portfolio-->
-					<div class="one-portfolio flex-3">
-						<a href="portfolio-inner.html" class="one-portfolio-top" hov="0.8">
-							<div class="pic"><img src="images/tmp/BU8B3150.jpg" class="v-centerimg" alt="" /></div>
-							<div class="info">
-								<div class="title"><h3>有心咖啡菜單有心咖啡菜單</h3></div>
-								<div class="sub-info">
-									<div class="sub-title-wrap">
-										<p class="sub-title"><span>Design</span>開和跳工作室</p>
-										<p class="sub-title"><span>Client</span>有心咖啡</p>
-									</div>  
-								</div>
-								<div class="line"></div>
-							</div>
-						</a>
-						<div class="tag-wrap">
-							<a href="#" class="one-tag">菜單</a>
-							<a href="#" class="one-tag">菜單</a>
-						</div>
-					</div>
-					<!--one portfolio-->
-					
 				</div>
-				
-				<div class="tcenter mg-t-20"><a href="#" class="btn" hov="0.8">更多<i class="fas fa-angle-right mg-l-15"></i></a></div>
-				
+				<div class="tcenter mg-t-20"><a href="/langwin/web/index.php?r=portfolio%2Findex" class="btn" hov="0.8">更多<i class="fas fa-angle-right mg-l-15"></i></a></div>
 			</div>
 			<!--rwd width limited -->
-			
 		</section>
 		<!--full width block-->
-		
 	</div>
 	<!--end main-->

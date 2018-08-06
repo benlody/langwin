@@ -74,8 +74,8 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 
-		$searchModel = new PortfolioSearch();
-		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+		$portfolio_searchModel = new PortfolioSearch();
+		$portfolio_array = $portfolio_searchModel->portfolio_search(10);
 
 		$desginer_searchModel = new DesignerSearch();
 		$designer_array = $desginer_searchModel->designer_search(6);
@@ -92,7 +92,7 @@ class SiteController extends Controller
 
 		return $this->render('index', [
 			'searchModel' => $searchModel,
-			'dataProvider' => $dataProvider,
+			'portfolio_array' => $portfolio_array,
 			'designer_array' => $designer_array,
 			'service_list' => $service_list,
 		]);

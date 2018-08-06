@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Portfolio;
+use yii\db\Query;
 
 /**
  * PortfolioSearch represents the model behind the search form about `app\models\Portfolio`.
@@ -141,6 +142,21 @@ class PortfolioSearch extends Portfolio
 
 		return $dataProvider;
 
+	}
+
+	public function portfolio_search($limit)
+	{
+		$query = new Query;
+
+		// add conditions that should always apply here
+
+		$portfolio_array = $query->select("p.portfolio_id, p.title AS p_title, d.title AS d_title, c.title AS c_title, p.tag, p.thumb")
+			->from("portfolio AS p, designer AS d, client AS c")
+			->Where("p.designer_id = d.designer_id AND p.company_id = c.client_id")
+			->limit($limit)
+			->all();
+
+		return $portfolio_array;
 	}
 
 
