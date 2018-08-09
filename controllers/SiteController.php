@@ -91,7 +91,6 @@ class SiteController extends Controller
 		];
 
 		return $this->render('index', [
-			'searchModel' => $searchModel,
 			'portfolio_array' => $portfolio_array,
 			'designer_array' => $designer_array,
 			'service_list' => $service_list,

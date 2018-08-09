@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Designer;
+use yii\db\Query;
 
 /**
  * DesignerSearch represents the model behind the search form about `app\models\Designer`.
@@ -72,7 +73,7 @@ class DesignerSearch extends Designer
 		return $dataProvider;
 	}
 
-	public function designer_search($limit)
+	public function designer_search($limit, $offset=0)
 	{
 		$query = Designer::find();
 
@@ -80,10 +81,25 @@ class DesignerSearch extends Designer
 
 		$designer = $query->andFilterWhere(['!=', 'designer_id', '0_no_designer'])
 			->limit($limit)
+			->offset($offset)
 			->all();
 
 		return $designer;
 	}
+
+	public function count()
+	{
+		$query = new Query;
+
+		// add conditions that should always apply here
+
+		$count = $query->select("COUNT(*)")
+			->from("designer")
+			->one();
+
+		return $count['COUNT(*)'] - 1;
+	}
+
 
 }
 

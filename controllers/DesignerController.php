@@ -38,14 +38,28 @@ class DesignerController extends Controller
 	 * Lists all Designer models.
 	 * @return mixed
 	 */
-	public function actionIndex()
+	public function actionIndex($page=1)
 	{
-		$searchModel = new DesignerSearch();
-		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+		$page_size = 40;
+		$designer_searchModel = new DesignerSearch();
+
+		$designer_cnt = $designer_searchModel->count();
+		$page_max = ceil($designer_cnt/$page_size);
+
+		if($page > $page_max){
+			$page = $page_max;
+		} else if ($page < 1){
+			$page = 1;
+		}
+		$offset = ($page-1)*$page_size;
+
+		$designer_array = $designer_searchModel->designer_search($page_size, $offset);
 
 		return $this->render('index', [
-			'searchModel' => $searchModel,
-			'dataProvider' => $dataProvider,
+			'designer_array' => $designer_array,
+			'page' => $page,
+			'page_max' => $page_max,
+			'designer_cnt' => $designer_cnt,
 		]);
 	}
 
