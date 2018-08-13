@@ -42,8 +42,6 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 				<div class="regular slider si-slider">
 					<?php
 						foreach ($service_list as $key => $value) {
-							print_r($key);
-							print_r($value);
 							$out = "<a href='/langwin/web/index.php?r=portfolio%2Findex&search=".$value['name']."' class='relative si-item'>";
 							$out = $out."<img src='".$value['bg_src']."' alt='' class='v-centerimg' />";
 							$out = $out."<div class='cover'></div><div class='con'><div class='v-helper'></div><div class='inlineblock vmiddle'>";

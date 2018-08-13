@@ -37,6 +37,7 @@ AppAsset::register($this);
 	<link rel="stylesheet" href="css/slick-theme.css">
 	<link rel="stylesheet" href="css/flexslider.css">
 	<link rel="stylesheet" href="css/nice-select.css">
+	<link rel="stylesheet" href="css/jquery-confirm.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 </head>
@@ -260,8 +261,70 @@ AppAsset::register($this);
 <script src="js/jquery.nice-select.js"></script>
 <script src="js/megamenu.js"></script>
 <script src="js/slick.js"></script>
+<script src="js/jquery-confirm.js"></script>
+<script src="js/expandcollapse.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
 <script src="js/common.js"></script>
+<script src="js/p-inner.js"></script>
 <script src="js/index.js"></script>
+
+<script>
+$(document).ready(function(){
+
+	//submit confirm
+	$('.cd-btn').on('click', function (){
+		$.confirm({
+			title: '聯絡設計師',
+			content: '' +
+			'<form action="" class="">' +
+			'<div class="form-group">' +
+			'<input type="text" class="input-text block cd-input-text mg-b-20 cd-mail" placeholder="輸入您的 Email" required />' +
+			'<textarea class="input-textarea block cd-textarea cd-con" placeholder="輸入內容" required ></textarea>' +
+			'</div>' +
+			'</form>',
+			buttons: {
+				formSubmit: {
+					text: '送 出',
+					btnClass: 'cd-btn-blue',
+					action: function () {
+						var cdcon = this.$content.find('.cd-con').val();
+						var cdmail = this.$content.find('.cd-mail').val();
+						if(!cdcon || !cdmail){
+							if(!cdcon && !cdmail){
+								$.alert('請輸入 Email 及 內容');
+								return false;
+							}
+							else if(!cdcon){
+								$.alert('請輸入內容');
+								return false;
+							}
+							else if(!cdmail){
+								$.alert('請輸入 Email');
+								return false;
+							}
+						}
+						$.alert('已送出');
+					}
+				},
+				cancel: function () {
+					//close
+				},
+			},
+
+			onContentReady: function () {
+				// bind to events
+				var jc = this;
+				this.$content.find('form').on('submit', function (e) {
+					// if the user submits the form by pressing enter in the field.
+					e.preventDefault();
+					jc.$$formSubmit.trigger('click'); // reference the button and click it
+				});
+			}
+		});
+	});
+});
+</script>
+
 
 </body>
 </html>

@@ -52,7 +52,6 @@ $this->title = 'Designers';
 					$item = $item."<div class='title'><h3>".$desginer_name."</h3></div></div></a>";
 					echo $item;
 				}
-				$xxxx = "1111";
 			?>
 			</div>
 			<nav class="page-menu relative">

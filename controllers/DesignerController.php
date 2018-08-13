@@ -89,11 +89,11 @@ class DesignerController extends Controller
 
 		$portfolioSearchModel = new PortfolioSearch();
 		$model = $this->findModel($id);
-		$dataProvider = $portfolioSearchModel->search_by_designer($model->designer_id);
+		$portfolio_array = $portfolioSearchModel->search_by_designer($model->designer_id);
 
 		return $this->render('view', [
 			'model' => $model,
-			'dataProvider' => $dataProvider,
+			'portfolio_array' => $portfolio_array,
 		]);
 	}
 

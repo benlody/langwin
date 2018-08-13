@@ -102,23 +102,17 @@ class PortfolioSearch extends Portfolio
 
 	public function search_by_designer($search)
 	{
-		$query = Portfolio::find();
+		$query = new Query;
 
 		// add conditions that should always apply here
 
-		$dataProvider = new ActiveDataProvider([
-			'query' => $query,
-			'pagination' => [
-					'pageSize' => 50,
-			],
-		]);
+		$portfolio_array = $query->select("p.portfolio_id, p.title AS p_title, d.title AS d_title, c.title AS c_title, p.tag, p.thumb")
+			->from("portfolio AS p, designer AS d, client AS c")
+			->Where("p.designer_id = d.designer_id AND p.company_id = c.client_id AND p.designer_id = '".$search."'")
+//			->limit($limit)
+			->all();
 
-
-		$query->orFilterWhere(['designer_id' => $search]);
-
-//		$query->addOrderBy('date DESC');
-
-		return $dataProvider;
+		return $portfolio_array;
 
 	}
 

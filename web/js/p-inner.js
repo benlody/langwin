@@ -30,6 +30,9 @@ $(document).ready(function(){
 	
 	$(window).scroll(function() {
 		
+		if(!$(".sticky-over").offset()){
+			return;
+		}
 		var Pinner = $(window).scrollTop();
 		var StickyTop = $(".sticky-over").offset().top;
 		var StickyBottom = StickyTop + $(".sticky-over").outerHeight() - $('header').height();
