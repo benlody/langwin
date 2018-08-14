@@ -125,17 +125,14 @@ class PortfolioController extends Controller
 		if( file_exists ('./images/'.$model->portfolio_id )){
 			$photos = preg_grep('/^([^.])/', scandir('./images/'.$model->portfolio_id));
 			foreach ($photos as $key => $value) {
-				$photos[$key] = '/images/'.$model->portfolio_id.'/'.$value;
+				$photos[$key] = 'images/'.$model->portfolio_id.'/'.$value;
 			}
 		}
-
-		$designerPortfolioDataProvider = $designerPortfolioSearchModel->search_by_designer($model->designer_id);
 
 		return $this->render('view', [
 			'model' => $model,
 			'designer_model' => $designer_model,
 			'client_model' => $client_model,
-			'designerPortfolioDataProvider' => $designerPortfolioDataProvider,
 			'photos' => $photos
 		]);
 	}

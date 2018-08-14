@@ -7,113 +7,94 @@ use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Portfolio */
 
-$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/masonry.pkgd.js',['depends' => [yii\web\JqueryAsset::className()]]);
-$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/imagesloaded.pkgd.js',['depends' => [yii\web\JqueryAsset::className()]]);
-$this->registerJsFile(Yii::$app->request->getBaseUrl().'/js/portfolio-index.js',['depends' => [yii\web\JqueryAsset::className()]]);
-$this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/portfolio-index.css');
-
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Portfolios', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="portfolio-view">
-
-	<h1><?= Html::encode($this->title) ?></h1>
-
-	<div class="portfolio-photos">
-	<?php
-		if(is_array($photos )){
-			foreach ($photos as $key => $value) {
-				echo '<img src="'.Yii::$app->request->getBaseUrl().$value.'">';
-			}
-		}
-	 ?>
+	<!--visual-->
+	<div class="page-visual">
+		<div class="pic"><div class="cover"></div><img src=<?= "images/".$model->portfolio_id.'/'.$model->thumb ?> class="v-centerimg" alt="" /></div>
+		<div class="title"><span class="v-helper"></span><h2><?= $model->title ?></h2></div>
 	</div>
+	<!---visual-->
 
-	<div class="portfolio-content">
-		<p>
-		<p><label> Content </label></p>
-	<?php
+	<!--start main-->
+	<div class="wrapper">
+		<!--full width block-->
+		<section class="pd-v-50 bg-yf">
+			<!--rwd width limited-->
+			<div class="rwd-width-limited clearfix sticky-wrapper">
+				<div class="portfolio-grid-2-l">
+					<!--sticky fixed area-->
+					<div class="sticky unfixed">
 
-		echo str_replace("\n","<br>" , $model->content);
+						<div class="mg-b-30">
+							<!--title & tab-->
+							<div class="clearfix index-tab mg-b-10">
+								<h2 class="text-24 lh-40 color-d-blue bold left"><?= $model->title ?></h2>
+							</div>
+							<!--title & tab-->
+						</div>
 
-	?>
-		</p>
-	</div>
+						<? if(0 != strcmp( $model->company_id, "0_no_client")): ?>
+						<p class="sub-title"><span>Client</span></p>
+						<a href= <?= "index.php?r=ortfolio%2Findex&search=".$client_model->title ?> class="portfolio-avatar mg-b-30" hov="0.8">
+							<div class="pic"><img src=<?= Yii::$app->request->getBaseUrl().'/client/'.$client_model->logo ?> class="v-centerimg" alt="" /></div>
+							<p class="title"><?= $client_model->title ?></p>
+						</a>
+						<? endif; ?>
 
-	<div class="portfolio-spec">
-		<p>
-		<p><label> Spec </label></p>
-	<?php
+						<? if(0 != strcmp( $model->designer_id, "0_no_designer")): ?>
+						<p class="sub-title"><span>Design</span></p>
+						<a href= <?= "index.php?r=designer%2Fview&id=".$designer_model->designer_id ?> class="portfolio-avatar mg-b-30" hov="0.8">
+							<div class="pic"><img src=<?= Yii::$app->request->getBaseUrl().'/designer/'.$designer_model->photo ?> class="v-centerimg" alt="" /></div>
+							<p class="title"><?= $designer_model->title ?></p>
+						</a>
+						<? endif; ?>
 
-		echo str_replace("\n","<br>" , $model->spec);
+					</div>
+					<!--sticky fixed area-->
 
-	?>
-		</p>
-	</div>
+					<!--sticky over area-->
+					<div class="sticky-over">
+						<div class="page-inner-text mg-b-40">
+							<p><?= str_replace("\n","<br>" , $model->content); ?></p>
+						</div>
 
-	<div class="portfolio-tag">
-		<p>
-		<p><label> Tags </label></p>
-	<?php
-		$tag = preg_replace('/\s(?=)/', '', $model->tag);
-		$tag_list = explode(",", $tag);
-		foreach ($tag_list as $key => $value) {
-			echo '<a href = index.php?r=portfolio&search='.$value.'>'.$value.'</a><br>';
-		}
+						<div class="page-inner-text mg-b-40">
+							<h3 class="title">SPEC</h3>
+							<p><?= str_replace("\n","<br>" , $model->spec); ?></p>
+						</div>
 
-	?>
-		</p>
-	</div>
+						<div class="page-inner-text mg-b-40">
+							<h3 class="title">TAG</h3>
+							<div class="tag-wrap">
+								<?php
+									$portfolio_tag = explode(",",$model->tag);
+									foreach ($portfolio_tag as $tag){
+										echo '<a href="/langwin/web/index.php?r=portfolio%2Findex&search='.$tag.'" class="one-tag">'.$tag.'</a>';
+									}
+								?>
+							</div>
+						</div>
+					</div>
+					<!--sticky over area-->
+				</div>
 
-	<!-- 設計師區塊 -->
-	<? if(0 != strcmp( $model->designer_id, "0_no_designer")): ?>
+				<div class="portfolio-grid-2-r popup-gallery">
 
-	<div class="portfolio-designer">
-		<div class="portfolio-designer-logo">
-			<?= Html::img(Yii::$app->request->getBaseUrl().'/designer/' . $designer_model->photo) ?>
-		</div>
-		<div class="portfolio-designer-desc">
-			<?= Html::label($designer_model->title) ?>
-			<?= Html::label($designer_model->desc) ?>
-		</div>
-
-
-		<div class="portfolio-index">
-
-				<?= ListView::widget([
-					'dataProvider' => $designerPortfolioDataProvider,
-					'itemOptions' => ['class' => 'item'],
-					'id' => 'my-listview-id',
-					'layout' => '<div class="waterfall">{items}</div>{pager}',
-					'itemView' => function ($model, $key, $index, $widget) {
-						return '<div class="waterfall-item"><a href="'.
-								Yii::$app->request->getBaseUrl().'?r=portfolio%2Fview&amp;id='.urlencode($model->portfolio_id).
-								'"><img src="'.Yii::$app->request->getBaseUrl().'/images/'.$model->portfolio_id.'/'.$model->thumb.
-								'"></a>'.$model->title.'<br>'.$model->content.'</div>';
-					},
-				]); 
+				<?php
+					if(is_array($photos)){
+						foreach ($photos as $key => $value) {
+							echo '<a href="'.$value.'" class="portfolio-pic">';
+//							echo '<a href="'.$value.'" class="portfolio-pic" title="文字文字文描述">';
+							echo '<div class="cover"><span class="v-helper"></span><i class="fas fa-search-plus"></i></div>';
+							echo '<img src="'.$value.'" alt="" /></a>';
+						}
+					}
 				?>
-
-		</div>
+				</div>
+			</div>
+			<!--rwd width limited -->
+		</section>
+		<!--full width block-->
 	</div>
-	<? endif; ?>
-
-	<!-- 客戶區塊 -->
-	<? if(0 != strcmp( $model->company_id, "0_no_client")): ?>
-	<div class="portfolio-client">
-		<div class="portfolio-client-logo">
-			<?= Html::img(Yii::$app->request->getBaseUrl().'/client/' . $client_model->logo) ?>
-		</div>
-		<div class="portfolio-client-desc">
-			<?= Html::label($client_model->title) ?>
-			<?= Html::label($client_model->desc) ?>
-		</div>
-		<div class="portfolio-client-contact">
-			<?= Html::label($client_model->contact) ?>
-		</div>
-
-	</div>
-	<? endif; ?>
-
-</div>
+	<!--end main-->
