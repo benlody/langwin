@@ -161,10 +161,10 @@ AppAsset::register($this);
 								</div>
 								<!--search-->
 							</li>
-							<li class="layer-1-li"><a href="portfolio.html" class="layer-1 menu-line"><h2>精選作品</h2></a></li>
-							<li class="layer-1-li"><a href="designer.html" class="layer-1 menu-line"><h2>合作設計師</h2></a></li>
-							<li class="layer-1-li"><a href="client.html" class="layer-1 menu-line"><h2>我們的客戶</h2></a></li>
-							<li class="layer-1-li"><a href="contact.html" class="layer-1 menu-line"><h2>聯絡／詢價</h2></a></li>
+							<li class="layer-1-li"><a href="index.php?r=portfolio%2Findex" class="layer-1 menu-line"><h2>精選作品</h2></a></li>
+							<li class="layer-1-li"><a href="index.php?r=designer%2Findex" class="layer-1 menu-line"><h2>合作設計師</h2></a></li>
+							<li class="layer-1-li"><a href="index.php?r=client%2Findex" class="layer-1 menu-line"><h2>我們的客戶</h2></a></li>
+							<li class="layer-1-li"><a href="index.php?r=quotation%2Findex" class="layer-1 menu-line"><h2>聯絡／詢價</h2></a></li>
 						</ul>
 					</div>
 				</div>
@@ -175,8 +175,9 @@ AppAsset::register($this);
 					<div class="v-helper"></div>
 					<div class="wrap">
 					<div class="menu-search-btn"></div>
-					<form class="menu-search-form">
-						<input type="text" class="input-text" placeholder="搜尋關鍵字" />
+					<form class="menu-search-form" action="/langwin/web/index.php" method="get">
+						<input type="hidden" name="r" value="portfolio/index">
+						<input type="search" name="search" class="input-text" placeholder="搜尋關鍵字" />
 						<button type="submit" class="search-mag"><i class="fas fa-search"></i></button>
 					</form>
 					</div>
