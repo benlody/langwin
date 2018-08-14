@@ -59,7 +59,6 @@ class DesignerController extends Controller
 			'designer_array' => $designer_array,
 			'page' => $page,
 			'page_max' => $page_max,
-			'designer_cnt' => $designer_cnt,
 		]);
 	}
 

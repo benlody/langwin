@@ -56,14 +56,23 @@ class PortfolioController extends Controller
 	 * Lists all Portfolio models.
 	 * @return mixed
 	 */
-	public function actionIndex($search='', $token='')
+	public function actionIndex($search='', $token='', $page=1)
 	{
-		$searchModel = new PortfolioSearch();
-		if(0 != strcmp($search, '')){
-			$dataProvider = $searchModel->mysearch($search);
-		} else {
-			$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+		$page_size = 34;
+		$portfolio_searchModel = new PortfolioSearch();
+
+		$portfolio_cnt = $portfolio_searchModel->count();
+		$page_max = ceil($portfolio_cnt/$page_size);
+
+		if($page > $page_max){
+			$page = $page_max;
+		} else if ($page < 1){
+			$page = 1;
 		}
+		$offset = ($page-1)*$page_size;
+
+		$portfolio_array = $portfolio_searchModel->portfolio_search($page_size, $offset, $search);
 
 		if(0 != strcmp($token, '')){
 			$develope_model = Develope::findOne(['tracking_token' => $token]);
@@ -72,7 +81,10 @@ class PortfolioController extends Controller
 		}
 
 		return $this->render('index', [
-			'dataProvider' => $dataProvider,
+			'portfolio_array' => $portfolio_array,
+			'search' => $search,
+			'page' => $page,
+			'page_max' => $page_max,
 		]);
 	}
 

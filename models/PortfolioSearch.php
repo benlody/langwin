@@ -138,20 +138,38 @@ class PortfolioSearch extends Portfolio
 
 	}
 
-	public function portfolio_search($limit)
+	public function portfolio_search($limit, $offset=0, $search='')
 	{
 		$query = new Query;
 
 		// add conditions that should always apply here
+		if(0 != strcmp($search, '')){
+			$where = "(p.designer_id = d.designer_id AND p.company_id = c.client_id) AND (p.title like '%".$search."%' OR p.content like '%".$search."%' OR p.tag like '%".$search."%')";
+		} else {
+			$where = "p.designer_id = d.designer_id AND p.company_id = c.client_id";
+		}
 
 		$portfolio_array = $query->select("p.portfolio_id, p.title AS p_title, d.title AS d_title, c.title AS c_title, p.tag, p.thumb")
 			->from("portfolio AS p, designer AS d, client AS c")
-			->Where("p.designer_id = d.designer_id AND p.company_id = c.client_id")
+			->Where($where)
 			->limit($limit)
 			->all();
 
 		return $portfolio_array;
 	}
 
+	public function count()
+	{
+		$query = new Query;
+
+		// add conditions that should always apply here
+
+		$count = $query->select("COUNT(*)")
+			->from("portfolio")
+			->where("photo_uploaded = 1")
+			->one();
+
+		return $count['COUNT(*)'];
+	}
 
 }

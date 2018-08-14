@@ -69,7 +69,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 					<div class="mg-t-40 index-si-search">
 						<form action="/langwin/web/index.php" method="get">
 							<input type="hidden" name="r" value="portfolio/index">
-							<input type="search" name="search" class="input-text" placeholder="找不到你要的？試試搜尋功能！" />
+							<input type="text" name="search" class="input-text" placeholder="找不到你要的？試試搜尋功能！" />
 							<button type="submit" class="search-mag"><i class="fas fa-search"></i></button>
 						</form>
 					</div>
@@ -183,7 +183,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 						$item = $item."<a href='".$portfolio_link."' class='one-portfolio-top' hov='0.8'>";
 						$item = $item."<div class='pic'><img src='".$portfolio_thumb."' class='v-centerimg' alt='' /></div>";
 						$item = $item."<div class='info'>";
-						$item = $item."<div class='title'><h3>".$portfolio_p_title."'</h3></div>";
+						$item = $item."<div class='title'><h3>".$portfolio_p_title."</h3></div>";
 						$item = $item."<div class='sub-info'><div class='sub-title-wrap'>";
 						$item = $item."<p class='sub-title'><span>Design</span>".$portfolio_d_title."</p>";
 						$item = $item."<p class='sub-title'><span>Client</span>".$portfolio_c_title."</p>";

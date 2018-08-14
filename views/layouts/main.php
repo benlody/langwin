@@ -177,7 +177,7 @@ AppAsset::register($this);
 					<div class="menu-search-btn"></div>
 					<form class="menu-search-form" action="/langwin/web/index.php" method="get">
 						<input type="hidden" name="r" value="portfolio/index">
-						<input type="search" name="search" class="input-text" placeholder="搜尋關鍵字" />
+						<input type="text" name="search" class="input-text" placeholder="搜尋關鍵字" />
 						<button type="submit" class="search-mag"><i class="fas fa-search"></i></button>
 					</form>
 					</div>
