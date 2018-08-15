@@ -39,24 +39,23 @@ class ClientController extends Controller
 	 * Lists all Client models.
 	 * @return mixed
 	 */
-	public function actionIndex()
+	public function actionIndex($client_group_id = -1)
 	{
 		$searchModel = new ClientSearch();
 		$query_params = Yii::$app->request->queryParams;
 
 		$query = new Query;
-		$client_by_group = $query->select('client_group_id,'.'chinese_name')
+		$group_array = $query->select('client_group_id,'.'chinese_name')
 			->from('group')
 			->orderBy('rand()')
 			->all();
 
-		foreach ($client_by_group as $key => $value) {
-			$query_params['ClientSearch']['client_group_id'] = $value['client_group_id'];
-			$client_by_group[$key]['dataProvider'] = $searchModel->search($query_params);
-		}
+		$client_array = $searchModel->client_search($client_group_id);
 
 		return $this->render('index', [
-			'client_by_group' => $client_by_group,
+			'client_array' => $client_array,
+			'group_array' => $group_array,
+			'client_group_id' => $client_group_id,
 		]);
 	}
 
