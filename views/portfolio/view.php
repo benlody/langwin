@@ -35,18 +35,18 @@ $this->title = $model->title;
 						</div>
 
 						<? if(0 != strcmp( $model->company_id, "0_no_client")): ?>
-						<p class="sub-title"><span>Client</span></p>
-						<a href= <?= "index.php?r=ortfolio%2Findex&search=".$client_model->title ?> class="portfolio-avatar mg-b-30" hov="0.8">
+						<a href= <?= "index.php?r=ortfolio%2Findex&search=".$client_model->title ?> class="portfolio-avatar mg-b-15 inlineblock" hov="0.8">
 							<div class="pic"><img src=<?= Yii::$app->request->getBaseUrl().'/client/'.$client_model->logo ?> class="v-centerimg" alt="" /></div>
 							<p class="title"><?= $client_model->title ?></p>
+							<p class="name">／Client</p>
 						</a>
 						<? endif; ?>
 
 						<? if(0 != strcmp( $model->designer_id, "0_no_designer")): ?>
-						<p class="sub-title"><span>Design</span></p>
-						<a href= <?= "index.php?r=designer%2Fview&id=".$designer_model->designer_id ?> class="portfolio-avatar mg-b-30" hov="0.8">
+						<a href= <?= "index.php?r=designer%2Fview&id=".$designer_model->designer_id ?> class="portfolio-avatar mg-b-15 inlineblock" hov="0.8">
 							<div class="pic"><img src=<?= Yii::$app->request->getBaseUrl().'/designer/'.$designer_model->photo ?> class="v-centerimg" alt="" /></div>
 							<p class="title"><?= $designer_model->title ?></p>
+							<p class="name">／Design</p>
 						</a>
 						<? endif; ?>
 
