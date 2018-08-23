@@ -134,7 +134,9 @@ class QuotationController extends Controller
 			$model->date = date("Y-m-d", strtotime('today'));
 			$model->save();
 
-			return $this->redirect(['index']);
+			return $this->redirect('create', [
+				'model' => new Quotation(),
+			]);
 		} else {
 			return $this->render('create', [
 				'model' => $model,

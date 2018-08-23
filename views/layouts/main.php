@@ -33,6 +33,7 @@ AppAsset::register($this);
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/megamenu.css">
 	<link rel="stylesheet" href="css/pages.css">
+	<link rel="stylesheet" href="css/custom.css">
 	<link rel="stylesheet" href="css/slick.css">
 	<link rel="stylesheet" href="css/slick-theme.css">
 	<link rel="stylesheet" href="css/flexslider.css">
@@ -165,7 +166,7 @@ AppAsset::register($this);
 							<li class="layer-1-li"><a href="index.php?r=portfolio%2Findex" class="layer-1 menu-line"><h2>精選作品</h2></a></li>
 							<li class="layer-1-li"><a href="index.php?r=designer%2Findex" class="layer-1 menu-line"><h2>合作設計師</h2></a></li>
 							<li class="layer-1-li"><a href="index.php?r=client%2Findex" class="layer-1 menu-line"><h2>我們的客戶</h2></a></li>
-							<li class="layer-1-li"><a href="index.php?r=quotation%2Findex" class="layer-1 menu-line"><h2>聯絡／詢價</h2></a></li>
+							<li class="layer-1-li"><a href="index.php?r=quotation%2Fcreate" class="layer-1 menu-line"><h2>聯絡／詢價</h2></a></li>
 						</ul>
 					</div>
 				</div>
@@ -327,6 +328,26 @@ $(document).ready(function(){
 });
 </script>
 
+<script>
+$(document).ready(function(){
+	//tab change
+	$('.one-tab').on('click',function(){
+		$(this).addClass('active');
+		var TabId =  $(this).attr('tab');
+		$('#'+TabId).show();
+		$(this).siblings('.one-tab').removeClass('active');
+		$('#'+TabId).siblings('.tab-con').hide();
+	});
+
+	//submit confirm
+	$('.c-btn').on('click', function () {
+		$.alert({
+			title: '感謝您',
+			content: '表單已送出，我們將儘快與您聯繫',
+		});
+	});
+});	
+</script>
 
 </body>
 </html>

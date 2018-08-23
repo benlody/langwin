@@ -8,102 +8,179 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="quotation-form">
-
+<div id="tab-3" class="tab-con">
 	<?php $form = ActiveForm::begin(); ?>
 
-	<?= $form->field($model, 'company', ['labelOptions' => ['label' => '公司名稱']]) ?>
-	<?= $form->field($model, 'product', ['labelOptions' => ['label' => '產品名稱']]) ?>
-	<?= $form->field($model, 'contact', ['labelOptions' => ['label' => '聯絡人']]) ?>
-	<?= $form->field($model, 'tel', ['labelOptions' => ['label' => '聯絡電話']]) ?>
-	<?= $form->field($model, 'email', ['labelOptions' => ['label' => 'E-mail']]) ?>
-	
+	<div class="clearfix">
 
-	<label for="quotation-size">尺寸</label>
-	<div>
-		<label><input type="radio" name="size" value="A4" required> A4 (21x29.7cm)</label>
-		<label><input type="radio" name="size" value="A3"> A3 (42x29.7cm)</label>
-		<label><input type="radio" name="size" value="A2"> A2 (42x59.4cm)</label>
-		<label><input type="radio" name="size" value="A1"> A1 (84x59.4cm)</label>
-		<label><input type="radio" name="size" value="4K"> 4K (38x52cm)</label>
-		<label><input type="radio" name="size" value="2K"> 2K (76x52cm)</label>
-		<label><input type="radio" name="size" value="else">其他 <input type="text" name="other_size" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​</label>
+		<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
+			<h3 class="contact-title">公司名稱</h3>
+			<input type="text" name="Quotation[company]" class="input-text block" required />
+		</div>
+
+		<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
+			<h3 class="contact-title">產品名稱</h3>
+			<input type="text" name="Quotation[product]" class="input-text block" required />
+		</div><br>
+
+		<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
+			<h3 class="contact-title">聯絡人</h3>
+			<input type="text" name="Quotation[contact]" class="input-text block" required />
+		</div>
+
+		<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
+			<h3 class="contact-title">聯絡電話</h3>
+			<input type="text" name="Quotation[tel]" class="input-text block" required />
+		</div>
+
+		<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
+			<h3 class="contact-title">Email</h3>
+			<input type="text" name="Quotation[email]" class="input-text block" required />
+		</div>
+
+		<?php
+			//尺寸 radio
+			$size_radio_array = [
+				['label' => 'A4 (21x29.7cm)', 'opt' => 'A4'],
+				['label' => 'A3 (42x29.7cm)', 'opt' => 'A3'],
+				['label' => 'A2 (42x59.4cm)', 'opt' => 'A2'],
+				['label' => 'A1 (84x59.7cm)', 'opt' => 'A1'],
+				['label' => 'A5 (21x14.8cm)', 'opt' => 'A5'],
+				['label' => '16K (19x26cm)', 'opt' => '16K'],
+				['label' => '8K (26x38cm)', 'opt' => '8K'],
+				['label' => '4K (38x52cm)', 'opt' => '4K'],
+				['label' => '2K (76x52cm)', 'opt' => '2K'],
+			];
+			echo $this->render('radio_opt', [
+					'title' => '尺寸 (展開尺寸)', 
+					'radio_array' => $size_radio_array, 
+					'name' => 'size', 
+					'required' => true, 
+					'other' => true,
+					'other_label' => '其他',
+			]);
+		?>
+
+		<div class="mg-r-20 mg-b-40 contact-wrap">
+			<h3 class="contact-title">紙張</h3>
+			<div>
+				<div class="inlineblock">
+					<select class="nice-sel-wrap" name="paper" required >
+						<option value="" disabled selected>選擇紙張種類</option>
+						<option value="道林紙80g">道林紙80g</option>
+						<option value="道林紙100g">道林紙100g</option>
+						<option value="道林紙147g">道林紙147g</option>
+						<option value="特銅紙100g">特銅紙100g</option>
+						<option value="特銅紙120g">特銅紙120g</option>
+						<option value="特銅紙150g">特銅紙150g</option>
+						<option value="雪銅紙100g">雪銅紙100g</option>
+						<option value="雪銅紙120g">雪銅紙120g</option>
+						<option value="雪銅紙150g">雪銅紙150g</option>
+						<option value="銅西卡200g">銅西卡200g</option>
+						<option value="PP相紙(大圖輸出)">PP相紙(大圖輸出)</option>
+						<option value="else">其他(請直接填寫) 或需建議 (請填寫希望的質感、基重等需求)</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<?php
+			//印刷 radio
+			$color_radio_array = [
+				['label' => '彩色', 'opt' => '彩色'],
+			];
+			echo $this->render('radio_opt', [
+					'title' => '印刷', 
+					'radio_array' => $color_radio_array, 
+					'name' => 'color', 
+					'required' => true, 
+					'other' => true,
+					'other_label' => '其他 (特別色/黑色)',
+			]);
+		?>
+
+		<?php
+			//單雙面 radio
+			$side_radio_array = [
+				['label' => '單面', 'opt' => '單面'],
+				['label' => '雙面', 'opt' => '雙面'],
+			];
+			echo $this->render('radio_opt', [
+					'title' => '單雙面', 
+					'radio_array' => $side_radio_array, 
+					'name' => 'side', 
+					'required' => true, 
+					'other' => false,
+					'other_label' => '',
+			]);
+		?>
+
+		<?php
+			//加工 chekcbox
+			$addtional_radio_array = [
+				['label' => '單面上亮膜', 'opt' => '單面上亮膜'],
+				['label' => '雙面上亮膜', 'opt' => '雙面上亮膜'],
+				['label' => '單面上霧膜', 'opt' => '單面上霧膜'],
+				['label' => '雙面上霧膜', 'opt' => '雙面上霧膜'],
+				['label' => '雙上霧+單局部', 'opt' => '雙上霧+單局部'],
+				['label' => '雙上霧+雙局部', 'opt' => '雙上霧+雙局部'],
+			];
+			echo $this->render('radio_opt', [
+					'title' => '加工（可複選）', 
+					'radio_array' => $addtional_radio_array, 
+					'name' => 'addtional', 
+					'required' => false, 
+					'other' => true,
+					'other_label' => '其他加工 (請填寫)',
+			]);
+		?>
+
+		<?php
+			//摺紙 chekcbox
+			$fold_radio_array = [
+				['label' => '無摺紙', 'opt' => '無摺紙'],
+				['label' => '對摺', 'opt' => '對摺'],
+				['label' => '包摺', 'opt' => '包摺'],
+				['label' => '觀音摺', 'opt' => '觀音摺'],
+				['label' => '十字摺', 'opt' => '十字摺'],
+				['label' => '平行2摺', 'opt' => '平行2摺'],
+				['label' => 'N字摺(彈簧2摺)', 'opt' => 'N字摺(彈簧2摺)'],
+				['label' => 'M摺(彈簧3摺)', 'opt' => 'M摺(彈簧3摺)'],
+				['label' => '彈簧4摺(5等份)', 'opt' => '彈簧4摺(5等份)'],
+				['label' => '彈簧5摺(6等份)', 'opt' => '彈簧5摺(6等份)'],
+				['label' => '彈簧6摺(7等份)', 'opt' => '彈簧6摺(7等份)'],
+			];
+			echo $this->render('checkbox_opt', [
+					'title' => '摺紙', 
+					'radio_array' => $fold_radio_array, 
+					'name' => 'fold', 
+					'required' => false, 
+					'other' => true,
+					'other_label' => '其他摺法(請說明)',
+			]);
+		?>
+
+		<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
+			<h3 class="contact-title">數量 (可輸入多個數量)</h3>
+			<input type="text" name="qty" class="input-text block" required />
+		</div>
+
+		<div class="mg-r-20 mg-b-40 contact-wrap">
+			<h3 class="contact-title">檔案雲端連結</h3>
+			<textarea class="input-textarea block" name="Quotation[link]" ></textarea>
+		</div>
+
+		<!--textarea-->
+		<div class="mg-r-20 mg-b-40 contact-wrap">
+			<h3 class="contact-title">備註</h3>
+			<textarea class="input-textarea block" name="remark"></textarea>
+		</div>
+		<!--textarea-->
+
 	</div>
-	
-
-
-	<label for="quotation-paper">紙張</label>
-	<input type="text" id="quotation-paper" class="form-control" name="paper" list="poster-papers" required>
-	<datalist id="poster-papers">
-		<option data-value="道林紙80g" value="道林紙80g"></option>
-		<option data-value="道林紙100g" value="道林紙100g"></option>
-		<option data-value="道林紙147g" value="道林紙147g"></option>
-		<option data-value="特銅紙100g" value="特銅紙100g"></option>
-		<option data-value="特銅紙120g" value="特銅紙120g"></option>
-		<option data-value="特銅紙150g" value="特銅紙150g"></option>
-		<option data-value="雪銅紙100g" value="雪銅紙100g"></option>
-		<option data-value="雪銅紙120g" value="雪銅紙120g"></option>
-		<option data-value="雪銅紙150g" value="雪銅紙150g"></option>
-		<option data-value="銅西卡200g" value="銅西卡200g"></option>
-		<option data-value="PP相紙(大圖輸出)" value="PP相紙(大圖輸出)"></option>
-		<option data-value="其他(請直接填寫) 或需建議 (請填寫希望的質感、基重等需求)" value="其他(請直接填寫) 或需建議 (請填寫希望的質感、基重等需求)"></option>
-	</datalist>
-
-
-	<label for="quotation-color">印刷</label>
-	<div>
-		<label><input type="radio" name="color" value="彩色" required> 彩色</label>
-		<label><input type="radio" name="color" value="else">其他 (特別色 無印刷) <input type="text" name="other_color" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​</label>
-	</div>
-
-	<label for="quotation-side">單雙面</label>
-	<div>
-		<label><input type="radio" name="side" value="單面" required> 單面</label>
-		<label><input type="radio" name="side" value="雙面"> 雙面</label>
-	</div>
-
-	<label for="quotation-addtional">加工</label>
-	<div>
-		<label><input type="checkbox" name="addtional[]" value="上亮膜"> 上亮膜</label>
-		<label><input type="checkbox" name="addtional[]" value="上霧膜"> 上霧膜</label>
-		<label><input type="checkbox" name="addtional[]" value="局部光"> 局部光</label>
-		<label><input type="checkbox" name="addtional[]" value="燙亮金"> 燙亮金</label>
-		<label><input type="checkbox" name="addtional[]" value="燙霧金"> 燙霧金</label>
-		<label><input type="checkbox" name="addtional[]" value="燙亮銀"> 燙亮金</label>
-		<label><input type="checkbox" name="addtional[]" value="燙霧銀"> 燙霧銀</label>
-		<label><input type="checkbox" name="addtional[]" value="else_stamp"> 燙其他色箔(黑/紅/古銅金/白/珍珠箔...)(請填寫)<input type="text" name="other_stamping" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​</label>
-		<label><input type="checkbox" name="addtional[]" value="else">其他加工 <input type="text" name="other_addtional" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​</label>
-	</div>
-
-	<label for="quotation-fold">摺紙</label>
-	<div>
-		<label><input type="radio" name="fold" value="無摺紙" required> 無摺紙</label>
-		<label><input type="radio" name="fold" value="對摺"> 對摺</label>
-		<label><input type="radio" name="fold" value="包摺"> 包摺</label>
-		<label><input type="radio" name="fold" value="觀音摺"> 觀音摺</label>
-		<label><input type="radio" name="fold" value="十字摺"> 十字摺</label>
-		<label><input type="radio" name="fold" value="平行2摺"> 平行2摺</label>
-		<label><input type="radio" name="fold" value="N字摺(彈簧2摺)"> N字摺(彈簧2摺)</label>
-		<label><input type="radio" name="fold" value="M摺(彈簧3摺)"> M摺(彈簧3摺)</label>
-		<label><input type="radio" name="fold" value="彈簧4摺"> 彈簧4摺</label>
-		<label><input type="radio" name="fold" value="彈簧5摺"> 彈簧5摺</label>
-		<label><input type="radio" name="fold" value="彈簧6摺"> 彈簧6摺</label>
-		<label><input type="radio" name="fold" value="else">其他摺法(請說明) <input type="text" name="other_fold" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​</label>
-	</div>
-
-
-	<label for="quotation-qty">數量 (可輸入多個數量)</label><br>
-	<input type="text" name="qty" required>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<br>
-
-	<?= $form->field($model, 'link', ['labelOptions' => ['label' => '檔案雲端連結']])->textarea(['rows' => 6]) ?>
-
-	<label for="quotation-remark">備註</label>
-	<textarea id="quotation-remark" class="form-control" name="remark" rows="6"></textarea>
-
-	<div class="form-group">
-		<?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-primary', 'name' => 'quotation_poster']) ?>
-	</div>
+	<div class="mg-t-20 mg-b-40"><button type="submit" class="btn c-btn" hov="0.8" name="quotation_poster">送出<i class="fas fa-angle-right mg-l-15"></i></button></div>
 
 	<?php ActiveForm::end(); ?>
 
 </div>
+
