@@ -45,39 +45,11 @@ $this->title = 'Create Quotation';
 				<?= $this->render('card', ['model' => $model]); ?>
 				<?= $this->render('poster', ['model' => $model]); ?>
 				<?= $this->render('sticker', ['model' => $model]); ?>
+				<?= $this->render('envelope', ['model' => $model]); ?>
+				<?= $this->render('bag', ['model' => $model]); ?>
+				<?= $this->render('box', ['model' => $model]); ?>
+				<?= $this->render('else', ['model' => $model]); ?>
 				<!--tabs-->
-				
-				<!--tab5-->
-				<div id="tab-5" class="tab-con">
-				
-					貼紙<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-					
-				</div>
-				<!--tab5-->
-				
-				<!--tab6-->
-				<div id="tab-6" class="tab-con">
-				
-					信封<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-					
-				</div>
-				<!--tab6-->
-				
-				<!--tab7-->
-				<div id="tab-7" class="tab-con">
-				
-					手提袋<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-					
-				</div>
-				<!--tab7-->
-					
-				<!--tab8-->
-				<div id="tab-8" class="tab-con">
-				
-					其他<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-					
-				</div>
-				<!--tab8-->
 						
 			</div>
 			<!--rwd width limited -->

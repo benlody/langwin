@@ -76,7 +76,7 @@ use yii\widgets\ActiveForm;
 		<?php
 			//封面印刷 radio
 			$cover_color_radio_array = [
-				['label' => '彩色', 'opt' => '彩色'],
+				['label' => '彩色(一般四色印刷)', 'opt' => '彩色(一般四色印刷)'],
 				['label' => '黑白', 'opt' => '黑白'],
 			];
 			echo $this->render('radio_opt', [
@@ -154,7 +154,7 @@ use yii\widgets\ActiveForm;
 		<?php
 			//內頁印刷 radio
 			$inside_color_radio_array = [
-				['label' => '彩色', 'opt' => '彩色'],
+				['label' => '彩色(一般四色印刷)', 'opt' => '彩色(一般四色印刷)'],
 				['label' => '黑白', 'opt' => '黑白'],
 			];
 			echo $this->render('radio_opt', [

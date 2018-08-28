@@ -87,7 +87,7 @@ use yii\widgets\ActiveForm;
 		<?php
 			//印刷 radio
 			$color_radio_array = [
-				['label' => '彩色', 'opt' => '彩色'],
+				['label' => '彩色(一般四色印刷)', 'opt' => '彩色(一般四色印刷)'],
 				['label' => '無印刷', 'opt' => '無印刷'],
 			];
 			echo $this->render('radio_opt', [

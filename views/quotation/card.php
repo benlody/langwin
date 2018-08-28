@@ -41,8 +41,9 @@ use yii\widgets\ActiveForm;
 		<?php
 			//尺寸 radio
 			$size_radio_array = [
+				['label' => '名片尺寸 (9x5.4cm)', 'opt' => '9x5.4cm'],
 				['label' => 'A5 (14.8x21cm)', 'opt' => 'A5'],
-				['label' => 'A6 (14.8x10.5cm)', 'opt' => 'A6 (明信片)'],
+				['label' => 'A6 (14.8x10.5cm)(明信片)', 'opt' => 'A6'],
 				['label' => '32K (19x13cm)', 'opt' => '32K'],
 				['label' => '18x13.5cm', 'opt' => '18x13.5cm'],
 				['label' => '18x27m', 'opt' => '18x27cm'],
@@ -90,7 +91,7 @@ use yii\widgets\ActiveForm;
 		<?php
 			//印刷 radio
 			$color_radio_array = [
-				['label' => '彩色', 'opt' => '彩色'],
+				['label' => '彩色(一般四色印刷)', 'opt' => '彩色(一般四色印刷)'],
 				['label' => '無印刷', 'opt' => '無印刷'],
 			];
 			echo $this->render('radio_opt', [
