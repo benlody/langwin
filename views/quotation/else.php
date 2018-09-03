@@ -40,15 +40,10 @@ use yii\widgets\ActiveForm;
 
 		<!--textarea-->
 		<div class="mg-r-20 mg-b-40 contact-wrap">
-			<h3 class="contact-title">說明</h3>
+			<h3 class="contact-title">說明 (紙張材質,印刷方式,加工,數量)</h3>
 			<textarea class="input-textarea block" name="remark"></textarea>
 		</div>
 		<!--textarea-->
-
-		<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
-			<h3 class="contact-title">數量 (可輸入多個數量)</h3>
-			<input type="text" name="qty" class="input-text block" required />
-		</div>
 
 		<div class="mg-r-20 mg-b-40 contact-wrap">
 			<h3 class="contact-title">檔案雲端連結</h3>

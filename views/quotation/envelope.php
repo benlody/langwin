@@ -41,15 +41,15 @@ use yii\widgets\ActiveForm;
 		<?php
 			//尺寸 radio
 			$size_radio_array = [
-				['label' => '中式12K (12x23cm)', 'opt' => '中式12K (12x23cm)'],
-				['label' => '中式15K (10x22cm)', 'opt' => '中式15K (10x22cm)'],
-				['label' => '中式4K (25x33cm)', 'opt' => '中式4K (25x33cm)'],
-				['label' => '歐式12K (23x12cm)', 'opt' => '歐式12K (23x12cm)'],
-				['label' => '西式10K (19.8x13.9cm)', 'opt' => '西式10K (19.8x13.9cm)'],
-				['label' => '西式 (20.3x14cm)', 'opt' => '西式 (20.3x14cm)'],
+				['label' => '中式12K (12x23cm)', 'opt' => '中式12K(12x23cm)'],
+				['label' => '中式15K (10x22cm)', 'opt' => '中式15K(10x22cm)'],
+				['label' => '中式4K (25x33cm)', 'opt' => '中式4K(25x33cm)'],
+				['label' => '歐式12K (23x12cm)', 'opt' => '歐式12K(23x12cm)'],
+				['label' => '西式10K (19.8x13.9cm)', 'opt' => '西式10K(19.8x13.9cm)'],
+				['label' => '西式 (20.3x14cm)', 'opt' => '西式(20.3x14cm)'],
 			];
 			echo $this->render('radio_opt', [
-					'title' => '尺寸 (展開尺寸)', 
+					'title' => '尺寸', 
 					'radio_array' => $size_radio_array, 
 					'name' => 'size', 
 					'required' => true, 
@@ -135,7 +135,7 @@ use yii\widgets\ActiveForm;
 		<!--textarea-->
 
 	</div>
-	<div class="mg-t-20 mg-b-40"><button type="submit" class="btn c-btn" hov="0.8" name="quotation_envelpoe">送出<i class="fas fa-angle-right mg-l-15"></i></button></div>
+	<div class="mg-t-20 mg-b-40"><button type="submit" class="btn c-btn" hov="0.8" name="quotation_envelope">送出<i class="fas fa-angle-right mg-l-15"></i></button></div>
 
 	<?php ActiveForm::end(); ?>
 

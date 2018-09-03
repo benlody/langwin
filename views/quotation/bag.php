@@ -39,16 +39,16 @@ use yii\widgets\ActiveForm;
 		</div><br>
 
 		<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
-			<h3 class="contact-title">正面寬</h3>
+			<h3 class="contact-title">正面寬(cm)</h3>
 			<input type="text" name="width" class="input-text block" required />
 		</div>
 
 		<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
-			<h3 class="contact-title">袋高</h3>
+			<h3 class="contact-title">袋高(cm)</h3>
 			<input type="text" name="height" class="input-text block" required />
 		</div>
 		<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
-			<h3 class="contact-title">側寬</h3>
+			<h3 class="contact-title">側寬(cm)</h3>
 			<input type="text" name="depth" class="input-text block" required />
 		</div>
 

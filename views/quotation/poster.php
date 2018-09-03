@@ -117,7 +117,7 @@ use yii\widgets\ActiveForm;
 
 		<?php
 			//加工 chekcbox
-			$addtional_radio_array = [
+			$addtional_checkbox_array = [
 				['label' => '單面上亮膜', 'opt' => '單面上亮膜'],
 				['label' => '雙面上亮膜', 'opt' => '雙面上亮膜'],
 				['label' => '單面上霧膜', 'opt' => '單面上霧膜'],
@@ -125,9 +125,9 @@ use yii\widgets\ActiveForm;
 				['label' => '雙上霧+單局部', 'opt' => '雙上霧+單局部'],
 				['label' => '雙上霧+雙局部', 'opt' => '雙上霧+雙局部'],
 			];
-			echo $this->render('radio_opt', [
+			echo $this->render('checkbox_opt', [
 					'title' => '加工（可複選）', 
-					'radio_array' => $addtional_radio_array, 
+					'radio_array' => $addtional_checkbox_array, 
 					'name' => 'addtional', 
 					'required' => false, 
 					'other' => true,
@@ -150,7 +150,7 @@ use yii\widgets\ActiveForm;
 				['label' => '彈簧5摺(6等份)', 'opt' => '彈簧5摺(6等份)'],
 				['label' => '彈簧6摺(7等份)', 'opt' => '彈簧6摺(7等份)'],
 			];
-			echo $this->render('checkbox_opt', [
+			echo $this->render('radio_opt', [
 					'title' => '摺紙', 
 					'radio_array' => $fold_radio_array, 
 					'name' => 'fold', 

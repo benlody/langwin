@@ -40,12 +40,12 @@ use yii\widgets\ActiveForm;
 
 		<?php
 			$box_type_radio_array = [
-				['label' => '普通盒', 'opt' => '普通盒'],
-				['label' => '插底盒', 'opt' => '插底盒'],
-				['label' => '糊底盒', 'opt' => '糊底盒'],
-				['label' => '抽屜盒', 'opt' => '抽屜盒'],
-				['label' => '天地盒', 'opt' => '天地盒'],
-				['label' => 'PIZZA盒', 'opt' => 'PIZZA盒'],
+				['label' => '普通盒<img src="images/tmp/box2.png">', 'opt' => '普通盒'],
+				['label' => '插底盒<img src="images/tmp/box2.png">', 'opt' => '插底盒'],
+				['label' => '糊底盒<img src="images/tmp/box2.png">', 'opt' => '糊底盒'],
+				['label' => '抽屜盒<img src="images/tmp/box1.png">', 'opt' => '抽屜盒'],
+				['label' => '天地盒<img src="images/tmp/box3.png">', 'opt' => '天地盒'],
+				['label' => 'PIZZA盒<img src="images/tmp/box4.png">', 'opt' => 'PIZZA盒'],
 			];
 			echo $this->render('radio_opt', [
 					'title' => '盒形', 
