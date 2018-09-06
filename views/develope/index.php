@@ -6,6 +6,8 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\DevelopeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/assets/3c21fd83/css/bootstrap.css');
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/site.css');
 
 $this->title = 'Developes';
 $this->params['breadcrumbs'][] = $this->title;

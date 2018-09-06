@@ -5,6 +5,8 @@ use yii\widgets\ActiveForm;
 use yii\jui\DatePicker;
 
 //require_once __DIR__  . '/../../utils/enum.php';
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/assets/3c21fd83/css/bootstrap.css');
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/site.css');
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Order */

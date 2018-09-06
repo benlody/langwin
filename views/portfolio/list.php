@@ -7,6 +7,9 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\PortfolioSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/assets/3c21fd83/css/bootstrap.css');
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/site.css');
+
 $this->title = 'Portfolios';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
