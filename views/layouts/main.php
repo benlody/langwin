@@ -231,21 +231,22 @@ AppAsset::register($this);
 					<h3>聯絡資訊</h3>
 					<p><span class="bold">電話：</span><a href="tel:+886-2-2999-9099" hov="0.8">＋886-2-2999-9099</a></p>
 					<p><span class="bold">地址：</span><a href="https://goo.gl/maps/SssLWqhx4jo" hov="0.8">新北市三重區光復路一段83巷8號2樓</a></p>
+					<p><span class="bold">Email：</span>customerservice@lang-win.com.tw</p>
 				</div>
 
 				<div class="one-contact">
 					<h3>營業時間</h3>
-					<p>星期一 至 星期五<br />08：00 至 18：00</p>
+					<p>星期一 至 星期五<br />08：30 至 17：30</p>
 				</div>
 			</div>
 
 			<div class="footer-l">
-				<div class="social">
+				<!--div class="social">
 					<a href="#"><span class="v-helper"></span><i class="fab fa-facebook-f"></i></a>
 					<a href="#"><span class="v-helper"></span><i class="fab fa-instagram"></i></a>
 					<a href="#"><span class="v-helper"></span><i class="fab fa-line"></i></a>
 					<a href="#"><span class="v-helper"></span><i class="far fa-envelope"></i></a>
-				</div>
+				</div!>
 				<div class="privacy">Copyright © 光隆印刷廠股份有限公司, All Rights Reserved.</div>
 			</div>
 		</div>
