@@ -268,6 +268,7 @@
 
 .contact-wrap .input-text{min-width:240px;}
 
+.sel-others-input .input-radcheck{display:none;width:200px;}
 .input-radcheck{vertical-align:middle;width:150px;min-width:30px !important;}
 .input-radcheck:disabled{border: 1px solid #d6d6d6;background:#dad9d6;}
 

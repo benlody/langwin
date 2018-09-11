@@ -156,12 +156,12 @@
 				
 				<!--tab1-->
 				<div id="tab-1" class="tab-con">
-				
+				<form>
 					<div class="clearfix">
 
 						<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
 							<h3 class="contact-title">公司名稱</h3>
-							<input type="text" class="input-text block" />
+							<input type="text" class="input-text block" required />
 						</div>
 
 						<div class="inlineblock mg-r-20 mg-b-40 contact-wrap">
@@ -293,7 +293,7 @@
 							<h3 class="contact-title">內頁紙張</h3>
 
 							<div>
-								<div class="inlineblock">
+								<div class="inlineblock vmiddle mg-r-20">
 									<select class="nice-sel-wrap">
 										<option value="" disabled selected>選擇紙張種類</option>
 										<option value="bla">某某某某某紙</option>
@@ -304,13 +304,19 @@
 										<option value="bla">某某某某某紙</option>
 										<option value="bla">某某某某某紙</option>
 										<option value="bla">某某某某某紙</option>
-										<option value="bla">其他（請填寫您的需求，或您期望的紙質於備註）</option>
+										<option class="others" value="others">其他（請填寫您的需求，或您期望的紙質於備註）</option>
 									</select>
+								</div>
+								
+								<div class="inlineblock vmiddle sel-others-input">
+									<input type="text" class="input-text input-radcheck" placeholder="其他" disabled />
 								</div>
 							</div>
 
 						</div>
 						<!--select-->
+						
+						
 
 						<!--textarea-->
 						<div class="mg-r-20 mg-b-40 contact-wrap">
@@ -322,7 +328,7 @@
 					</div>
 
 					<div class="mg-t-20 mg-b-40"><button type="submit" class="btn c-btn" hov="0.8">送出<i class="fas fa-angle-right mg-l-15"></i></button></div>
-					
+				</form>	
 				</div>
 				<!--tab1-->
 					
@@ -472,7 +478,7 @@ $(document).ready(function(){
 		$('#'+TabId).siblings('.tab-con').hide();
 	});
 	
-	//submit confirm
+	/*submit confirm
 	$('.c-btn').on('click', function () {
 		$.alert({
 			title: '感謝您',
@@ -481,7 +487,22 @@ $(document).ready(function(){
 		});
 		
 	});
+	*/
 	
+	
+	//select option
+	$(".nice-sel-wrap").on('change',function() {
+		
+		if($(".nice-sel-wrap").val() == 'others'){
+			
+			$(this).parents().eq(0).siblings('.sel-others-input').find('.input-radcheck').show().prop('disabled', false);
+			
+			
+		}else{
+			$(this).parents().eq(0).siblings('.sel-others-input').find('.input-radcheck').hide().prop('disabled', true);
+		};
+		
+	});
 });	
 	
 </script>
