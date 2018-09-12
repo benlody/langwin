@@ -9,7 +9,7 @@ use yii\widgets\ListView;
 /* @var $searchModel app\models\DesignerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Designers';
+$this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - 合作設計師";
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 

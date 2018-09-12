@@ -7,7 +7,7 @@ use yii\widgets\ListView;
 /* @var $searchModel app\models\PortfolioSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Portfolios';
+$this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務 - 精選作品';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 

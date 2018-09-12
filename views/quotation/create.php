@@ -7,7 +7,7 @@ use yii\bootstrap\Tabs;
 /* @var $this yii\web\View */
 /* @var $model app\models\Quotation */
 
-$this->title = 'Create Quotation';
+$this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務 - 詢價／聯絡';
 ?>
 
 	<?php

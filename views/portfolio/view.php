@@ -7,7 +7,7 @@ use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Portfolio */
 
-$this->title = $model->title;
+$this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - 精選作品 - ".$model->title;
 ?>
 	<!--visual-->
 	<div class="page-visual">

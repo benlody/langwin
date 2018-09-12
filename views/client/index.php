@@ -8,7 +8,7 @@ use yii\widgets\ListView;
 /* @var $searchModel app\models\ClientSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Client';
+$this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - 我們的客戶";
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 
