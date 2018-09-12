@@ -53,94 +53,6 @@ AppAsset::register($this);
 <div class="wrap">
 
 
-
-	<?php
-	/*
-	if(Yii::$app->user->identity->group === User::GROUP_ADMIN){
-		$items = [
-			'<li>'
-			. Html::beginForm(['/portfolio/index'], 'get', ['class' => 'navbar-form'])
-			. Html::input('text', 'search', '', ['placeholder' => "Search.."])
-			. Html::submitButton(
-				'<i class="glyphicon glyphicon-search"></i>',
-				['class' => 'btn btn-link']
-			)
-			. Html::endForm()
-			. '</li>',
-
-			['label' => '精選作品案例', 'url' => ['/portfolio/index']],
-			['label' => '合作設計師', 'url' => ['/designer/index']],
-			['label' => '我們的客戶', 'url' => ['/client/index']],
-			['label' => '聯絡／詢價', 'url' => ['/quotation/create']],
-			[
-				'label' => '後台管理',
-				'items' => [
-					 '<li class="dropdown-header" align="center"><font color="green">'.'作品'.'</font></li>',
-					 ['label' => '作品列表', 'url' => ['/portfolio/list']],
-					 ['label' => '新增作品', 'url' => ['/portfolio/create']],
-					 ['label' => 'Excel上傳', 'url' => ['/portfolio/create_by_excel']],
-					 ['label' => '照片上傳', 'url' => ['/portfolio/list']],
-					 ['label' => '編輯作品', 'url' => ['/portfolio/list']],
-					 '<li class="dropdown-header" align="center"><font color="green">'.'設計師'.'</font></li>',
-					 ['label' => '新增設計師', 'url' => ['/designer/create']],
-					 '<li class="dropdown-header" align="center"><font color="green">'.'客戶'.'</font></li>',
-					 ['label' => '新增客戶', 'url' => ['/client/create']],
-					 '<li class="dropdown-header" align="center"><font color="green">'.'客戶開發'.'</font></li>',
-					 ['label' => '寄開發信', 'url' => ['/develope/create_by_excel']],
-					 ['label' => '開發信追蹤', 'url' => ['/develope/index']],
-					 ['label' => '詢價列表', 'url' => ['/quotation/index']],
-				],
-			],
-
-			'<li>'
-				. Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
-				. Html::submitButton(
-					'Logout (' . Yii::$app->user->identity->username . ')',
-					['class' => 'btn btn-link']
-				)
-				. Html::endForm()
-				. '</li>'
-		];
-
-	} else {
-		$items = [
-			'<li>'
-			. Html::beginForm(['/portfolio/index'], 'get', ['class' => 'navbar-form'])
-			. Html::input('text', 'search', '', ['placeholder' => "Search.."])
-			. Html::submitButton(
-				'<i class="glyphicon glyphicon-search"></i>',
-				['class' => 'btn btn-link']
-			)
-			. Html::endForm()
-			. '</li>',
-
-			['label' => '精選作品案例', 'url' => ['/portfolio/index']],
-			['label' => '合作設計師', 'url' => ['/designer/index']],
-			['label' => '我們的客戶', 'url' => ['/client/index']],
-			['label' => '聯絡／詢價', 'url' => ['/quotation/create']],
-
-		];
-
-
-	}
-
-	NavBar::begin([
-		'brandLabel' => 'Home',
-		'brandUrl' => Yii::$app->homeUrl,
-		'options' => [
-			'class' => 'navbar-inverse navbar-fixed-top',
-		],
-	]);
-
-	echo Nav::widget([
-		'options' => ['class' => 'navbar-nav navbar-right'],
-		'items' => $items,
-	]);
-	NavBar::end();
-	*/
-	?>
-
-
 	<header>
 
 		<!--header fxarea-->
@@ -167,6 +79,46 @@ AppAsset::register($this);
 							<li class="layer-1-li"><a href="index.php?r=designer%2Findex" class="layer-1 menu-line"><h2>合作設計師</h2></a></li>
 							<li class="layer-1-li"><a href="index.php?r=client%2Findex" class="layer-1 menu-line"><h2>我們的客戶</h2></a></li>
 							<li class="layer-1-li"><a href="index.php?r=quotation%2Fcreate" class="layer-1 menu-line"><h2>聯絡／詢價</h2></a></li>
+
+
+							<?php if(!Yii::$app->user->isGuest) : ?>
+							<li class="layer-1-li">
+								<div class="layer-1 menu-line"><h2>後臺管理<i class="fa fa-angle-down mg-l-10" aria-hidden="true"></i></h2></div>
+								<ul class="layer-2-ul">
+										<li class="layer-2-li">
+											<a href="index.php?r=portfolio/list" class="layer-3"><h4>作品列表(清單)</h4></a>
+										</li>
+										<li class="layer-2-li">
+											<a href="index.php?r=portfolio/create" class="layer-3"><h4>新增作品</h4></a>
+										</li>
+										<li class="layer-2-li">
+											<a href="index.php?r=portfolio/create_by_excel" class="layer-3"><h4>Excel上傳</h4></a>
+										</li>
+										<li class="layer-2-li">
+											<a href="index.php?r=portfolio/list" class="layer-3"><h4>照片上傳</h4></a>
+										</li>
+										<li class="layer-2-li">
+											<a href="index.php?r=portfolio/list" class="layer-3"><h4>編輯作品</h4></a>
+										</li>
+										<li class="layer-2-li">
+											<a href="index.php?r=designer/create" class="layer-3"><h4>新增設計師</h4></a>
+										</li>
+										<li class="layer-2-li">
+											<a href="index.php?r=client/create" class="layer-3"><h4>新增客戶</h4></a>
+										</li>
+										<li class="layer-2-li">
+											<a href="index.php?r=develope/create_by_excel" class="layer-3"><h4>寄開發信</h4></a>
+										</li>
+										<li class="layer-2-li">
+											<a href="index.php?r=develope/index" class="layer-3"><h4>開發信追蹤</h4></a>
+										</li>
+										<li class="layer-2-li">
+											<a href="index.php?r=quotation/index" class="layer-3"><h4>詢價列表</h4></a>
+										</li>
+								</ul>
+							</li>
+							<?php endif; ?>
+
 						</ul>
 					</div>
 				</div>
