@@ -202,7 +202,7 @@
 
 .portfolio-avatar{display:block;}
 .portfolio-avatar:last-child{margin-bottom:30px !important;}
-.portfolio-avatar .name{font-size:14px;color:#888;display:inline-block;color:#888;font-weight:bold;10px;margin-right:8px;vertical-align:middle;}
+.portfolio-avatar .name{font-size:12px;color:#888;display:inline-block;color:#888;font-weight:bold;10px;margin-right:8px;}
 .portfolio-avatar .pic{
 	width:40px;height:40px;border-radius:30px;overflow:hidden;display:inline-block;vertical-align: middle;margin-right:6px;
 	-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.15);
@@ -268,6 +268,7 @@
 
 .contact-wrap .input-text{min-width:240px;}
 
+.sel-others-input .input-radcheck{display:none;width:200px;}
 .input-radcheck{vertical-align:middle;width:150px;min-width:30px !important;}
 .input-radcheck:disabled{border: 1px solid #d6d6d6;background:#dad9d6;}
 

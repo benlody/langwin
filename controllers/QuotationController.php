@@ -69,6 +69,7 @@ class QuotationController extends Controller
 		if(empty($post_param)){
 			return $this->render('create', [
 				'model' => $model,
+				'show_msg' => false,
 			]);
 		}
 
@@ -112,7 +113,10 @@ class QuotationController extends Controller
 		$model->date = date("Y-m-d H:i:s", strtotime('now'));
 		$model->save();
 
-		return $this->redirect(['create']);
+			return $this->render('create', [
+				'model' => $model,
+				'show_msg' => true,
+			]);
 
 	}
 
