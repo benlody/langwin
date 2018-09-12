@@ -345,7 +345,7 @@ $(document).ready(function(){
 <script>
 $(document).ready(function(){
 	//submit confirm
-	if(show_msg){
+	if(typeof show_msg !== 'undefined' && show_msg){
 		$.alert({
 			title: '感謝您',
 			content: '表單已送出，我們將儘快與您聯繫',
@@ -356,7 +356,7 @@ $(document).ready(function(){
 //select option
 $(".nice-sel-wrap").on('change',function() {
 
-	if($(".nice-sel-wrap").val() == 'others'){
+	if($(".nice-sel-wrap").val() == 'else'){
 		$(this).parents().eq(0).siblings('.sel-others-input').find('.input-radcheck').show().prop('disabled', false);
 	} else {
 		$(this).parents().eq(0).siblings('.sel-others-input').find('.input-radcheck').hide().prop('disabled', true);

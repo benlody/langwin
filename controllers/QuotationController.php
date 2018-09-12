@@ -225,7 +225,11 @@ class QuotationController extends Controller
 			$content = $content."\n";
 		}
 
-		$content = $content."內頁紙張:".$post_param["inside-paper"]."\n";
+		if("else" == $post_param["inside-paper"]){
+			$content = $content."內頁紙張:其他(".$post_param["other_inside-paper"].")\n";
+		} else {
+			$content = $content."內頁紙張:".$post_param["inside-paper"]."\n";
+		}
 
 		if("else" == $post_param["inside-color"]){
 			$content = $content."內頁印刷:其他(".$post_param["other_inside-color"].")\n";

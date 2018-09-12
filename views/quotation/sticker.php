@@ -48,7 +48,7 @@ use yii\widgets\ActiveForm;
 		<div class="mg-r-20 mg-b-40 contact-wrap">
 			<h3 class="contact-title">紙張</h3>
 			<div>
-				<div class="inlineblock">
+				<div class="inlineblock vmiddle mg-r-20">
 					<select class="nice-sel-wrap" name="paper" required >
 						<option value="" disabled selected>選擇紙張種類</option>
 						<option value="亮膜貼紙">亮膜貼紙</option>
@@ -61,8 +61,11 @@ use yii\widgets\ActiveForm;
 						<option value="銀箔貼紙">銀箔貼紙</option>
 						<option value="反銀龍">反銀龍</option>
 						<option value="反金龍">反金龍</option>
-						<option value="else">其他(請直接填寫) 或需建議 (請填寫希望的質感等需求)</option>
+						<option class="others" value="else">其他(請直接填寫) 或需建議 (請填寫希望的質感等需求)</option>
 					</select>
+				</div>
+				<div class="inlineblock vmiddle sel-others-input">
+					<input type="text" class="input-text input-radcheck" name="other_paper" placeholder="其他" disabled />
 				</div>
 			</div>
 		</div>
