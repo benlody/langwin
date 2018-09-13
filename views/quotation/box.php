@@ -76,7 +76,7 @@ use yii\widgets\ActiveForm;
 			<h3 class="contact-title">紙張</h3>
 			<div>
 				<div class="inlineblock vmiddle mg-r-20">
-					<select class="nice-sel-wrap" name="paper" required >
+					<select class="nice-sel-wrap" data-target="input-radcheck-box" name="paper" required >
 						<option value="" disabled selected>選擇紙張種類</option>
 						<option value="鑽卡36T">鑽卡36T</option>
 						<option value="鑽卡41T">鑽卡41T</option>
@@ -98,7 +98,7 @@ use yii\widgets\ActiveForm;
 					</select>
 				</div>
 				<div class="inlineblock vmiddle sel-others-input">
-					<input type="text" class="input-text input-radcheck" name="other_paper" placeholder="其他" disabled />
+					<input type="text" class="input-text input-radcheck" id="input-radcheck-box" name="other_paper" placeholder="其他" disabled />
 				</div>
 			</div>
 

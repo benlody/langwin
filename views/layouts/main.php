@@ -308,10 +308,15 @@ $(document).ready(function(){
 //select option
 $(".nice-sel-wrap").on('change',function() {
 
-	if($(".nice-sel-wrap").val() == 'else'){
-		$(this).parents().eq(0).siblings('.sel-others-input').find('.input-radcheck').show().prop('disabled', false);
+	var $this = $(this);
+	var $input = $($this.data('target'));
+
+	if(this.value == 'else'){
+		document.getElementById($input.selector).disabled = false;
+		document.getElementById($input.selector).style.display = 'inline-block';
 	} else {
-		$(this).parents().eq(0).siblings('.sel-others-input').find('.input-radcheck').hide().prop('disabled', true);
+		document.getElementById($input.selector).disabled = true;
+		document.getElementById($input.selector).style.display = 'none';
 	};
 
 });

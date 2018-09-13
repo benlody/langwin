@@ -132,7 +132,7 @@ use yii\widgets\ActiveForm;
 
 			<div>
 				<div class="inlineblock vmiddle mg-r-20">
-					<select class="nice-sel-wrap" name="inside-paper" required >
+					<select class="nice-sel-wrap" data-target="input-radcheck-book" name="inside-paper" required >
 						<option value="" disabled selected>選擇紙張種類</option>
 						<option value="道林紙80g">道林紙80g</option>
 						<option value="道林紙100g">道林紙100g</option>
@@ -148,7 +148,7 @@ use yii\widgets\ActiveForm;
 				</div>
 
 				<div class="inlineblock vmiddle sel-others-input">
-					<input type="text" class="input-text input-radcheck" name="other_inside-paper" placeholder="其他" disabled />
+					<input type="text" class="input-text input-radcheck" id="input-radcheck-book" name="other_inside-paper" placeholder="其他" disabled />
 				</div>
 
 			</div>
