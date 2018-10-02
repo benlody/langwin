@@ -38,7 +38,7 @@ class DesignerController extends Controller
 	 * Lists all Designer models.
 	 * @return mixed
 	 */
-	public function actionIndex($page=1)
+	public function actionIndex($page=1, $token='')
 	{
 		$page_size = 40;
 		$designer_searchModel = new DesignerSearch();
@@ -54,6 +54,12 @@ class DesignerController extends Controller
 		$offset = ($page-1)*$page_size;
 
 		$designer_array = $designer_searchModel->designer_search($page_size, $offset);
+
+		if(0 != strcmp($token, '')){
+			$develope_model = Develope::findOne(['tracking_token' => $token]);
+			$develope_model->tracking_status = 1;
+			$develope_model->save();
+		}
 
 		return $this->render('index', [
 			'designer_array' => $designer_array,
