@@ -23,7 +23,11 @@ class ImgUploadForm extends Model
 	public function upload($name)
 	{
 		if ($this->validate()) {
-			mkdir('./images/'.$name, 0777, true);
+
+			$dir = './images/'.$name;
+			if (!file_exists($dir) && !is_dir($dir)) {
+				mkdir($dir, 0777, true);
+			}
 			foreach ($this->imgFile as $file) {
 				$file->saveAs('images/'.$name.'/'. $file->baseName . '.' . $file->extension);
 			}

@@ -294,16 +294,19 @@ class PortfolioController extends Controller
 		$model = $this->findModel($id);
 		$imgfile_model = new ImgUploadForm();
 		$post_param = Yii::$app->request->post();
+		$designer_model = Designer::findOne($model->designer_id);
 
 		if (Yii::$app->request->isPost) {
 
 			$imgfile_model->imgFile = UploadedFile::getInstances($imgfile_model, 'imgFile');
 			$thumb = $imgfile_model->upload($id);
 
-
 			$model->thumb = $thumb;
 			$model->photo_uploaded = 1;
 			$model->save();
+
+			$designer_model->thumb1 = $model->portfolio_id.'/'.$thumb;
+			$designer_model->save();
 
 			return $this->redirect(['update_thumb', 'id' => $model->portfolio_id]);
 
@@ -321,12 +324,15 @@ class PortfolioController extends Controller
 	{
 		$model = $this->findModel($id);
 		$post_param = Yii::$app->request->post();
+		$designer_model = Designer::findOne($model->designer_id);
 
 		if (Yii::$app->request->isPost) {
 
-
 			$model->load(Yii::$app->request->post());
 			$model->save();
+
+			$designer_model->thumb1 = $model->portfolio_id.'/'.$post_param['Portfolio']['thumb'];
+			$designer_model->save();
 
 			return $this->redirect(['list', 'photo_uploaded'=>0]);
 

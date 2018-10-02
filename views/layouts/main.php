@@ -89,10 +89,7 @@ AppAsset::register($this);
 											<a href="index.php?r=portfolio/list" class="layer-3"><h4>作品列表(清單)</h4></a>
 										</li>
 										<li class="layer-2-li">
-											<a href="index.php?r=portfolio/create" class="layer-3"><h4>新增作品</h4></a>
-										</li>
-										<li class="layer-2-li">
-											<a href="index.php?r=portfolio/create_by_excel" class="layer-3"><h4>Excel上傳</h4></a>
+											<a href="index.php?r=portfolio/create_by_excel" class="layer-3"><h4>作品Excel上傳</h4></a>
 										</li>
 										<li class="layer-2-li">
 											<a href="index.php?r=portfolio/list" class="layer-3"><h4>照片上傳</h4></a>

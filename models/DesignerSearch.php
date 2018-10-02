@@ -80,6 +80,7 @@ class DesignerSearch extends Designer
 		// add conditions that should always apply here
 
 		$designer = $query->andFilterWhere(['!=', 'designer_id', '0_no_designer'])
+			->andWhere(['!=', 'thumb1', ""])
 			->limit($limit)
 			->offset($offset)
 			->all();

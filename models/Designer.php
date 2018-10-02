@@ -38,7 +38,7 @@ class Designer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['designer_id', 'title', 'facebook', 'instagram', 'behance', 'website', 'email', 'thumb1', 'thumb2', 'thumb3'], 'required'],
+            [['designer_id', 'title'], 'required'],
             [['title', 'desc', 'facebook', 'instagram', 'behance', 'website', 'email', 'photo', 'thumb1', 'thumb2', 'thumb3'], 'string'],
             [['designer_id'], 'string', 'max' => 32],
             [['designer_id'], 'unique'],
