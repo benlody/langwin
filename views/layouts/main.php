@@ -59,7 +59,7 @@ AppAsset::register($this);
 		<div class="fixarea">
 			<!---->
 			<div class="fxarea-rwd">
-				<a href="index.html" class="logo relative block" hov="0.75"><span class="helper"></span><img class="" src="images/common/logo.png" alt="" /></a>
+				<a href="index.html" class="logo relative block" hov="0.75"><span class="helper"></span><img class="" src="images/tmp/KL-LOGO-B.png" alt="" />&nbsp<img class="" src="images/common/logo.png" alt="" /></a>
 				<!--menu-->
 				<div class="menu-container">
 					<div class="menu">

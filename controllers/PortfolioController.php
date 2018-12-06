@@ -95,15 +95,23 @@ class PortfolioController extends Controller
 	public function actionList($photo_uploaded=-1)
 	{
 		$searchModel = new PortfolioSearch();
+
+		$post_param = Yii::$app->request->post();
 		$search_param = Yii::$app->request->queryParams;
-		if(0 == $photo_uploaded){
-			$search_param['PortfolioSearch']['photo_uploaded'] = 0;
-		} else if(1 == $photo_uploaded){
-			$search_param['PortfolioSearch']['photo_uploaded'] = 1;
+
+		$search_param['PortfolioSearch'] = $post_param['PortfolioSearch'];
+
+		if($search_param['PortfolioSearch']['photo_uploaded'] = ''){
+			if(0 == $photo_uploaded){
+				$search_param['PortfolioSearch']['photo_uploaded'] = 0;
+			} else if(1 == $photo_uploaded){
+				$search_param['PortfolioSearch']['photo_uploaded'] = 1;
+			}
 		}
 		$dataProvider = $searchModel->search($search_param);
 
 		return $this->render('list', [
+			'search_param' => $search_param['PortfolioSearch'],
 			'searchModel' => $searchModel,
 			'dataProvider' => $dataProvider,
 		]);

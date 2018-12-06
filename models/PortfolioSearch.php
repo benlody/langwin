@@ -68,9 +68,10 @@ class PortfolioSearch extends Portfolio
 			'photo_uploaded' => $this->photo_uploaded,
 		]);
 
-		$query->andFilterWhere(['like', 'spec', $this->spec])
+		$query->andFilterWhere(['like', 'title', $this->title])
 			->andFilterWhere(['like', 'portfolio_id', $this->portfolio_id])
-			->andFilterWhere(['like', 'content', $this->content]);
+			->andFilterWhere(['like', 'spec', $this->spec])
+			->andFilterWhere(['like', 'tag', $this->tag]);
 
 		return $dataProvider;
 	}

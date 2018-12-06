@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\ActiveForm;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\PortfolioSearch */
@@ -10,20 +12,38 @@ use yii\grid\GridView;
 $this->registerCssFile(Yii::$app->request->getBaseUrl().'/assets/3c21fd83/css/bootstrap.css');
 $this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/site.css');
 
-$this->title = 'Portfolios';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="portfolio-index">
+
+	<?php $form = ActiveForm::begin(); ?>
+
+	<label class="control-label">ID</label>
+	<?= Html::input('text', 'PortfolioSearch[portfolio_id]', $search_param['portfolio_id'], ['class' => 'form-control', 'id' => 'PortfolioSearch_portfolio_id']) ?>
+	<div class="help-block"></div>
+
+	<label class="control-label">Title</label>
+	<?= Html::input('text', 'PortfolioSearch[title]', $search_param['customer_id'], ['class' => 'form-control', 'id' => 'PortfolioSearch_title']) ?>
+	<div class="help-block"></div>
+
+	<label class="control-label">Spec</label>
+	<?= Html::input('text', 'PortfolioSearch[spec]', $search_param['customer_name'], ['class' => 'form-control', 'id' => 'PortfolioSearch_spec']) ?>
+	<div class="help-block"></div>
+
+	<label class="control-label">Tag</label>
+	<?= Html::input('text', 'PortfolioSearch[tag]', $search_param['addr'], ['class' => 'form-control', 'id' => 'PortfolioSearch_tag']) ?>
+	<div class="help-block"></div>
+
+	<div class="form-group">
+		<?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary', 'name' => 'list']) ?>
+	</div>
+
+	<?php ActiveForm::end(); ?>
 
 	<h1><?= Html::encode($this->title) ?></h1>
 	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-	<p>
-		<?= Html::a('Create Portfolio', ['create'], ['class' => 'btn btn-success']) ?>
-	</p>
 	<?= GridView::widget([
 		'dataProvider' => $dataProvider,
-		'filterModel' => $searchModel,
 		'columns' => [
 			['class' => 'yii\grid\SerialColumn'],
 			'portfolio_id',

@@ -13,11 +13,11 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 	<div class="flexslider f_index" style="width:100%;overflow:hidden;margin-bottom:0;">
 		<ul class="slides">
 			<li class="relative">
-				<a href="#" class="visual-link" hov="0.92"><img src="images/tmp/index-visual-1.jpg" class="v-centerimg" alt="" /></a>
+				<a href="#" class="visual-link" hov="0.92"><img src="images/tmp/index-visual-1.png" class="v-centerimg" alt="" /></a>
 			</li>
-			<li class="relative">
+			<!--li class="relative">
 				<a href="#" class="visual-link" hov="0.92"><img src="images/tmp/index-visual-1.jpg" class="v-centerimg" alt="" /></a>
-			</li>
+			</li-->
 		</ul>
 	</div>
 	<!-- 首頁LOGO -->
@@ -126,7 +126,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 		<section class="index-banner">
 			<!--大圖小圖-->
 			<a href="#" class="block" hov="0.8">
-				<div class="index-banner-pic"><img src="images/tmp/index-visual-1.jpg" class="v-centerimg" alt=""></div>
+				<div class="index-banner-pic"><img src="images/tmp/index-visual-2.png" class="v-centerimg" alt=""></div>
 				<!--rwd width limited-->
 				<div class="rwd-width-limited index-banner-inner">
 					<div class="v-helper vmiddle"></div>
