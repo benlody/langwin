@@ -240,18 +240,18 @@ class PortfolioController extends Controller
 
 				$model = new Portfolio();
 
-				$model->portfolio_id = $value['A'];
+				$model->portfolio_id = strval($value['A']);
 				$model->title = $value['B'];
 				$model->spec = $value['C'];
 				$model->content = $value['D'];
-				$model->designer_id = $value['F'];
-				$model->company_id = $value['H'];
-				$model->tag = $value['I'];
+				$model->tag = $value['E'];
+				$model->designer_id = $value['G'];
+				$model->company_id = $value['I'];
 				$model->photo_uploaded = 0;
 				$model->date = date("Y-m-d", strtotime('today'));
 				$model->save();
 
-				$tags = explode(",",$value['I']);
+				$tags = explode(",",$value['E']);
 				foreach ($tags as $tag) {
 					$tag = trim($tag);
 					if(false == ($model_tag = Tag::find()->where(['name' => $tag])->one())){
@@ -259,10 +259,12 @@ class PortfolioController extends Controller
 						$model_tag->name = $tag;
 						$model_tag->save();
 					}
+
 					$relation = new PortfolioTagRelation();
 					$relation->portfolio_id = $model->portfolio_id;
 					$relation->tag_id = $model_tag->tag_id;
 					$relation->save();
+
 				}
 			}
 
