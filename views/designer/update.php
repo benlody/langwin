@@ -5,10 +5,9 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model app\models\Designer */
 
-$this->title = 'Update Designer: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Designers', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->designer_id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/assets/3c21fd83/css/bootstrap.css');
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/site.css');
+
 ?>
 <div class="designer-update">
 

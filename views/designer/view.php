@@ -51,11 +51,25 @@ $this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 								<!--social-->
 								<div class="designer-social">
 									<!-- FIXME -->
-									<a href= <?= $model->website ?> target="_blank"><span class="v-helper"></span><i class="fas fa-globe"></i></a>
-									<a href= <?= $model->facebook ?> target="_blank"><span class="v-helper"></span><i class="fab fa-facebook-f"></i></a>
-									<a href= <?= $model->instagram ?> target="_blank"><span class="v-helper"></span><i class="fab fa-instagram"></i></a>
-									<a href= <?= $model->behance ?> target="_blank"><span class="v-helper"></span><i class="fab fa-behance"></i></a>
-									<a href= '#' target="_blank"><span class="v-helper"></span><i class="fab fa-line"></i></a>
+									<?php
+										if ($model->website != ''){
+											echo '<a href= '.$model->website.'  target="_blank"><span class="v-helper"></span><i class="fas fa-globe"></i></a>';
+										}
+										if ($model->facebook != ''){
+											echo '<a href= '.$model->facebook.'  target="_blank"><span class="v-helper"></span><i class="fab fa-facebook-f"></i></a>';
+										}
+										if ($model->instagram != ''){
+											echo '<a href= '.$model->instagram.'  target="_blank"><span class="v-helper"></span><i class="fab fa-instagram"></i></a>';
+										}
+										if ($model->behance != ''){
+											echo '<a href= '.$model->behance.'  target="_blank"><span class="v-helper"></span><i class="fab fa-behance"></i></a>';
+										}
+										if ($model->email != ''){
+											echo '<a href=mailto:'.$model->email.'  target="_blank"><span class="v-helper"></span><i class="far fa-envelope"></i></a>';
+										}
+
+										//<a href= '#' target="_blank"><span class="v-helper"></span><i class="fab fa-line"></i></a>
+									?>
 								</div>
 								<!--social-->
 							</div>
@@ -66,7 +80,7 @@ $this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 				<!--sticky over area-->
 				<div class="sticky-over">
 					<div class="page-inner-text mg-b-40">
-						<p><?= $model->desc ?></p>
+						<p><?= preg_replace("/[\n]/","<br>",$model->desc) ?></p>
 					</div>
 				</div>
 				<!--sticky over area-->

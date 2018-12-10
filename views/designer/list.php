@@ -7,8 +7,9 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\DesignerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Designers';
-$this->params['breadcrumbs'][] = $this->title;
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/assets/3c21fd83/css/bootstrap.css');
+$this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/site.css');
+
 ?>
 <div class="designer-index">
 
@@ -20,7 +21,6 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'desc:ntext',
             'photo:ntext',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn', 'template' => '{view}'],
         ],
     ]); ?>
 </div>

@@ -88,6 +88,8 @@ class SiteController extends Controller
 				['name' => 'DM', 'ico_src' => 'images/index/si-ico-dm.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
 				['name' => '卡片', 'ico_src' => 'images/index/si-ico-card.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
 				['name' => '信封', 'ico_src' => 'images/index/si-ico-env.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
+				['name' => '紙盒', 'ico_src' => 'images/index/si-ico-box.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
+				['name' => '紙袋', 'ico_src' => 'images/index/si-ico-bag.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
 		];
 
 		return $this->render('index', [

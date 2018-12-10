@@ -101,13 +101,14 @@ class PortfolioController extends Controller
 
 		$search_param['PortfolioSearch'] = $post_param['PortfolioSearch'];
 
-		if($search_param['PortfolioSearch']['photo_uploaded'] = ''){
+		if($photo_uploaded != -1){
 			if(0 == $photo_uploaded){
 				$search_param['PortfolioSearch']['photo_uploaded'] = 0;
-			} else if(1 == $photo_uploaded){
+			} else if (1 == $photo_uploaded) {
 				$search_param['PortfolioSearch']['photo_uploaded'] = 1;
 			}
 		}
+
 		$dataProvider = $searchModel->search($search_param);
 
 		return $this->render('list', [

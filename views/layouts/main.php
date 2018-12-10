@@ -40,7 +40,7 @@ AppAsset::register($this);
 	<link rel="stylesheet" href="css/magnific-popup.css">
 	<link rel="stylesheet" href="css/nice-select.css">
 	<link rel="stylesheet" href="css/jquery-confirm.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 </head>
 <body>
@@ -92,7 +92,7 @@ AppAsset::register($this);
 											<a href="index.php?r=portfolio/create_by_excel" class="layer-3"><h4>作品Excel上傳</h4></a>
 										</li>
 										<li class="layer-2-li">
-											<a href="index.php?r=portfolio/list" class="layer-3"><h4>照片上傳</h4></a>
+											<a href="index.php?r=portfolio/list&photo_uploaded=0" class="layer-3"><h4>照片上傳</h4></a>
 										</li>
 										<li class="layer-2-li">
 											<a href="index.php?r=portfolio/list" class="layer-3"><h4>編輯作品</h4></a>

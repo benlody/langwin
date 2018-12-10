@@ -37,7 +37,8 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 						<h2 class="text-24 lh-40 color-d-blue bold left">服務介紹</h2>
 					</div>
 					<!--title & tab-->
-					<p class="text-15 lh-30 color-gray-666">一小段文字敘述一小段，文字敘述一小段文字敘述！</p>
+					<p class="text-15 lh-30 color-gray-666">光隆由專業的經營管理、具多年經驗的資深設計及印刷服務團隊所組成。我們協助眾多企業、組織進行印刷品的整合規劃與製作，專注於提供全面的印刷整合服務，在有限的時間與金錢之下，幫您想更多、做更多、贏更多。</p>
+					<p class="text-15 lh-30 color-gray-666">光隆創立於1954年，秉持著誠信、為客戶著想的理念，不斷的e化改善印刷流程與效率、時時更新軟硬體設備，朝向高附加價值、精緻及新構思之方向，來滿足客戶的需求，以永續經營為目標；提供給客戶最好的服務與創造更多的產品價值，一直是我們的堅持，客戶的滿意與信任則是對我們最大的鼓舞。</p>
 				</div>
 				<div class="regular slider si-slider">
 					<?php
@@ -91,10 +92,13 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 						<div class="clearfix index-tab mg-b-10 ">
 							<h2 class="text-24 lh-40 color-d-blue bold left">設計師</h2>
 						</div>
-						<!--title & tab-->
-						<p class="text-15 lh-30 color-gray-666">一小段文字敘述一小段，文字敘述一小段文字敘述！</p>
 					</div>
 					<div class="inlineblock index-designer-top-r"><a href="#" class="btn btn-yel " hov="0.8">設計師合作方案<i class="fas fa-angle-right mg-l-15"></i></a></div>
+
+						<!--title & tab-->
+						<p class="text-15 lh-30 color-gray-666">創意是設計中最重要的一項，但感覺與技術卻是設計師所應具備的基本素養，成功的設計師對作品的美感異常敏銳，因為美是人類共同的語言。</p>
+
+						<p class="text-15 lh-30 color-gray-666">光隆每位設計師皆具備「創意、感覺、技術」三大特質，以十多年的專業豐富設計經驗，搭配強大的視覺團隊，透過觀察→分析→構思→籌畫的過程，將客戶需求與原始構想轉化表達出來，最終呈現在驚豔完美的作品上，並兼具實用與藝術的雙重價值。</p>
 				</div>
 
 				<div class="clearfix flex-sec">
