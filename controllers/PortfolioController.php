@@ -46,7 +46,7 @@ class PortfolioController extends Controller
 			'verbs' => [
 				'class' => VerbFilter::className(),
 				'actions' => [
-					'delete' => ['POST'],
+//					'delete' => ['POST'],
 				],
 			],
 		];
@@ -374,10 +374,38 @@ class PortfolioController extends Controller
 		$model = $this->findModel($id);
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+			$designer_model = Designer::findOne($model->designer_id);
+			$designer_model->thumb1 = $model->portfolio_id.'/'.$model->thumb;
+			$designer_model->save();
+
 			return $this->redirect(['view', 'id' => $model->portfolio_id]);
 		} else {
+
+			$query = new Query;
+			$client = array();
+			$client_q = $query->select('client_id,'.'title')
+				->from('client')
+				->all();
+
+			foreach ($client_q as $key => $value) {
+				$client[$value['client_id']]=$value['title'];
+			}
+
+			$query = new Query;
+			$designer = array();
+			$designer_q = $query->select('designer_id,'.'title')
+				->from('designer')
+				->all();
+
+			foreach ($designer_q as $key => $value) {
+				$designer[$value['designer_id']]=$value['title'];
+			}
+
 			return $this->render('update', [
 				'model' => $model,
+				'client' => $client,
+				'designer' => $designer,
 			]);
 		}
 	}
@@ -392,7 +420,7 @@ class PortfolioController extends Controller
 	{
 		$this->findModel($id)->delete();
 
-		return $this->redirect(['index']);
+		return $this->redirect(['list']);
 	}
 
 	/**
