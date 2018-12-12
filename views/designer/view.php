@@ -8,11 +8,18 @@ use yii\widgets\ListView;
 /* @var $model app\models\Designer */
 
 $this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - 合作設計師 - ".$model->title;
+
+if ($model->thumb2 != ''){
+	$desginer_thumb = Yii::$app->request->getBaseUrl().'/designer/'.$model->thumb2;
+} else {
+	$desginer_thumb = Yii::$app->request->getBaseUrl().'/images/'.$model->thumb1;
+}
+
 ?>
 
 <!--visual-->
 <div class="page-visual">
-	<div class="pic"><div class="cover"></div><img src= <?= Yii::$app->request->getBaseUrl().'/images/'.$model->thumb1 ?> class="v-centerimg" alt="" /></div>
+	<div class="pic"><div class="cover"></div><img src= <?= $desginer_thumb ?> class="v-centerimg" alt="" /></div>
 	<div class="title"><span class="v-helper"></span><h2><?= $model->title ?></h2></div>
 </div>
 <!---visual-->

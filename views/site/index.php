@@ -105,7 +105,11 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 				<?php
 					foreach ($designer_array as $designer) {
 						$desginer_photo = Yii::$app->request->getBaseUrl().'/designer/'.$designer['photo'];
-						$desginer_thumb = Yii::$app->request->getBaseUrl().'/images/'.$designer['thumb1'];
+						if ($designer['thumb2'] != ''){
+							$desginer_thumb = Yii::$app->request->getBaseUrl().'/designer/'.$designer['thumb2'];
+						} else {
+							$desginer_thumb = Yii::$app->request->getBaseUrl().'/images/'.$designer['thumb1'];
+						}
 						$desginer_name = $designer['title'];
 						$desginer_link = 'index.php?r=designer%2Fview&id='.$designer['designer_id'];
 

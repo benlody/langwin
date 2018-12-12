@@ -50,14 +50,15 @@ $this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 						</a>
 						<? endif; ?>
 
+						<div class="page-inner-text mg-b-40">
+							<p><?= str_replace("\n","<br>" , $model->content); ?></p>
+						</div>
+
 					</div>
 					<!--sticky fixed area-->
 
 					<!--sticky over area-->
 					<div class="sticky-over">
-						<div class="page-inner-text mg-b-40">
-							<p><?= str_replace("\n","<br>" , $model->content); ?></p>
-						</div>
 
 						<div class="page-inner-text mg-b-40">
 							<h3 class="title">SPEC</h3>
