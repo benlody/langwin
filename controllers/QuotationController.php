@@ -9,6 +9,9 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+require '../../mail/PHPMailer/PHPMailerAutoload.php';
+
+
 /**
  * QuotationController implements the CRUD actions for Quotation model.
  */
@@ -113,10 +116,12 @@ class QuotationController extends Controller
 		$model->date = date("Y-m-d H:i:s", strtotime('now'));
 		$model->save();
 
-			return $this->render('create', [
-				'model' => $model,
-				'show_msg' => true,
-			]);
+		$this->sendMail();
+
+		return $this->render('create', [
+			'model' => $model,
+			'show_msg' => true,
+		]);
 
 	}
 
@@ -534,5 +539,24 @@ class QuotationController extends Controller
 		return $content;
 
 	}
+
+	protected function sendMail(){
+		$mail = new \PHPMailer;
+		$mail->isSMTP();
+		$mail->Host = 'ssl://smtp.gmail.com';
+		$mail->SMTPAuth = true;
+		$mail->CharSet = 'UTF-8';
+		$mail->Username = 'quotation@lang-win.com.tw';
+		$mail->Password = 'quotation29999099';
+		$mail->setFrom('quotation@lang-win.com.tw', '光隆印刷 - 網路詢價留言通知');
+		$mail->SMTPSecure = 'tls';
+		$mail->Port = 465;
+		$mail->addAddress('jack@lang-win.com.tw');
+		$mail->isHTML(true);
+		$mail->Subject = '網路詢價留言通知';
+		$mail->Body = '網路詢價留言通知';
+		$mail->send();
+	}
+
 
 }
