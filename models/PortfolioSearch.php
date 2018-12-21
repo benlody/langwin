@@ -142,6 +142,7 @@ class PortfolioSearch extends Portfolio
 	public function portfolio_search($limit, $offset=0, $search='')
 	{
 		$query = new Query;
+		$seed = date('oW');
 
 		// add conditions that should always apply here
 		if(0 != strcmp($search, '')){
@@ -153,6 +154,7 @@ class PortfolioSearch extends Portfolio
 		$portfolio_array = $query->select("p.portfolio_id, p.title AS p_title, d.title AS d_title, c.title AS c_title, p.tag, p.thumb")
 			->from("portfolio AS p, designer AS d, client AS c")
 			->Where($where)
+			->orderBy('rand('.$seed.')')
 			->limit($limit)
 			->all();
 

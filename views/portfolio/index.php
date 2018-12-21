@@ -13,7 +13,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 
 <!--visual-->
 <div class="page-visual">
-	<div class="pic"><div class="cover"></div><img src="images/tmp/15542127_1144448119006596_3500677702979826619_n.jpg" class="v-centerimg" alt="" /></div>
+	<div class="pic"><div class="cover"></div><img src="images/tmp/girl-791231.jpg" class="v-centerimg" alt="" /></div>
 	<div class="title"><span class="v-helper"></span><h2>PORTFOLIOS</h2></div>
 </div>
 <!---visual-->

@@ -44,10 +44,11 @@ class ClientController extends Controller
 		$searchModel = new ClientSearch();
 		$query_params = Yii::$app->request->queryParams;
 
+		$seed = date('oW');
 		$query = new Query;
 		$group_array = $query->select('client_group_id,'.'chinese_name')
 			->from('group')
-			->orderBy('rand()')
+			->orderBy('rand('.$seed.')')
 			->all();
 
 		$client_array = $searchModel->client_search($client_group_id);
