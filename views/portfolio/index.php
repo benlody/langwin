@@ -160,8 +160,12 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 						$item = $item."<div class='info'>";
 						$item = $item."<div class='title'><h3>".$portfolio_p_title."</h3></div>";
 						$item = $item."<div class='sub-info'><div class='sub-title-wrap'>";
-						$item = $item."<p class='sub-title'><span>Design</span>".$portfolio_d_title."</p>";
-						$item = $item."<p class='sub-title'><span>Client</span>".$portfolio_c_title."</p>";
+						if($portfolio_d_title != '--'){
+							$item = $item."<p class='sub-title'><span>Design</span>".$portfolio_d_title."</p>";
+						}
+						if($portfolio_c_title != '--'){
+							$item = $item."<p class='sub-title'><span>Client</span>".$portfolio_c_title."</p>";
+						}
 						$item = $item."</div></div><div class='line'></div></div></a><div class='tag-wrap'>";
 						for ($idx = 0; $idx < 4; $idx++){
 							if(!$portfolio_tag[$idx]){

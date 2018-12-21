@@ -170,7 +170,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 				<div class="pd-h-10 mg-b-40">
 					<!--title & tab-->
 					<div class="clearfix index-tab mg-b-10">
-						<h2 class="text-24 lh-40 color-d-blue bold left">作品列表</h2>
+						<h2 class="text-24 lh-40 color-d-blue bold left">精選作品列表</h2>
 					</div>
 					<!--title & tab-->
 					<p class="text-15 lh-30 color-gray-666">一小段文字敘述一小段，文字敘述一小段文字敘述！</p>
@@ -193,8 +193,12 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 						$item = $item."<div class='info'>";
 						$item = $item."<div class='title'><h3>".$portfolio_p_title."</h3></div>";
 						$item = $item."<div class='sub-info'><div class='sub-title-wrap'>";
-						$item = $item."<p class='sub-title'><span>Design</span>".$portfolio_d_title."</p>";
-						$item = $item."<p class='sub-title'><span>Client</span>".$portfolio_c_title."</p>";
+						if($portfolio_d_title != '--'){
+							$item = $item."<p class='sub-title'><span>Design</span>".$portfolio_d_title."</p>";
+						}
+						if($portfolio_c_title != '--'){
+							$item = $item."<p class='sub-title'><span>Client</span>".$portfolio_c_title."</p>";
+						}
 						$item = $item."</div></div><div class='line'></div></div></a><div class='tag-wrap'>";
 						for ($idx = 0; $idx < 4; $idx++){
 							if(!$portfolio_tag[$idx]){
