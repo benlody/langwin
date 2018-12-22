@@ -178,10 +178,12 @@ class PortfolioController extends Controller
 					$model_tag->name = $tag;
 					$model_tag->save();
 				}
-				$relation = new PortfolioTagRelation();
-				$relation->portfolio_id = $model->portfolio_id;
-				$relation->tag_id = $model_tag->tag_id;
-				$relation->save();
+				if(false == ($relation = PortfolioTagRelation::findOne(['portfolio_id' => $model->portfolio_id, 'tag_id' => $model_tag->tag_id]))){
+					$relation = new PortfolioTagRelation();
+					$relation->portfolio_id = $model->portfolio_id;
+					$relation->tag_id = $model_tag->tag_id;
+					$relation->save();
+				}
 			}
 
 			return $this->redirect(['view', 'id' => $model->portfolio_id]);
@@ -260,12 +262,12 @@ class PortfolioController extends Controller
 						$model_tag->name = $tag;
 						$model_tag->save();
 					}
-
-					$relation = new PortfolioTagRelation();
-					$relation->portfolio_id = $model->portfolio_id;
-					$relation->tag_id = $model_tag->tag_id;
-					$relation->save();
-
+					if(false == ($relation = PortfolioTagRelation::findOne(['portfolio_id' => $model->portfolio_id, 'tag_id' => $model_tag->tag_id]))){
+						$relation = new PortfolioTagRelation();
+						$relation->portfolio_id = $model->portfolio_id;
+						$relation->tag_id = $model_tag->tag_id;
+						$relation->save();
+					}
 				}
 			}
 
@@ -378,6 +380,22 @@ class PortfolioController extends Controller
 			$designer_model = Designer::findOne($model->designer_id);
 			$designer_model->thumb1 = $model->portfolio_id.'/'.$model->thumb;
 			$designer_model->save();
+
+			$tags = explode(",",$model->tag);
+			foreach ($tags as $tag) {
+				$tag = trim($tag);
+				if(false == ($model_tag = Tag::find()->where(['name' => $tag])->one())){
+					$model_tag = new Tag();
+					$model_tag->name = $tag;
+					$model_tag->save();
+				}
+				if(false == ($relation = PortfolioTagRelation::findOne(['portfolio_id' => $model->portfolio_id, 'tag_id' => $model_tag->tag_id]))){
+					$relation = new PortfolioTagRelation();
+					$relation->portfolio_id = $model->portfolio_id;
+					$relation->tag_id = $model_tag->tag_id;
+					$relation->save();
+				}
+			}
 
 			return $this->redirect(['view', 'id' => $model->portfolio_id]);
 		} else {
