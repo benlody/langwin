@@ -72,7 +72,7 @@ if ($model->thumb2 != ''){
 											echo '<a href= '.$model->behance.'  target="_blank"><span class="v-helper"></span><i class="fab fa-behance"></i></a>';
 										}
 										if ($model->email != ''){
-											echo '<a href=mailto:'.$model->email.'  target="_blank"><span class="v-helper"></span><i class="far fa-envelope"></i></a>';
+											echo '<a href=# class="cd-btn" data-did='.$model->designer_id.' ><span class="v-helper"></span><i class="far fa-envelope"></i></a>';
 										}
 
 										//<a href= '#' target="_blank"><span class="v-helper"></span><i class="fab fa-line"></i></a>

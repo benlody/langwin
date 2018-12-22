@@ -13,6 +13,7 @@ use yii\web\UploadedFile;
 use app\models\Portfolio;
 use app\models\PortfolioSearch;
 
+require '../../mail/PHPMailer/PHPMailerAutoload.php';
 
 /**
  * DesignerController implements the CRUD actions for Designer model.
@@ -167,6 +168,17 @@ class DesignerController extends Controller
 		return $this->redirect(['list']);
 	}
 
+	public function actionAjaxSendMail()
+	{
+		$post_param = Yii::$app->request->post();
+
+		$model = $this->findModel($post_param['designer_id']);
+
+		$this->sendMail($model, $post_param['cdcon'], $post_param['cdmail']);
+
+		return $true;
+	}
+
 	/**
 	 * Finds the Designer model based on its primary key value.
 	 * If the model is not found, a 404 HTTP exception will be thrown.
@@ -182,4 +194,31 @@ class DesignerController extends Controller
 			throw new NotFoundHttpException('The requested page does not exist.');
 		}
 	}
+
+	protected function sendMail($model, $content, $c_mail){
+		$mail = new \PHPMailer;
+		$mail->isSMTP();
+		$mail->Host = 'ssl://smtp.gmail.com';
+		$mail->SMTPAuth = true;
+		$mail->CharSet = 'UTF-8';
+		$mail->Username = 'quotation@lang-win.com.tw';
+		$mail->Password = 'quotation29999099';
+		$mail->setFrom('quotation@lang-win.com.tw', '光隆印刷 - 聯絡設計師');
+		$mail->SMTPSecure = 'tls';
+		$mail->Port = 465;
+		$mail->addBcc('jack@lang-win.com.tw');
+		$mail->addAddress($model->email);
+		$mail->isHTML(true);
+		$mail->Subject = '來自<'.$c_mail.'>透過<光隆印刷>的聯繫';
+
+		$body = $this->renderPartial('contact_design', [
+					'model' => $model,
+					'content' => $content,
+					'c_mail' => $c_mail
+				]);
+
+		$mail->Body = $body;
+		$mail->send();
+	}
+
 }

@@ -233,7 +233,7 @@ $(document).ready(function(){
 			'<div class="form-group">' +
 			'<input type="text" class="input-text block cd-input-text mg-b-20 cd-mail" placeholder="輸入您的 Email" required />' +
 			'<textarea class="input-textarea block cd-textarea cd-con" placeholder="輸入內容" required ></textarea>' +
-			'</div>' +
+			'</div>' + '<p>＊您的訊息將經由光隆印刷官網傳送，並保留在光隆網站資料庫中。</p>' + 
 			'</form>',
 			buttons: {
 				formSubmit: {
@@ -256,6 +256,28 @@ $(document).ready(function(){
 								return false;
 							}
 						}
+						var designer_id = document.getElementsByClassName('cd-btn')[0].dataset.did;
+						var csrfToken = $('meta[name="csrf-token"]').attr("content");
+
+						jQuery.ajax({
+							// The url must be appropriate for your configuration;
+							// this works with the default config of 1.1.11
+							url: 'index.php?r=designer/ajax-send-mail',
+							type: "POST",
+							data: {
+								designer_id: designer_id,
+								cdcon: cdcon,
+								cdmail: cdmail,
+								_csrf: csrfToken
+							},
+							error: function(xhr,tStatus,e){
+								console.log(arguments);
+							},
+							success: function(resp){
+							}
+						});
+
+
 						$.alert('已送出');
 					}
 				},
