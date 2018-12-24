@@ -146,9 +146,9 @@ class PortfolioSearch extends Portfolio
 
 		// add conditions that should always apply here
 		if(0 != strcmp($search, '')){
-			$where = "(p.designer_id = d.designer_id AND p.company_id = c.client_id) AND (p.title like '%".$search."%' OR p.content like '%".$search."%' OR p.tag like '%".$search."%')";
+			$where = "photo_uploaded = 1 AND (p.designer_id = d.designer_id AND p.company_id = c.client_id) AND (p.title like '%".$search."%' OR p.content like '%".$search."%' OR p.tag like '%".$search."%')";
 		} else {
-			$where = "p.designer_id = d.designer_id AND p.company_id = c.client_id";
+			$where = "photo_uploaded = 1 AND p.designer_id = d.designer_id AND p.company_id = c.client_id";
 		}
 
 		$portfolio_array = $query->select("p.portfolio_id, p.title AS p_title, d.title AS d_title, c.title AS c_title, p.tag, p.thumb")
