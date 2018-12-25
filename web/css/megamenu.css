@@ -209,7 +209,7 @@ Mobile style's
 @media screen and (min-width: 1200px) {
 	header .fixarea .fxarea-rwd{width:1160px;margin:0 auto;display:block;height:50px;padding:0 20px;}
 	.menu .layer-2-adj{width:1200px;margin:0 auto;}
-	.menu ul.layer-2-ul{width:100%;top:80px;background:#0d0d0e;border-bottom:none;}
+	.menu ul.layer-2-ul{width:100%;top:50px;background:#0d0d0e;border-bottom:none;}
 	.menu .layer-3 h4{font-size:14px;color:#666;padding: 14px 0;}
 	.menu .layer-3:hover h4{color:#fff;background:#3562be;}
 	
