@@ -160,20 +160,26 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 						$item = $item."<div class='info'>";
 						$item = $item."<div class='title'><h3>".$portfolio_p_title."</h3></div>";
 						$item = $item."<div class='sub-info'><div class='sub-title-wrap'>";
-						if($portfolio_d_title != '--'){
-							$item = $item."<p class='sub-title'><span>Design</span>".$portfolio_d_title."</p>";
-						}
-						if($portfolio_c_title != '--'){
-							$item = $item."<p class='sub-title'><span>Client</span>".$portfolio_c_title."</p>";
-						}
-						$item = $item."</div></div><div class='line'></div></div></a><div class='tag-wrap'>";
-						for ($idx = 0; $idx < 4; $idx++){
-							if(!$portfolio_tag[$idx]){
-								break;
+
+							if($portfolio_d_title != '--'){
+								$item = $item."<p class='sub-title'><span>Design</span>".$portfolio_d_title."</p>";
 							}
-							$item = $item."<a href='/langwin/web/index.php?r=portfolio%2Findex&search=".$portfolio_tag[$idx]."' class='one-tag'>".$portfolio_tag[$idx]."</a>";
-						}
-						$item = $item."</div></div>";
+							if($portfolio_c_title != '--'){
+								$item = $item."<p class='sub-title'><span>Client</span>".$portfolio_c_title."</p>";
+							}
+
+						$item = $item."</div></div><div class='line'></div></div></a>";
+
+							$item = $item."<div class='tag-wrap'>";
+							for ($idx = 0; $idx < 4; $idx++){
+								if(!$portfolio_tag[$idx]){
+									break;
+								}
+								$item = $item."<a href='/langwin/web/index.php?r=portfolio%2Findex&search=".$portfolio_tag[$idx]."' class='one-tag'>".$portfolio_tag[$idx]."</a>";
+							}
+							$item = $item."</div>";
+
+						$item = $item."</div>";
 						echo $item;
 					}
 				?>

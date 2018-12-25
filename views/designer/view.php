@@ -110,7 +110,9 @@ if ($model->thumb2 != ''){
 						$item = $item.'<div class="title"><h3>'.$portfolio_title.'</h3></div>';
 						$item = $item.'<div class="sub-info"><div class="sub-title-wrap">';
 						$item = $item.'<p class="sub-title"><span>Design</span>'.$designer_title.'</p>';
-						$item = $item.'<p class="sub-title"><span>Client</span>'.$client_title.'</p>';
+						if($client_title != '--'){
+							$item = $item."<p class='sub-title'><span>Client</span>".$client_title."</p>";
+						}
 						$item = $item.'</div></div><div class="line"></div></div></a><div class="tag-wrap">';
 						for ($idx = 0; $idx < 4; $idx++){
 							if(!$portfolio_tag[$idx]){

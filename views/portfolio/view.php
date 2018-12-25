@@ -51,9 +51,16 @@ $this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 						<? endif; ?>
 
 						<div class="page-inner-text mg-b-40">
-							<p><?= str_replace("\n","<br>" , $model->content); ?></p>
+							<h3 class="title">TAG</h3>
+							<div class="tag-wrap">
+								<?php
+									$portfolio_tag = explode(",",$model->tag);
+									foreach ($portfolio_tag as $tag){
+										echo '<a href="/langwin/web/index.php?r=portfolio%2Findex&search='.$tag.'" class="one-tag">'.$tag.'</a>';
+									}
+								?>
+							</div>
 						</div>
-
 					</div>
 					<!--sticky fixed area-->
 
@@ -66,16 +73,9 @@ $this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 						</div>
 
 						<div class="page-inner-text mg-b-40">
-							<h3 class="title">TAG</h3>
-							<div class="tag-wrap">
-								<?php
-									$portfolio_tag = explode(",",$model->tag);
-									foreach ($portfolio_tag as $tag){
-										echo '<a href="/langwin/web/index.php?r=portfolio%2Findex&search='.$tag.'" class="one-tag">'.$tag.'</a>';
-									}
-								?>
-							</div>
+							<p><?= str_replace("\n","<br>" , $model->content); ?></p>
 						</div>
+
 					</div>
 					<!--sticky over area-->
 				</div>
