@@ -45,7 +45,7 @@ Screen style's
 .menu .layer-1,.login-signup .layer-1{
     text-decoration: none;
     display: block;
-	font-size:16px;color:#4c515b;font-weight:bold;height:80px;padding: 0 30px;line-height:80px;
+	font-size:16px;color:#4c515b;font-weight:bold;height:50px;padding: 0 30px;line-height:50px;
 	transition:0.22s;
 	position:relative;
 }
@@ -207,7 +207,7 @@ Mobile style's
 
 
 @media screen and (min-width: 1200px) {
-	header .fixarea .fxarea-rwd{width:1160px;margin:0 auto;display:block;height:80px;padding:0 20px;}
+	header .fixarea .fxarea-rwd{width:1160px;margin:0 auto;display:block;height:50px;padding:0 20px;}
 	.menu .layer-2-adj{width:1200px;margin:0 auto;}
 	.menu ul.layer-2-ul{width:100%;top:80px;background:#0d0d0e;border-bottom:none;}
 	.menu .layer-3 h4{font-size:14px;color:#666;padding: 14px 0;}
@@ -240,13 +240,13 @@ Mobile style's
     .menu-mobile {
 		float:right;
         display: block;
-		height:80px;
+		height:50px;
 		cursor:pointer;
 		position:relative;
     }
 	.menu-mobile:after {
 		width:80px;
-		height:80px;
+		height:50px;
 		content: "";
 		background:url(../images/common/menu.png) no-repeat center center;
 		display:block;
@@ -257,7 +257,7 @@ Mobile style's
 	
 	.menu-mobile.close:after {
 		width:80px;
-		height:80px;
+		height:50px;
 		content: "";
 		background:url(../images/common/menu-close.png) no-repeat center center;
 		display:block;
@@ -345,8 +345,8 @@ Mobile style's
 }
 
 @media screen and (max-width: 767px) {
-	header .menu-container{height:80px;}
-	.menu-mobile,.menu-mobile:after,.menu-mobile.close:after{height:80px;}
+	header .menu-container{height:50px;}
+	.menu-mobile,.menu-mobile:after,.menu-mobile.close:after{height:50px;}
 	.login-signup ul.layer-1-ul {margin:0;overflow:hidden;text-align:right;}	
 	.menu ul.layer-1-ul.show-on-mobile{top:auto;}
 	.login-signup li.layer-1-li{float:none;display:inline-block;}

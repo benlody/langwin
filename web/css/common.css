@@ -14,7 +14,7 @@
 .input-text{border:1px solid #d6d6d6;font-size:14px;color:#666;font-weight:bold;padding:0 20px;box-sizing:border-box;height:46px;line-height:46px;outline: none;border-radius: 30px;background:#edebe1;}
 .input-text:focus,.input-textarea:focus{border:1px solid #3562be;}
 .input-textarea{border:1px solid #d6d6d6;font-size:14px;color:#666;font-weight:bold;padding:12px 20px;box-sizing:border-box;min-height:120px;line-height:24px;background:#edebe1;outline: none;resize: none;border-radius: 6px;}
-.input-text.input-text-l{height:60px;line-height:60px;font-size:15px;min-width:400px;}
+.input-text.input-text-l{height:50px;line-height:50px;font-size:15px;min-width:400px;}
 
 .btn{font-size:16px;height:46px;line-height:46px;padding:0 25px;background:#444;color:#fff;font-weight: bold;display:inline-block;border-radius:30px;outline:none;cursor:pointer;}
 .btn-yel{background:#deb200;}
@@ -60,8 +60,8 @@
 /*--------*/
 
 
-header{height:80px;background:#f7f6f1;}
-header .inner{width:1160px;margin:0 auto;height:80px;}
+header{height:50px;background:#f7f6f1;}
+header .inner{width:1160px;margin:0 auto;height:50px;}
 header .h-msg{background:#292924;height:26px;}
 header .h-msg .inner{width:1160px;margin:0 auto;height:26px;padding-left:20px;padding-right:20px;}
 header .h-msg .inner .h-msg-l{color:#fff;height:26px;line-height:26px;float:left;}
@@ -75,14 +75,14 @@ header .h-msg .inner .h-msg-r .currency-sel .drop a:hover,header .h-msg .inner .
 header .h-msg .inner .h-msg-r .lan-sel{float:left;color:#fff;font-size:12px;line-height:26px;}
 header .h-msg .inner .h-msg-r .lan-sel a{color:#666;transition:0.2s;}
 header .h-msg .inner .h-msg-r .lan-sel a:hover,header .h-msg .inner .h-msg-r .lan-sel a.active{color:#fff;}
-header .fixarea{height:80px;width:100%;top:-57px;background:#f7f6f1;}
+header .fixarea{height:50px;width:100%;top:-57px;background:#f7f6f1;}
 .headerfix{position:fixed !important;top:0 !important;z-index:999;transition:0.35s ease-out;-webkit-transition:0.35s ease-out;background:rgba(255,255,255,.8);}
-header .logo{float:left;display:inline-block;height:80px;vertical-align: middle;}
+header .logo{float:left;display:inline-block;height:50px;vertical-align: middle;}
 header .logo .helper{display: inline-block;height: 100%;vertical-align: middle;}
 header .logo img{display:inline-block;vertical-align: middle;}
-header .menu-container{float:right;height:80px;}
+header .menu-container{float:right;height:50px;}
 header .menu-search{float:right;height:100%;}
-header .login-signup-container{float:right;height:80px;}
+header .login-signup-container{float:right;height:50px;}
 header .rwd-menu-search{display:none;}
 
 body{
@@ -164,8 +164,8 @@ Mobile style's
 	
 	.input-text.input-text-l{min-width:inherit;max-width: 100%;}
 	
-	header{height:80px;}
-	header .fixarea{height:80px;}
+	header{height:50px;}
+	header .fixarea{height:50px;}
 	/*header .login-signup ul.layer-1-ul ul{right: 0px;width: 90%;}*/
 	header .logo{margin-left:20px;}
 	header .rwd-menu-search{display:block;}
