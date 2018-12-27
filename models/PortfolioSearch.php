@@ -20,7 +20,7 @@ class PortfolioSearch extends Portfolio
 	{
 		return [
 			[['designer_id', 'company_id', 'photo_uploaded'], 'integer'],
-			[['portfolio_id', 'spec', 'content'], 'safe'],
+			[['portfolio_id', 'spec', 'content','title','tag'], 'safe'],
 		];
 	}
 
