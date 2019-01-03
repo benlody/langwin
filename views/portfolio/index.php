@@ -204,7 +204,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 									echo '<li class="inlineblock page"><a href="index.php?r=portfolio%2Findex'.$search_param.'&page='.$idx.'">'.$idx.'</a></li>';
 								}
 							}
-							echo '<li class="inlineblock page active"><a href="#">'.$page.'</a></li>';
+							echo '<li class="inlineblock page active"><a>'.$page.'</a></li>';
 							for ($idx = $page+1; $idx < $page+4; $idx++){
 								if($idx <= $page_max){
 									echo '<li class="inlineblock page"><a href="index.php?r=portfolio%2Findex'.$search_param.'&page='.$idx.'">'.$idx.'</a></li>';

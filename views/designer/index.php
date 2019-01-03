@@ -36,7 +36,7 @@ $this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 					<!--title & tab-->
 				</div>
 				<div class="inlineblock index-designer-top-r">
-					<div class="inlineblock index-designer-top-r"><a href="#" class="btn btn-yel " hov="0.8">設計師合作方案<i class="fas fa-angle-right mg-l-15"></i></a></div>
+					<div class="inlineblock index-designer-top-r"><a href="https://docs.google.com/forms/d/e/1FAIpQLSch5rZavUyKCS_e6CFouqkFxyf3Zd31MgSeSUf8HH6XfHB4tQ/viewform" target="_blank" class="btn btn-yel " hov="0.8">設計師合作方案<i class="fas fa-angle-right mg-l-15"></i></a></div>
 				</div>
 			</div>
 			<div class="clearfix flex-sec portfolio-page">
@@ -71,7 +71,7 @@ $this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 								echo '<li class="inlineblock page"><a href="index.php?r=designer%2Findex&page='.$idx.'">'.$idx.'</a></li>';
 							}
 						}
-						echo '<li class="inlineblock page active"><a href="#">'.$page.'</a></li>';
+						echo '<li class="inlineblock page active"><a>'.$page.'</a></li>';
 						for ($idx = $page+1; $idx < $page+4; $idx++){
 							if($idx <= $page_max){
 								echo '<li class="inlineblock page"><a href="index.php?r=designer%2Findex&page='.$idx.'">'.$idx.'</a></li>';
