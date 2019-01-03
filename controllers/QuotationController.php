@@ -9,7 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-require '../../mail/PHPMailer/PHPMailerAutoload.php';
+require '../phpmail/PHPMailer/PHPMailerAutoload.php';
 
 
 /**
@@ -248,7 +248,7 @@ class QuotationController extends Controller
 			$content = $content."裝訂方式:".$post_param["binding"]."\n";
 		}
 
-		if("horizontal" == $post_param["horizontal"]){
+		if(isset($post_param["horizontal"])){
 			$content = $content."橫式(短邊裝釘)\n";
 		}
 
@@ -541,15 +541,24 @@ class QuotationController extends Controller
 	}
 
 	protected function sendMail(){
+
 		$mail = new \PHPMailer;
 		$mail->isSMTP();
-		$mail->Host = 'ssl://smtp.gmail.com';
+		$mail->SMTPOptions = array(
+			'ssl' => array(
+				'verify_peer' => false,
+				'verify_peer_name' => false,
+				'allow_self_signed' => true
+			)
+		);
+		$mail->Host = 'iwatch.247-hosting.com';
 		$mail->SMTPAuth = true;
 		$mail->CharSet = 'UTF-8';
-		$mail->Username = 'quotation@lang-win.com.tw';
+		$mail->Username = 'test@lang-win.com.tw';
 		$mail->Password = 'quotation29999099';
-		$mail->setFrom('quotation@lang-win.com.tw', '光隆印刷 - 網路詢價留言通知');
-		$mail->SMTPSecure = 'tls';
+		$mail->AddReplyTo('jack@lang-win.com.tw', '光隆印刷');
+		$mail->setFrom('website@lang-win.com.tw', '光隆印刷 - 網路詢價留言通知');
+		$mail->SMTPSecure = 'ssl';
 		$mail->Port = 465;
 		$mail->addAddress('jack@lang-win.com.tw');
 		$mail->isHTML(true);

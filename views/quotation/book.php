@@ -165,7 +165,7 @@ use yii\widgets\ActiveForm;
 			echo $this->render('radio_opt', [
 					'title' => '內頁印刷', 
 					'radio_array' => $inside_color_radio_array, 
-					'name' => 'inside-side', 
+					'name' => 'inside-color', 
 					'required' => true, 
 					'other' => true,
 					'other_label' => '其他 (特別色 無印刷)',

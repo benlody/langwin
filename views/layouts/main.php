@@ -18,6 +18,25 @@ AppAsset::register($this);
 <head>
 	<meta charset="<?= Yii::$app->charset ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="tglAmXXkHJ" />
+	<!-- Start of Woopra Code -->
+	<script>
+	(function(){
+	var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call"],c=function(){var t,i=this;for(i._e=[],t=0;r.length>t;t++)(function(t){i[t]=function(){return i._e.push([t].concat(Array.prototype.slice.call(arguments,0))),i}})(r[t])};for(n._w=n._w||{},t=0;a.length>t;t++)n._w[a[t]]=n[a[t]]=n[a[t]]||new c;i=o.createElement(s),i.async=1,i.src="//static.woopra.com/js/w.js",e=o.getElementsByTagName(s)[0],e.parentNode.insertBefore(i,e)
+	})("woopra");
+	woopra.config({
+	    domain: 'lang-win.com.tw',
+	    idle_timeout: 1800000
+	});
+	woopra.track('pv', {
+	    url: window.location.pathname+window.location.search,
+	    title: document.title
+	});
+	</script>
+	<!-- End of Woopra Code -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta name="description" content="光隆印刷廠股份有限公司位於台北三重區，提供各式紙製品的印刷製作，如書籍、名片、DM、海報、卡片、信封、紙盒、彩盒、紙袋、貼紙、包裝、各式禮贈品等印刷，亦有燙金、打凸、上光、軋型等後加工。從印前的設計到製作完成後的物流配送，均能提供最完整的服務。公司創立於1954年，秉持著誠信、為客戶著想的理念，不斷改善印刷流程與效率，創造客戶更高附加價值，提供給客戶最好的設計與印刷品質，一直是我們的堅持，客戶的滿意與信任則是對我們最大的鼓舞。">
 	<?= Html::csrfMetaTags() ?>
 	<title><?= Html::encode($this->title) ?></title>
 	<?php $this->head() ?>
@@ -42,6 +61,19 @@ AppAsset::register($this);
 	<link rel="stylesheet" href="css/jquery-confirm.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
+	<script>
+	<!--
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	 
+	  ga('create', 'UA-48241338-1', 'lang-win.com.tw');
+	  ga('send', 'pageview');
+
+	//-->
+	</script>
+
 </head>
 <body>
 
@@ -59,7 +91,7 @@ AppAsset::register($this);
 		<div class="fixarea">
 			<!---->
 			<div class="fxarea-rwd">
-				<a href="index.html" class="logo relative block" hov="0.75"><span class="helper"></span><img class="" src="images/tmp/KL-LOGO-B.png" alt="" />&nbsp<img class="" src="images/common/logo.png" alt="" /></a>
+				<a href="index.php" class="logo relative block" hov="0.75"><span class="helper"></span><img class="" src="images/tmp/KL-LOGO-B.png" alt="" />&nbsp<img class="" src="images/common/logo.png" alt="" /></a>
 				<!--menu-->
 				<div class="menu-container">
 					<div class="menu">
@@ -77,7 +109,7 @@ AppAsset::register($this);
 							</li>
 							<li class="layer-1-li"><a href="index.php?r=portfolio%2Findex" class="layer-1 menu-line"><h2>精選作品</h2></a></li>
 							<li class="layer-1-li"><a href="index.php?r=designer%2Findex" class="layer-1 menu-line"><h2>合作設計師</h2></a></li>
-							<li class="layer-1-li"><a href="index.php?r=client%2Findex" class="layer-1 menu-line"><h2>我們的客戶</h2></a></li>
+							<!--li class="layer-1-li"><a href="index.php?r=client%2Findex" class="layer-1 menu-line"><h2>我們的客戶</h2></a></li-->
 							<li class="layer-1-li"><a href="index.php?r=quotation%2Fcreate" class="layer-1 menu-line"><h2>聯絡／詢價</h2></a></li>
 
 
@@ -126,7 +158,7 @@ AppAsset::register($this);
 					<div class="v-helper"></div>
 					<div class="wrap">
 					<div class="menu-search-btn"></div>
-					<form class="menu-search-form" action="/langwin/web/index.php" method="get">
+					<form class="menu-search-form" action= <?=Yii::$app->request->getBaseUrl()."index.php"?> method="get">
 						<input type="hidden" name="r" value="portfolio/index">
 						<input type="text" name="search" class="input-text" placeholder="搜尋關鍵字" />
 						<button type="submit" class="search-mag"><i class="fas fa-search"></i></button>

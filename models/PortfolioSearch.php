@@ -156,6 +156,7 @@ class PortfolioSearch extends Portfolio
 			->Where($where)
 			->orderBy('rand('.$seed.')')
 			->limit($limit)
+			->offset($offset)
 			->all();
 
 		return $portfolio_array;

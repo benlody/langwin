@@ -20,7 +20,7 @@ use app\models\Tag;
 use app\models\PortfolioTagRelation;
 use yii\db\Query;
 
-require '../../mail/PHPMailer/PHPMailerAutoload.php';
+require '../phpmail/PHPMailer/PHPMailerAutoload.php';
 
 
 function get_array_excel($path){
@@ -229,15 +229,23 @@ class DevelopeController extends Controller
 	protected function sendMail($body, $subject, $sales, $to){
 		$mail = new \PHPMailer;
 		$mail->isSMTP();
-		$mail->Host = 'ssl://smtp.gmail.com';
+		$mail->Host = 'iwatch.247-hosting.com';
 		$mail->SMTPAuth = true;
+		$mail->SMTPOptions = array(
+			'ssl' => array(
+				'verify_peer' => false,
+				'verify_peer_name' => false,
+				'allow_self_signed' => true
+			)
+		);
 		$mail->CharSet = 'UTF-8';
+		$mail->Username = 'test@lang-win.com.tw';
+		$mail->Password = 'quotation29999099';
 		if("jack" == $sales){
-			$mail->Username = 'jack@lang-win.com.tw';
-			$mail->Password = 'bld1130chen';
+			$mail->AddReplyTo('jack@lang-win.com.tw', '光隆印刷 - Jack');
 			$mail->setFrom('jack@lang-win.com.tw', '光隆印刷 - Jack');
 		}
-		$mail->SMTPSecure = 'tls';
+		$mail->SMTPSecure = 'ssl';
 		$mail->Port = 465;
 		$address = explode(",", $to);
 		foreach($address as $key => $value){

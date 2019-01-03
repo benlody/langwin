@@ -59,7 +59,7 @@ class PortfolioController extends Controller
 	public function actionIndex($search='', $token='', $page=1)
 	{
 
-		$page_size = 34;
+		$page_size = 70;
 		$portfolio_searchModel = new PortfolioSearch();
 
 		$portfolio_cnt = $portfolio_searchModel->count();
@@ -98,8 +98,11 @@ class PortfolioController extends Controller
 
 		$post_param = Yii::$app->request->post();
 		$search_param = Yii::$app->request->queryParams;
+		$search_param['PortfolioSearch'] = '';
 
-		$search_param['PortfolioSearch'] = $post_param['PortfolioSearch'];
+		if(isset($post_param['PortfolioSearch'])){
+			$search_param['PortfolioSearch'] = $post_param['PortfolioSearch'];
+		}
 
 		if($photo_uploaded != -1){
 			if(0 == $photo_uploaded){

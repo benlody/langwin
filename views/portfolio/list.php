@@ -18,19 +18,19 @@ $this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/site.css');
 	<?php $form = ActiveForm::begin(); ?>
 
 	<label class="control-label">ID</label>
-	<?= Html::input('text', 'PortfolioSearch[portfolio_id]', $search_param['portfolio_id'], ['class' => 'form-control', 'id' => 'PortfolioSearch_portfolio_id']) ?>
+	<?= Html::input('text', 'PortfolioSearch[portfolio_id]', isset($search_param['portfolio_id']) ? $search_param['portfolio_id'] : '', ['class' => 'form-control', 'id' => 'PortfolioSearch_portfolio_id']) ?>
 	<div class="help-block"></div>
 
 	<label class="control-label">Title</label>
-	<?= Html::input('text', 'PortfolioSearch[title]', $search_param['title'], ['class' => 'form-control', 'id' => 'PortfolioSearch_title']) ?>
+	<?= Html::input('text', 'PortfolioSearch[title]', isset($search_param['title']) ? $search_param['title'] : '', ['class' => 'form-control', 'id' => 'PortfolioSearch_title']) ?>
 	<div class="help-block"></div>
 
 	<label class="control-label">Spec</label>
-	<?= Html::input('text', 'PortfolioSearch[spec]', $search_param['spec'], ['class' => 'form-control', 'id' => 'PortfolioSearch_spec']) ?>
+	<?= Html::input('text', 'PortfolioSearch[spec]', isset($search_param['spec']) ? $search_param['spec'] : '', ['class' => 'form-control', 'id' => 'PortfolioSearch_spec']) ?>
 	<div class="help-block"></div>
 
 	<label class="control-label">Tag</label>
-	<?= Html::input('text', 'PortfolioSearch[tag]', $search_param['tag'], ['class' => 'form-control', 'id' => 'PortfolioSearch_tag']) ?>
+	<?= Html::input('text', 'PortfolioSearch[tag]', isset($search_param['tag']) ? $search_param['tag'] : '', ['class' => 'form-control', 'id' => 'PortfolioSearch_tag']) ?>
 	<div class="help-block"></div>
 
 	<div class="form-group">

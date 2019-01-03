@@ -134,7 +134,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 					<div class="inlineblock index-designer-top-r">
 						<!--search-->
 						<div class="page-search">
-							<form class="menu-search-form" action="/langwin/web/index.php" method="get">
+							<form class="menu-search-form" action= <?=Yii::$app->request->getBaseUrl()."/index.php"?> method="get">
 								<input type="hidden" name="r" value="portfolio/index">
 								<input type="text" name="search" class="input-text" placeholder="搜尋關鍵字" />
 								<button type="submit" class="search-mag"><i class="fas fa-search"></i></button>
@@ -172,10 +172,10 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 
 							$item = $item."<div class='tag-wrap'>";
 							for ($idx = 0; $idx < 4; $idx++){
-								if(!$portfolio_tag[$idx]){
+								if(!isset($portfolio_tag[$idx])){
 									break;
 								}
-								$item = $item."<a href='/langwin/web/index.php?r=portfolio%2Findex&search=".$portfolio_tag[$idx]."' class='one-tag'>".$portfolio_tag[$idx]."</a>";
+								$item = $item."<a href='".Yii::$app->request->getBaseUrl()."/index.php?r=portfolio%2Findex&search=".$portfolio_tag[$idx]."' class='one-tag'>".$portfolio_tag[$idx]."</a>";
 							}
 							$item = $item."</div>";
 

@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 use app\models\Portfolio;
 use app\models\PortfolioSearch;
 
-require '../../mail/PHPMailer/PHPMailerAutoload.php';
+require '../phpmail/PHPMailer/PHPMailerAutoload.php';
 
 /**
  * DesignerController implements the CRUD actions for Designer model.
@@ -198,13 +198,20 @@ class DesignerController extends Controller
 	protected function sendMail($model, $content, $c_mail){
 		$mail = new \PHPMailer;
 		$mail->isSMTP();
-		$mail->Host = 'ssl://smtp.gmail.com';
+		$mail->Host = 'iwatch.247-hosting.com';
 		$mail->SMTPAuth = true;
+		$mail->SMTPOptions = array(
+			'ssl' => array(
+				'verify_peer' => false,
+				'verify_peer_name' => false,
+				'allow_self_signed' => true
+			)
+		);
 		$mail->CharSet = 'UTF-8';
-		$mail->Username = 'quotation@lang-win.com.tw';
+		$mail->Username = 'test@lang-win.com.tw';
 		$mail->Password = 'quotation29999099';
-		$mail->setFrom('quotation@lang-win.com.tw', '光隆印刷 - 聯絡設計師');
-		$mail->SMTPSecure = 'tls';
+		$mail->setFrom('website@lang-win.com.tw', '光隆印刷 - 聯絡設計師');
+		$mail->SMTPSecure = 'ssl';
 		$mail->Port = 465;
 		$mail->addBcc('jack@lang-win.com.tw');
 		$mail->addAddress($model->email);

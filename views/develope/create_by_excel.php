@@ -32,7 +32,7 @@ $this->title = '客戶開發';
 	<?php ActiveForm::end(); ?>
 
 	<?php
-		if($content){
+		if(isset($content)){
 
 			echo '確認資料正確後 請至最下方按寄出(Send)';
 

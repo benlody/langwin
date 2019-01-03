@@ -43,7 +43,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 				<div class="regular slider si-slider">
 					<?php
 						foreach ($service_list as $key => $value) {
-							$out = "<a href='/langwin/web/index.php?r=portfolio%2Findex&search=".$value['name']."' class='relative si-item'>";
+							$out = "<a href='".Yii::$app->request->getBaseUrl()."/index.php?r=portfolio%2Findex&search=".$value['name']."' class='relative si-item'>";
 //							$out = $out."<img src='".$value['bg_src']."' alt='' class='v-centerimg' />";
 							$out = $out."<div class='cover'></div><div class='con'><div class='v-helper'></div><div class='inlineblock vmiddle'>";
 							$out = $out."<div class='ico'><img src='".$value['ico_src']."' alt='' /></div>";
@@ -52,7 +52,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 						}
 					?>
 					<!--one item
-					<a href='/langwin/web/index.php?r=portfolio%2Findex&search=名片' class='relative si-item'>
+					<a href= '/index.php?r=portfolio%2Findex&search=名片' class='relative si-item'>
 						<img src='' alt='' class='v-centerimg' />
 						<div class='cover'></div>
 						<div class='con'>
@@ -68,7 +68,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 
 				<div class="tcenter">
 					<div class="mg-t-40 index-si-search">
-						<form action="/langwin/web/index.php" method="get">
+						<form action= <?=Yii::$app->request->getBaseUrl()."/index.php"?> method="get">
 							<input type="hidden" name="r" value="portfolio/index">
 							<input type="text" name="search" class="input-text" placeholder="找不到你要的？試試搜尋功能！" />
 							<button type="submit" class="search-mag"><i class="fas fa-search"></i></button>
@@ -93,7 +93,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 							<h2 class="text-24 lh-40 color-d-blue bold left">設計師</h2>
 						</div>
 					</div>
-					<div class="inlineblock index-designer-top-r"><a href="#" class="btn btn-yel " hov="0.8">設計師合作方案<i class="fas fa-angle-right mg-l-15"></i></a></div>
+					<div class="inlineblock index-designer-top-r"><a href="https://docs.google.com/forms/d/e/1FAIpQLSch5rZavUyKCS_e6CFouqkFxyf3Zd31MgSeSUf8HH6XfHB4tQ/viewform" target="_blank" class="btn btn-yel " hov="0.8">設計師合作方案<i class="fas fa-angle-right mg-l-15"></i></a></div>
 
 						<!--title & tab-->
 						<p class="text-15 lh-30 color-gray-666">創意是設計中最重要的一項，但感覺與技術卻是設計師所應具備的基本素養，成功的設計師對作品的美感異常敏銳，因為美是人類共同的語言。</p>
@@ -173,7 +173,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 						<h2 class="text-24 lh-40 color-d-blue bold left">精選作品列表</h2>
 					</div>
 					<!--title & tab-->
-					<p class="text-15 lh-30 color-gray-666">一小段文字敘述一小段，文字敘述一小段文字敘述！</p>
+					<!--p class="text-15 lh-30 color-gray-666">一小段文字敘述一小段，文字敘述一小段文字敘述！</p-->
 				</div> 
 				<div class="clearfix flex-sec">
 
@@ -201,10 +201,10 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 						}
 						$item = $item."</div></div><div class='line'></div></div></a><div class='tag-wrap'>";
 						for ($idx = 0; $idx < 4; $idx++){
-							if(!$portfolio_tag[$idx]){
+							if(!isset($portfolio_tag[$idx])){
 								break;
 							}
-							$item = $item."<a href='/langwin/web/index.php?r=portfolio%2Findex&search=".$portfolio_tag[$idx]."' class='one-tag'>".$portfolio_tag[$idx]."</a>";
+							$item = $item."<a href='".Yii::$app->request->getBaseUrl()."/index.php?r=portfolio%2Findex&search=".$portfolio_tag[$idx]."' class='one-tag'>".$portfolio_tag[$idx]."</a>";
 						}
 						$item = $item."</div></div>";
 						echo $item;
@@ -232,7 +232,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務';
 					</div-->
 					<!--one portfolio-->
 				</div>
-				<div class="tcenter mg-t-20"><a href="/langwin/web/index.php?r=portfolio%2Findex" class="btn" hov="0.8">更多<i class="fas fa-angle-right mg-l-15"></i></a></div>
+				<div class="tcenter mg-t-20"><a href= <?=Yii::$app->request->getBaseUrl()."/index.php?r=portfolio%2Findex"?> class="btn" hov="0.8">更多<i class="fas fa-angle-right mg-l-15"></i></a></div>
 			</div>
 			<!--rwd width limited -->
 		</section>

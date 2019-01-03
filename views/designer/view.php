@@ -118,7 +118,7 @@ if ($model->thumb2 != ''){
 							if(!$portfolio_tag[$idx]){
 								break;
 							}
-							$item = $item."<a href='/langwin/web/index.php?r=portfolio%2Findex&search=".$portfolio_tag[$idx]."' class='one-tag'>".$portfolio_tag[$idx]."</a>";
+							$item = $item."<a href='".Yii::$app->request->getBaseUrl()."/index.php?r=portfolio%2Findex&search=".$portfolio_tag[$idx]."' class='one-tag'>".$portfolio_tag[$idx]."</a>";
 						}
 						$item = $item.'</div></div>';
 						echo $item;

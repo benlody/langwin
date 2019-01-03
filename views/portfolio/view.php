@@ -56,7 +56,7 @@ $this->title = "光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 								<?php
 									$portfolio_tag = explode(",",$model->tag);
 									foreach ($portfolio_tag as $tag){
-										echo '<a href="/langwin/web/index.php?r=portfolio%2Findex&search='.$tag.'" class="one-tag">'.$tag.'</a>';
+										echo '<a href="'.Yii::$app->request->getBaseUrl().'/index.php?r=portfolio%2Findex&search='.$tag.'" class="one-tag">'.$tag.'</a>';
 									}
 								?>
 							</div>

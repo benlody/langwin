@@ -30,7 +30,7 @@ $this->title = '批次新增作品';
 	<?php ActiveForm::end(); ?>
 
 	<?php
-		if($content){
+		if(isset($content)){
 
 			echo '確認資料正確後 請至最下方案儲存(Save)';
 
