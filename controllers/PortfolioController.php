@@ -62,7 +62,7 @@ class PortfolioController extends Controller
 		$page_size = 70;
 		$portfolio_searchModel = new PortfolioSearch();
 
-		$portfolio_cnt = $portfolio_searchModel->count();
+		$portfolio_cnt = $portfolio_searchModel->count($search);
 		$page_max = ceil($portfolio_cnt/$page_size);
 
 		if($page > $page_max){

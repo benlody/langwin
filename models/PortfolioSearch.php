@@ -162,15 +162,21 @@ class PortfolioSearch extends Portfolio
 		return $portfolio_array;
 	}
 
-	public function count()
+	public function count($search)
 	{
 		$query = new Query;
 
 		// add conditions that should always apply here
 
+		if(0 != strcmp($search, '')){
+			$where = "photo_uploaded = 1 AND (title like '%".$search."%' OR content like '%".$search."%' OR tag like '%".$search."%')";
+		} else {
+			$where = "photo_uploaded = 1";
+		}
+
 		$count = $query->select("COUNT(*)")
 			->from("portfolio")
-			->where("photo_uploaded = 1")
+			->where($where)
 			->one();
 
 		return $count['COUNT(*)'];
