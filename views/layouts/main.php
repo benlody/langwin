@@ -19,6 +19,10 @@ AppAsset::register($this);
 	<meta charset="<?= Yii::$app->charset ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="baidu-site-verification" content="tglAmXXkHJ" />
+	<meta property="og:title" content="光隆印刷廠股份有限公司 - 台北優質印刷服務">
+	<meta property="og:description" content="光隆印刷廠股份有限公司位於台北三重區，提供各式紙製品的印刷製作，如書籍、名片、DM、海報、卡片、信封、紙盒、彩盒、紙袋、貼紙、包裝、各式禮贈品等印刷，亦有燙金、打凸、上光、軋型等後加工。從印前的設計到製作完成後的物流配送，均能提供最完整的服務。公司創立於1954年，秉持著誠信、為客戶著想的理念，不斷改善印刷流程與效率，創造客戶更高附加價值，提供給客戶最好的設計與印刷品質，一直是我們的堅持，客戶的滿意與信任則是對我們最大的鼓舞。">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="images/tmp/index-visual-1.png">
 	<!-- Start of Woopra Code -->
 	<script>
 	(function(){
