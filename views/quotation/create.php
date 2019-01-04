@@ -36,7 +36,7 @@ $this->title = '光隆印刷廠股份有限公司 - 台北優質印刷服務 - �
 				</div>
 
 				<div class="contact-tab">
-					<div tab="tab-1" class="one-tab active">書籍/手冊</div>
+					<div tab="tab-1" class="one-tab active">書籍／手冊</div>
 					<div tab="tab-2" class="one-tab">名片／卡片</div>
 					<div tab="tab-3" class="one-tab">海報／單張DM／摺頁</div>
 					<div tab="tab-4" class="one-tab">貼紙</div>

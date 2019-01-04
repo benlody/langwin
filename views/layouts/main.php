@@ -95,7 +95,7 @@ AppAsset::register($this);
 		<div class="fixarea">
 			<!---->
 			<div class="fxarea-rwd">
-				<a href="index.php" class="logo relative block" hov="0.75"><span class="helper"></span><img class="" src="images/tmp/KL-LOGO-B.png" alt="" />&nbsp<img class="" src="images/common/logo.png" alt="" /></a>
+				<a href="http://www.lang-win.com.tw" class="logo relative block" hov="0.75"><span class="helper"></span><img class="" src="images/tmp/KL-LOGO-B.png" alt="" />&nbsp<img class="" src="images/common/logo.png" alt="" /></a>
 				<!--menu-->
 				<div class="menu-container">
 					<div class="menu">
@@ -216,7 +216,7 @@ AppAsset::register($this);
 					<h3>聯絡資訊</h3>
 					<p><span class="bold">電話：</span><a href="tel:+886-2-2999-9099" hov="0.8">＋886-2-2999-9099</a></p>
 					<p><span class="bold">地址：</span><a href="https://goo.gl/maps/SssLWqhx4jo" hov="0.8">新北市三重區光復路一段83巷8號2樓</a></p>
-					<p><span class="bold">Email：</span>customerservice@lang-win.com.tw</p>
+					<p><span class="bold">Email：</span><a href="mailto:customerservice@lang-win.com.tw" target="_blank">customerservice@lang-win.com.tw</a></p>
 				</div>
 
 				<div class="one-contact">

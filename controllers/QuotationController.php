@@ -116,7 +116,7 @@ class QuotationController extends Controller
 		$model->date = date("Y-m-d H:i:s", strtotime('now'));
 		$model->save();
 
-		$this->sendMail();
+		$this->sendMail($model);
 
 		return $this->render('create', [
 			'model' => $model,
@@ -195,7 +195,7 @@ class QuotationController extends Controller
 
 	protected function getContentBook($post_param){
 
-		$content = "";
+		$content = "種類:書籍／手冊\n";
 		if("else" == $post_param["size"]){
 			$content = $content."尺寸:其他(".$post_param["other_size"].")\n";
 		} else {
@@ -262,7 +262,7 @@ class QuotationController extends Controller
 
 	protected function getContentCard($post_param){
 
-		$content = "";
+		$content = "種類:名片／卡片\n";
 
 		if("else" == $post_param["size"]){
 			$content = $content."尺寸:其他(".$post_param["other_size"].")\n";
@@ -305,7 +305,7 @@ class QuotationController extends Controller
 
 	protected function getContentPoster($post_param){
 
-		$content = "";
+		$content = "種類:海報／單張DM／摺頁\n";
 
 		if("else" == $post_param["size"]){
 			$content = $content."尺寸:其他(".$post_param["other_size"].")\n";
@@ -357,7 +357,7 @@ class QuotationController extends Controller
 
 	protected function getContentSticker($post_param){
 
-		$content = "";
+		$content = "種類:貼紙\n";
 
 		if("else" == $post_param["size"]){
 			$content = $content."尺寸:其他(".$post_param["other_size"].")\n";
@@ -400,7 +400,7 @@ class QuotationController extends Controller
 
 	protected function getContentEnvelope($post_param){
 
-		$content = "";
+		$content = "種類:信封\n";
 
 		if("else" == $post_param["size"]){
 			$content = $content."尺寸:其他(".$post_param["other_size"].")\n";
@@ -441,7 +441,7 @@ class QuotationController extends Controller
 
 	protected function getContentBag($post_param){
 
-		$content = "";
+		$content = "種類:紙袋\n";
 
 		$content = $content."尺寸:W".$post_param["width"]." H".$post_param["height"]." D".$post_param["depth"]."\n";
 		$H_total = 4 + $post_param["height"] + 0.8*$post_param["depth"];
@@ -488,7 +488,7 @@ class QuotationController extends Controller
 
 	protected function getContentBox($post_param){
 
-		$content = "";
+		$content = "種類:紙盒\n";
 
 		if("else" == $post_param["box_type"]){
 			$content = $content."盒形:其他(".$post_param["other_box_type"].")\n";
@@ -532,7 +532,7 @@ class QuotationController extends Controller
 
 	protected function getContentElse($post_param){
 
-		$content = "";
+		$content = "種類:其他\n";
 
 		$content = $content."說明:".$post_param["remark"]."\n";
 
@@ -540,7 +540,7 @@ class QuotationController extends Controller
 
 	}
 
-	protected function sendMail(){
+	protected function sendMail($model){
 
 		$mail = new \PHPMailer;
 		$mail->isSMTP();
@@ -562,8 +562,8 @@ class QuotationController extends Controller
 		$mail->Port = 465;
 		$mail->addAddress('jack@lang-win.com.tw');
 		$mail->isHTML(true);
-		$mail->Subject = '網路詢價留言通知';
-		$mail->Body = '網路詢價留言通知';
+		$mail->Subject = '網路詢價留言通知<'.$model->company.'>';
+		$mail->Body = '網路詢價留言通知 來自 - '.$model->company.''.'<br>請按<a href="http://www.lang-win.com.tw/index.php?r=quotation%2Findex">這裡</a>開啟列表';
 		$mail->send();
 	}
 

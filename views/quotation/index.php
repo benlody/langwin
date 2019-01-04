@@ -51,13 +51,13 @@ $this->params['breadcrumbs'][] = $this->title;
 				'label' => '內容'
 			],
 			[
-				'attribute' => 'link',
+				'attribute' => '',
 				'headerOptions' => ['style' => 'width:15%'],
 				'format' => 'raw',
-				'label' => '雲端檔案連結',
+				'label' => '檔案Link',
 				'value' => function ($model) {
 					if(0 != strcmp('',$model->link)){
-						$link = '<a href="'.$model->link.'" title="雲端檔案連結" data-pjax="0"><span class="glyphicon glyphicon glyphicon-link"></span></a>';
+						$link = '<a href="'.$model->link.'" title="雲端檔案連結" target="_blank" data-pjax="0"><span class="glyphicon glyphicon glyphicon-link"></span></a>';
 					} else {
 						$link = '無';
 					}

@@ -70,7 +70,8 @@ class QuotationSearch extends Quotation
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'link', $this->link])
             ->andFilterWhere(['like', 'content', $this->content])
-            ->andFilterWhere(['like', 'sales', $this->sales]);
+            ->andFilterWhere(['like', 'sales', $this->sales])
+            ->orderBy('date DESC');
 
         return $dataProvider;
     }
