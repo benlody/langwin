@@ -50,11 +50,21 @@ $this->params['breadcrumbs'][] = $this->title;
 				'format' => 'ntext',
 				'label' => '內容'
 			],
-			'link:ntext:雲端檔案連結',
-			'sales:ntext',
+			[
+				'attribute' => 'link',
+				'headerOptions' => ['style' => 'width:15%'],
+				'format' => 'ntext',
+				'label' => '雲端檔案連結'
+			],
+			[
+				'attribute' => 'sales',
+				'headerOptions' => ['style' => 'width:10%'],
+				'format' => 'ntext',
+				'label' => 'sales'
+			],
 			[
 				'attribute' => 'status',
-				'headerOptions' => ['style' => 'width:10%'],
+				'headerOptions' => ['style' => 'width:5%'],
 				'format' => 'raw',
 				'label' => '狀態',
 				'value' => function ($model) {
@@ -71,6 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			],
 			[
 				'attribute' => '',
+				'headerOptions' => ['style' => 'width:5%'],
 				'format' => 'raw',
 				'value' => function ($model) {
 					if($model->status == 0){	// untake
