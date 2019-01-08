@@ -57,7 +57,7 @@ $this->registerCssFile(Yii::$app->request->getBaseUrl().'/css/site.css');
 
 			[
 				'class' => 'yii\grid\ActionColumn',
-				'template' => (0 == $model->photo_uploaded) ? '{view} {update} {upload_photo}' : '{view} {update} {upload_photo} {update_thumb}',
+				'template' => '{view} {update} {upload_photo} {update_thumb}',
 				'buttons' => [
 					'upload_photo' => function ($url, $model, $key) {
 						$options = [
