@@ -18,6 +18,7 @@ use app\models\Tag;
 use app\models\PortfolioTagRelation;
 use app\models\Develope;
 use yii\db\Query;
+use app\models\User;
 
 
 function get_array_excel($path){
@@ -94,6 +95,10 @@ class PortfolioController extends Controller
 	 */
 	public function actionList($photo_uploaded=-1)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$searchModel = new PortfolioSearch();
 
 		$post_param = Yii::$app->request->post();
@@ -156,6 +161,10 @@ class PortfolioController extends Controller
 	 */
 	public function actionCreate()
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = new Portfolio();
 		$client = new Client();
 		$designer = new Designer();
@@ -226,6 +235,10 @@ class PortfolioController extends Controller
 
 	public function actionCreate_by_excel()
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = new Portfolio();
 		$client = new Client();
 		$designer = new Designer();
@@ -307,6 +320,10 @@ class PortfolioController extends Controller
 
 	public function actionUpload_photo($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = $this->findModel($id);
 		$imgfile_model = new ImgUploadForm();
 		$post_param = Yii::$app->request->post();
@@ -338,6 +355,10 @@ class PortfolioController extends Controller
 
 	public function actionUpdate_thumb($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = $this->findModel($id);
 		$post_param = Yii::$app->request->post();
 		$designer_model = Designer::findOne($model->designer_id);
@@ -376,6 +397,10 @@ class PortfolioController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = $this->findModel($id);
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -439,6 +464,10 @@ class PortfolioController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$this->findModel($id)->delete();
 
 		return $this->redirect(['list']);

@@ -19,6 +19,7 @@ use app\models\DesignerSearch;
 use app\models\Tag;
 use app\models\PortfolioTagRelation;
 use yii\db\Query;
+use app\models\User;
 
 require '../phpmail/PHPMailer/PHPMailerAutoload.php';
 
@@ -69,6 +70,10 @@ class DevelopeController extends Controller
 	 */
 	public function actionIndex()
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$searchModel = new DevelopeSearch();
 		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -85,6 +90,10 @@ class DevelopeController extends Controller
 	 */
 	public function actionView($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		return $this->render('view', [
 			'model' => $this->findModel($id),
 		]);
@@ -97,6 +106,10 @@ class DevelopeController extends Controller
 	 */
 	public function actionCreate()
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = new Develope();
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -111,6 +124,10 @@ class DevelopeController extends Controller
 
 	public function actionCreate_by_excel()
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = new Develope();
 		$excelfile_model = new ExcelUploadForm();
 		$post_param = Yii::$app->request->post();
@@ -186,6 +203,10 @@ class DevelopeController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = $this->findModel($id);
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -205,6 +226,10 @@ class DevelopeController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$this->findModel($id)->delete();
 
 		return $this->redirect(['index']);

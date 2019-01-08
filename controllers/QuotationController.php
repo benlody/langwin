@@ -8,6 +8,7 @@ use app\models\QuotationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\User;
 
 require '../phpmail/PHPMailer/PHPMailerAutoload.php';
 
@@ -38,6 +39,11 @@ class QuotationController extends Controller
 	 */
 	public function actionIndex()
 	{
+
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$searchModel = new QuotationSearch();
 		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -54,6 +60,10 @@ class QuotationController extends Controller
 	 */
 	public function actionView($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		return $this->render('view', [
 			'model' => $this->findModel($id),
 		]);
@@ -133,6 +143,10 @@ class QuotationController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = $this->findModel($id);
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -152,6 +166,10 @@ class QuotationController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$this->findModel($id)->delete();
 
 		return $this->redirect(['index']);
@@ -159,6 +177,10 @@ class QuotationController extends Controller
 
 	public function actionTake($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = $this->findModel($id);
 		$model->status = 1;
 		$model->sales = Yii::$app->user->identity->username;
@@ -169,6 +191,10 @@ class QuotationController extends Controller
 
 	public function actionDeal($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = $this->findModel($id);
 		$model->status = 2;
 		$model->save();

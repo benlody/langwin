@@ -8,6 +8,7 @@ use app\models\GroupSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\User;
 
 /**
  * GroupController implements the CRUD actions for Group model.
@@ -35,6 +36,10 @@ class GroupController extends Controller
      */
     public function actionIndex()
     {
+        if(Yii::$app->user->isGuest){
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+
         $searchModel = new GroupSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -51,6 +56,10 @@ class GroupController extends Controller
      */
     public function actionView($id)
     {
+        if(Yii::$app->user->isGuest){
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -63,6 +72,10 @@ class GroupController extends Controller
      */
     public function actionCreate()
     {
+        if(Yii::$app->user->isGuest){
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+
         $model = new Group();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -82,6 +95,10 @@ class GroupController extends Controller
      */
     public function actionUpdate($id)
     {
+        if(Yii::$app->user->isGuest){
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -101,6 +118,10 @@ class GroupController extends Controller
      */
     public function actionDelete($id)
     {
+        if(Yii::$app->user->isGuest){
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

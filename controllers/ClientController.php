@@ -13,6 +13,7 @@ use yii\web\UploadedFile;
 use app\models\Portfolio;
 use app\models\PortfolioSearch;
 use yii\db\Query;
+use app\models\User;
 
 
 /**
@@ -66,6 +67,10 @@ class ClientController extends Controller
 	 */
 	public function actionList()
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$searchModel = new ClientSearch();
 		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -84,6 +89,10 @@ class ClientController extends Controller
 	public function actionView($id)
 	{
 
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$portfolioSearchModel = new PortfolioSearch();
 		$model = $this->findModel($id);
 		$dataProvider = $portfolioSearchModel->search_by_client($model->client_id);
@@ -101,6 +110,10 @@ class ClientController extends Controller
 	 */
 	public function actionCreate()
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = new Client();
 		$imgfile_model = new ImgUploadForm();
 		$post_param = Yii::$app->request->post();
@@ -141,6 +154,10 @@ class ClientController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = $this->findModel($id);
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -169,6 +186,10 @@ class ClientController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$this->findModel($id)->delete();
 
 		return $this->redirect(['index']);

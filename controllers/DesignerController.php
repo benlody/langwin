@@ -12,6 +12,7 @@ use app\models\ImgUploadForm;
 use yii\web\UploadedFile;
 use app\models\Portfolio;
 use app\models\PortfolioSearch;
+use app\models\User;
 
 require '../phpmail/PHPMailer/PHPMailerAutoload.php';
 
@@ -75,6 +76,10 @@ class DesignerController extends Controller
 	 */
 	public function actionList()
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$searchModel = new DesignerSearch();
 		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -109,6 +114,10 @@ class DesignerController extends Controller
 	 */
 	public function actionCreate()
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = new Designer();
 		$imgfile_model = new ImgUploadForm();
 		$post_param = Yii::$app->request->post();
@@ -141,6 +150,10 @@ class DesignerController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$model = $this->findModel($id);
 
 		if (Yii::$app->request->isPost) {
@@ -163,6 +176,10 @@ class DesignerController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		if(Yii::$app->user->isGuest){
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+
 		$this->findModel($id)->delete();
 
 		return $this->redirect(['list']);
