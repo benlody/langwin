@@ -242,7 +242,7 @@ class QuotationController extends Controller
 
 		$content = $content."封面單雙面:".$post_param["cover-side"]."\n";
 
-		if(is_array($post_param["cover-addtional"])){
+		if(isset($post_param["cover-addtional"]) && is_array($post_param["cover-addtional"])){
 			$content = $content."封面加工:";
 			foreach ($post_param["cover-addtional"] as $key => $value) {
 				if("else_stamp" == $value){
@@ -310,7 +310,7 @@ class QuotationController extends Controller
 
 		$content = $content."單雙面:".$post_param["side"]."\n";
 
-		if(is_array($post_param["addtional"])){
+		if(isset($post_param["addtional"]) && is_array($post_param["addtional"])){
 			$content = $content."加工:";
 			foreach ($post_param["addtional"] as $key => $value) {
 				if("else" == $value){
@@ -353,7 +353,7 @@ class QuotationController extends Controller
 
 		$content = $content."單雙面:".$post_param["side"]."\n";
 
-		if(is_array($post_param["addtional"])){
+		if(isset($post_param["addtional"]) && is_array($post_param["addtional"])){
 			$content = $content."加工:";
 			foreach ($post_param["addtional"] as $key => $value) {
 				if("else" == $value){
@@ -405,7 +405,7 @@ class QuotationController extends Controller
 
 		$content = $content."形狀:".$post_param["shape"]."\n";
 
-		if(is_array($post_param["addtional"])){
+		if(isset($post_param["addtional"]) && is_array($post_param["addtional"])){
 			$content = $content."加工:";
 			foreach ($post_param["addtional"] as $key => $value) {
 				if("else" == $value){
@@ -446,7 +446,7 @@ class QuotationController extends Controller
 			$content = $content."印刷:".$post_param["color"]."\n";
 		}
 
-		if(is_array($post_param["addtional"])){
+		if(isset($post_param["addtional"]) && is_array($post_param["addtional"])){
 			$content = $content."加工:";
 			foreach ($post_param["addtional"] as $key => $value) {
 				if("else" == $value){
@@ -487,7 +487,7 @@ class QuotationController extends Controller
 			$content = $content."印刷:".$post_param["color"]."\n";
 		}
 
-		if(is_array($post_param["addtional"])){
+		if(isset($post_param["addtional"]) && is_array($post_param["addtional"])){
 			$content = $content."加工:";
 			foreach ($post_param["addtional"] as $key => $value) {
 				if("else" == $value){
@@ -536,7 +536,7 @@ class QuotationController extends Controller
 			$content = $content."印刷:".$post_param["color"]."\n";
 		}
 
-		if(is_array($post_param["addtional"])){
+		if(isset($post_param["addtional"]) && is_array($post_param["addtional"])){
 			$content = $content."加工:";
 			foreach ($post_param["addtional"] as $key => $value) {
 				if("else" == $value){
