@@ -365,8 +365,9 @@ class QuotationController extends Controller
 			$content = $content."\n";
 		}
 
-
-		if("else" == $post_param["fold"]){
+		if(!isset($post_param["fold"])){
+			// do nothing
+		} else if("else" == $post_param["fold"]){
 			$content = $content."摺紙:其他(".$post_param["other_fold"].")\n";
 		} else if ("無摺紙" != $post_param["fold"] && "" != $post_param["fold"]) {
 			$content = $content."摺紙:".$post_param["fold"]."\n";
