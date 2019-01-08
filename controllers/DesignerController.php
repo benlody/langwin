@@ -12,6 +12,7 @@ use app\models\ImgUploadForm;
 use yii\web\UploadedFile;
 use app\models\Portfolio;
 use app\models\PortfolioSearch;
+use app\models\Develope;
 use app\models\User;
 
 require '../phpmail/PHPMailer/PHPMailerAutoload.php';
@@ -58,8 +59,10 @@ class DesignerController extends Controller
 
 		if(0 != strcmp($token, '')){
 			$develope_model = Develope::findOne(['tracking_token' => $token]);
-			$develope_model->tracking_status = 1;
-			$develope_model->save();
+			if(null != $develope_model){
+				$develope_model->tracking_status = 1;
+				$develope_model->save();
+			}
 		}
 
 		return $this->render('index', [

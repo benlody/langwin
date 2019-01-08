@@ -268,7 +268,8 @@ class DevelopeController extends Controller
 		$mail->Password = 'quotation29999099';
 		if("jack" == $sales){
 			$mail->AddReplyTo('jack@lang-win.com.tw', '光隆印刷 - Jack');
-			$mail->setFrom('jack@lang-win.com.tw', '光隆印刷 - Jack');
+			$mail->setFrom('website@lang-win.com.tw', '光隆印刷 - Jack');
+			$mail->addAddress('jack@lang-win.com.tw');
 		}
 		$mail->SMTPSecure = 'ssl';
 		$mail->Port = 465;

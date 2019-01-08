@@ -77,10 +77,11 @@ class PortfolioController extends Controller
 
 		if(0 != strcmp($token, '')){
 			$develope_model = Develope::findOne(['tracking_token' => $token]);
-			$develope_model->tracking_status = 1;
-			$develope_model->save();
+			if(null != $develope_model){
+				$develope_model->tracking_status = 1;
+				$develope_model->save();
+			}
 		}
-
 		return $this->render('index', [
 			'portfolio_array' => $portfolio_array,
 			'search' => $search,
