@@ -49,7 +49,7 @@ use yii\widgets\ActiveForm;
 			<h3 class="contact-title">紙張</h3>
 			<div>
 				<div class="inlineblock vmiddle mg-r-20">
-					<select class="nice-sel-wrap" data-target="input-radcheck-sticker" name="paper" required >
+					<select class="nice-sel-wrap" data-target="input-radcheck-sticker" name="paper" oninvalid="alert('請選擇紙張種類');" required >
 						<option value="" disabled selected>選擇紙張種類</option>
 						<option value="亮膜貼紙">亮膜貼紙</option>
 						<option value="霧膜貼紙">霧膜貼紙</option>

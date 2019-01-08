@@ -132,7 +132,7 @@ use yii\widgets\ActiveForm;
 
 			<div>
 				<div class="inlineblock vmiddle mg-r-20">
-					<select class="nice-sel-wrap" data-target="input-radcheck-book" name="inside-paper" required >
+					<select class="nice-sel-wrap" data-target="input-radcheck-book" name="inside-paper" oninvalid="alert('請選擇內頁紙張種類');" required >
 						<option value="" disabled selected>選擇紙張種類</option>
 						<option value="道林紙80g">道林紙80g</option>
 						<option value="道林紙100g">道林紙100g</option>
