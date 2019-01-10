@@ -153,7 +153,7 @@ class DevelopeController extends Controller
 				$model->sales = Yii::$app->user->identity->username;
 				$model->tracking_token = random_str(8);
 				$model->tracking_status = 0;
-				$model->date = date("Y-m-d", strtotime('today'));
+				$model->date = date("Y-m-d H:i:s", strtotime('today'));
 				$model->save();
 
 				$body = $this->renderPartial('develope', [
