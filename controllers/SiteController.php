@@ -13,6 +13,7 @@ use app\models\Portfolio;
 use app\models\PortfolioSearch;
 use app\models\Designer;
 use app\models\DesignerSearch;
+use app\models\Develope;
 
 //use app\models\PasswordResetRequestForm;
 //use app\models\ResetPasswordForm;
@@ -71,7 +72,7 @@ class SiteController extends Controller
 	 *
 	 * @return string
 	 */
-	public function actionIndex()
+	public function actionIndex($token='')
 	{
 
 		$portfolio_searchModel = new PortfolioSearch();
@@ -91,6 +92,14 @@ class SiteController extends Controller
 				['name' => '紙盒', 'ico_src' => 'images/index/si-ico-box.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
 				['name' => '紙袋', 'ico_src' => 'images/index/si-ico-bag.png', 'bg_src' =>'images/tmp/aabba_07.jpg' ],
 		];
+
+		if(0 != strcmp($token, '')){
+			$develope_model = Develope::findOne(['tracking_token' => $token]);
+			if(null != $develope_model){
+				$develope_model->tracking_status = 1;
+				$develope_model->save();
+			}
+		}
 
 		return $this->render('index', [
 			'portfolio_array' => $portfolio_array,

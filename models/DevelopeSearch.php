@@ -68,7 +68,8 @@ class DevelopeSearch extends Develope
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'tracking_token', $this->tracking_token])
-            ->andFilterWhere(['like', 'sales', $this->sales]);
+            ->andFilterWhere(['like', 'sales', $this->sales])
+            ->orderBy('date DESC');
 
         return $dataProvider;
     }
