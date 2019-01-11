@@ -14,29 +14,32 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="develope-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+	<h1><?= Html::encode($this->title) ?></h1>
+	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Develope', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'develope_id',
-            'date:ntext',
-            'name:ntext',
-            'email:ntext',
-            'title:ntext',
-            'content:ntext',
-             'tracking_token:ntext',
-             'tracking_status',
-             'sales:ntext',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+	<p>
+		<?= Html::a('Create Develope', ['create'], ['class' => 'btn btn-success']) ?>
+	</p>
+	<?= GridView::widget([
+		'dataProvider' => $dataProvider,
+		'columns' => [
+			'develope_id',
+			'date:ntext',
+			'name:ntext',
+			'email:ntext',
+			'title:ntext',
+			[
+				'attribute' => 'content',
+				'format' => 'raw',
+				'label' => '內容',
+				'value' => function ($model) {
+					$content_out = '<a href="#" onclick=" return false;"><span class="glyphicon glyphicon glyphicon-eye-open" data-toggle="#'.$model->develope_id.'"></span></a><div id="'.$model->develope_id.'" class="grid-view" style="display: none;">'.$model->content.'</div>';
+					return $content_out;
+				}
+			],
+			'tracking_token:ntext',
+			'tracking_status',
+			'sales:ntext',
+		],
+	]); ?>
 </div>

@@ -29,12 +29,12 @@ AppAsset::register($this);
 	var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call"],c=function(){var t,i=this;for(i._e=[],t=0;r.length>t;t++)(function(t){i[t]=function(){return i._e.push([t].concat(Array.prototype.slice.call(arguments,0))),i}})(r[t])};for(n._w=n._w||{},t=0;a.length>t;t++)n._w[a[t]]=n[a[t]]=n[a[t]]||new c;i=o.createElement(s),i.async=1,i.src="//static.woopra.com/js/w.js",e=o.getElementsByTagName(s)[0],e.parentNode.insertBefore(i,e)
 	})("woopra");
 	woopra.config({
-	    domain: 'lang-win.com.tw',
-	    idle_timeout: 1800000
+		domain: 'lang-win.com.tw',
+		idle_timeout: 1800000
 	});
 	woopra.track('pv', {
-	    url: window.location.pathname+window.location.search,
-	    title: document.title
+		url: window.location.pathname+window.location.search,
+		title: document.title
 	});
 	</script>
 	<!-- End of Woopra Code -->
@@ -49,8 +49,8 @@ AppAsset::register($this);
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-    
-    <!-- CSS
+	
+	<!-- CSS
 	================================================== -->
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/common.css">
@@ -348,6 +348,20 @@ $(document).ready(function(){
 	});
 });
 </script>
+
+
+<script>
+$(document).ready(function() {
+	$(function(){
+		$('[data-toggle]').on('click', function(){
+		var id = $(this).data("toggle"),
+			$object = $(id);
+			$object.toggle();
+		});
+	});
+});
+</script>
+
 
 <script>
 $(document).ready(function(){
