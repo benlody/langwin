@@ -582,7 +582,7 @@ class QuotationController extends Controller
 		$mail->SMTPAuth = true;
 		$mail->CharSet = 'UTF-8';
 		$mail->Username = 'test@lang-win.com.tw';
-		$mail->Password = 'quotation29999099';
+		$mail->Password = 'd9g3Rmx9fuGF';
 		$mail->AddReplyTo('jack@lang-win.com.tw', '光隆印刷');
 		$mail->setFrom('website@lang-win.com.tw', '光隆印刷 - 網路詢價留言通知');
 		$mail->SMTPSecure = 'ssl';

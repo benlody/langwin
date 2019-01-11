@@ -265,7 +265,7 @@ class DevelopeController extends Controller
 		);
 		$mail->CharSet = 'UTF-8';
 		$mail->Username = 'test@lang-win.com.tw';
-		$mail->Password = 'quotation29999099';
+		$mail->Password = 'd9g3Rmx9fuGF';
 		if("jack" == $sales){
 			$mail->AddReplyTo('jack@lang-win.com.tw', '光隆印刷 - Jack');
 			$mail->setFrom('website@lang-win.com.tw', '光隆印刷 - Jack');

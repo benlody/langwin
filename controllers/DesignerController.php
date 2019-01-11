@@ -229,7 +229,7 @@ class DesignerController extends Controller
 		);
 		$mail->CharSet = 'UTF-8';
 		$mail->Username = 'test@lang-win.com.tw';
-		$mail->Password = 'quotation29999099';
+		$mail->Password = 'd9g3Rmx9fuGF';
 		$mail->setFrom('website@lang-win.com.tw', '光隆印刷 - 聯絡設計師');
 		$mail->SMTPSecure = 'ssl';
 		$mail->Port = 465;
