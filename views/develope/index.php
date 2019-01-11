@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				'format' => 'raw',
 				'label' => '內容',
 				'value' => function ($model) {
-					$content_out = '<a href="#" onclick=" return false;"><span class="glyphicon glyphicon glyphicon-eye-open" data-toggle="#'.$model->develope_id.'"></span></a><div id="'.$model->develope_id.'" class="grid-view" style="display: none;">'.$model->content.'</div>';
+					$content_out = '<a href="#" onclick=" return false;"><span class="glyphicon glyphicon glyphicon-eye-open" data-toggle="#'.$model->develope_id.'"></span></a><div id="'.$model->develope_id.'" class="grid-view" style="display: none;">'.preg_replace("/[\n\r]/","<br>",$model->content).'</div>';
 					return $content_out;
 				}
 			],
