@@ -115,7 +115,7 @@ if ($model->thumb2 != ''){
 						}
 						$item = $item.'</div></div><div class="line"></div></div></a><div class="tag-wrap">';
 						for ($idx = 0; $idx < 4; $idx++){
-							if(!$portfolio_tag[$idx]){
+							if(!isset($portfolio_tag[$idx])){
 								break;
 							}
 							$item = $item."<a href='".Yii::$app->request->getBaseUrl()."/index.php?r=portfolio%2Findex&search=".$portfolio_tag[$idx]."' class='one-tag'>".$portfolio_tag[$idx]."</a>";
