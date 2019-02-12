@@ -96,6 +96,8 @@ $this->params['breadcrumbs'][] = $this->title;
 						$opt = '<a href="'.Yii::$app->request->getBaseUrl().'?r=quotation%2Ftake&amp;id='.urlencode($model->quotation_id).'" title="認領" data-pjax="0"><span class="glyphicon glyphicon glyphicon-user"></span></a>';
 					} else if ($model->status == 1 & $model->sales == Yii::$app->user->identity->username){ //taken
 						$opt = '<a href="'.Yii::$app->request->getBaseUrl().'?r=quotation%2Fdeal&amp;id='.urlencode($model->quotation_id).'" title="成交" data-pjax="0"><span class="glyphicon glyphicon glyphicon-ok"></span></a>';
+					} else {
+						$opt = '';
 					}
 					return $opt;
 				}
