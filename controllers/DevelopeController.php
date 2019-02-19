@@ -271,6 +271,16 @@ class DevelopeController extends Controller
 			$mail->setFrom('website@lang-win.com.tw', '光隆印刷 - Jack');
 			$mail->addAddress('jack@lang-win.com.tw');
 		}
+		if("gin" == $sales){
+			$mail->AddReplyTo('gin@lang-win.com.tw', '光隆印刷 - Gin');
+			$mail->setFrom('website@lang-win.com.tw', '光隆印刷 - Gin');
+			$mail->addAddress('gin@lang-win.com.tw');
+		}
+		if("yiyin" == $sales){
+			$mail->AddReplyTo('yiyin@lang-win.com.tw', '光隆印刷 - Yiyin');
+			$mail->setFrom('website@lang-win.com.tw', '光隆印刷 - Yiyin');
+			$mail->addAddress('yiyin@lang-win.com.tw');
+		}
 		$mail->SMTPSecure = 'ssl';
 		$mail->Port = 465;
 		$address = explode(",", $to);

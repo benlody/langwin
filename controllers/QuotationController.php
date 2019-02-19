@@ -588,6 +588,8 @@ class QuotationController extends Controller
 		$mail->SMTPSecure = 'ssl';
 		$mail->Port = 465;
 		$mail->addAddress('jack@lang-win.com.tw');
+		$mail->addAddress('gin@lang-win.com.tw');
+		$mail->addAddress('yiyin.chen@lang-win.com.tw ');
 		$mail->isHTML(true);
 		$mail->Subject = '網路詢價留言通知<'.$model->company.'>';
 		$mail->Body = '網路詢價留言通知 來自 - '.$model->company.''.'<br>請按<a href="http://www.lang-win.com.tw/index.php?r=quotation%2Findex">這裡</a>開啟列表';
