@@ -113,7 +113,7 @@ AppAsset::register($this);
 							</li>
 							<li class="layer-1-li"><a href="index.php?r=portfolio%2Findex" class="layer-1 menu-line"><h2>精選作品</h2></a></li>
 							<li class="layer-1-li"><a href="index.php?r=designer%2Findex" class="layer-1 menu-line"><h2>合作設計師</h2></a></li>
-							<!--li class="layer-1-li"><a href="index.php?r=client%2Findex" class="layer-1 menu-line"><h2>我們的客戶</h2></a></li-->
+							<li class="layer-1-li"><a href="index.php?r=client%2Findex" class="layer-1 menu-line"><h2>我們的客戶</h2></a></li>
 							<li class="layer-1-li"><a href="index.php?r=quotation%2Fcreate" class="layer-1 menu-line"><h2>聯絡／詢價</h2></a></li>
 
 
@@ -226,12 +226,12 @@ AppAsset::register($this);
 			</div>
 
 			<div class="footer-l">
-				<!--div class="social">
-					<a href="#"><span class="v-helper"></span><i class="fab fa-facebook-f"></i></a>
-					<a href="#"><span class="v-helper"></span><i class="fab fa-instagram"></i></a>
-					<a href="#"><span class="v-helper"></span><i class="fab fa-line"></i></a>
-					<a href="#"><span class="v-helper"></span><i class="far fa-envelope"></i></a>
-				</div!>
+				<div class="social">
+					<a href="https://www.facebook.com/kuanglungprint" target="_blank"><span class="v-helper"></span><i class="fab fa-facebook-f"></i></a>
+					<a href="https://www.instagram.com/kuanglungprint" target="_blank"><span class="v-helper"></span><i class="fab fa-instagram"></i></a>
+					<!--a href="#"><span class="v-helper"></span><i class="fab fa-line"></i></a-->
+					<a href="mailto:customerservice@lang-win.com.tw" target="_blank"><span class="v-helper"></span><i class="far fa-envelope"></i></a>
+				</div>
 				<div class="privacy">Copyright © 光隆印刷廠股份有限公司, All Rights Reserved.</div>
 			</div>
 		</div>
